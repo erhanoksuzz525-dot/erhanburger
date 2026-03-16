@@ -55,7 +55,8 @@
   .add-btn:active { transform:scale(0.9); }
   .modal-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.65); z-index:500; align-items:flex-end; justify-content:center; }
   .modal-overlay.open { display:flex; }
-  .modal { background:#1e1e1e; border-radius:24px 24px 0 0; width:100%; max-width:480px; max-height:90vh; overflow-y:scroll; -webkit-overflow-scrolling:touch; overscroll-behavior:contain; padding:20px 16px 30px; animation:slideUp 0.3s ease; }
+  .modal { background:#1e1e1e; border-radius:24px 24px 0 0; width:100%; max-width:480px; max-height:90vh; overflow-y:scroll; -webkit-overflow-scrolling:touch; overscroll-behavior:contain; scroll-behavior:auto; padding:20px 16px 30px; animation:slideUp 0.3s ease; }
+  .modal-overlay.open { display:flex; touch-action:none; }
   @keyframes slideUp { from{transform:translateY(100%)} to{transform:translateY(0)} }
   .modal-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:6px; }
   .modal-title { font-family:'Bangers','Arial Black',Impact,cursive; font-size:1.5rem; color:var(--red); letter-spacing:1px; }
@@ -412,7 +413,11 @@ function openCustomise(name, basePrice, itemType) {
   buildCustomiseBody(itemType);
   updateModalPrice();
   document.getElementById('customiseModal').classList.add('open');
-  document.getElementById('customiseModalInner').scrollTop = 0;
+  setTimeout(function() {
+    var inner = document.getElementById('customiseModalInner');
+    inner.scrollTop = 0;
+    inner.scrollTo(0, 0);
+  }, 10);
 }
 
 function buildCustomiseBody(itemType) {
