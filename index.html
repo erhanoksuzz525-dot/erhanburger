@@ -127,7 +127,7 @@
       <span class="brand-emoji">🍔</span>
       <div>
         <div class="brand-name">Er-Han BURGER</div>
-        <div class="brand-sub">Since 2013 • Halal Certified</div>
+        <div class="brand-sub">Since 2013</div>
       </div>
     </div>
     <div class="halal-badge">☪ HALAL</div>
@@ -162,21 +162,21 @@
       <img class="deal-img" src="IMG_0401.jpeg" alt="¼ Burger Meal">
       <div class="deal-name">¼ Burger<br>Chips &amp; Drink</div>
       <div class="deal-price">£7.80</div>
-      <button class="deal-add-btn" onclick="openCustomise('Deal 1 – ¼ Burger, Chips & Drink',7.80,'burger')">+ Customise &amp; Add</button>
+      <button class="deal-add-btn" onclick="openCustomise('Deal 1 – ¼ Burger, Chips & Drink',7.80,'meal')">+ Customise &amp; Add</button>
     </div>
     <div class="deal-card">
       <div class="deal-header">DEAL 2</div>
       <img class="deal-img" src="IMG_0405.jpeg" alt="½ Burger Meal">
       <div class="deal-name">½ Burger<br>Chips &amp; Drink</div>
       <div class="deal-price">£9.80</div>
-      <button class="deal-add-btn" onclick="openCustomise('Deal 2 – ½ Burger, Chips & Drink',9.80,'burger')">+ Customise &amp; Add</button>
+      <button class="deal-add-btn" onclick="openCustomise('Deal 2 – ½ Burger, Chips & Drink',9.80,'meal')">+ Customise &amp; Add</button>
     </div>
     <div class="deal-card">
       <div class="deal-header">DEAL 3</div>
       <img class="deal-img" src="IMG_0400.jpeg" alt="Chicken Burger Meal">
       <div class="deal-name">Chicken Burger<br>Chips &amp; Drink</div>
       <div class="deal-price">£7.80</div>
-      <button class="deal-add-btn" onclick="openCustomise('Deal 3 – Chicken Burger, Chips & Drink',7.80,'burger')">+ Customise &amp; Add</button>
+      <button class="deal-add-btn" onclick="openCustomise('Deal 3 – Chicken Burger, Chips & Drink',7.80,'meal')">+ Customise &amp; Add</button>
     </div>
     <div class="deal-card">
       <div class="deal-header">DEAL 4</div>
@@ -190,14 +190,14 @@
       <img class="deal-img" src="IMG_0402.jpeg" alt="Hot Dog Meal">
       <div class="deal-name">Hot Dog<br>Chips &amp; Drink</div>
       <div class="deal-price">£7.80</div>
-      <button class="deal-add-btn" onclick="openCustomise('Deal 5 – Hot Dog, Chips & Drink',7.80,'burger')">+ Customise &amp; Add</button>
+      <button class="deal-add-btn" onclick="openCustomise('Deal 5 – Hot Dog, Chips & Drink',7.80,'meal')">+ Customise &amp; Add</button>
     </div>
     <div class="deal-card">
       <div class="deal-header">DEAL 6</div>
       <img class="deal-img" src="IMG_0403.jpeg" alt="Veggie Burger Meal">
       <div class="deal-name">Veggi Burger<br>Chips &amp; Drink</div>
       <div class="deal-price">£7.80</div>
-      <button class="deal-add-btn" onclick="openCustomise('Deal 6 – Veggi Burger, Chips & Drink',7.80,'burger')">+ Customise &amp; Add</button>
+      <button class="deal-add-btn" onclick="openCustomise('Deal 6 – Veggi Burger, Chips & Drink',7.80,'meal')">+ Customise &amp; Add</button>
     </div>
   </div>
 </div>
@@ -295,7 +295,6 @@
     <div class="info-row"><span class="info-icon">☪</span><div class="info-text">100% Halal Certified</div></div>
   </div>
   <a href="tel:07576113811" class="big-call-btn">📞 CALL: 07576 113811</a>
-  <a href="tel:07873798009" class="big-call-btn" style="background:var(--dark-red);">📞 07873 798009</a>
   <a href="https://maps.app.goo.gl/PyK18iuU76q4QAqD8" target="_blank" class="map-btn">🗺️ OPEN IN GOOGLE MAPS</a>
 </div>
 
@@ -375,8 +374,14 @@ const SAUCES = [
   {name:'Mustard',price:0},{name:'Salt',price:0},{name:'Vinegar',price:0}
 ];
 
+
+const DRINK_OPTIONS = [
+  'Water', 'Coca-Cola Classic', 'Coca-Cola Zero', 'Coca-Cola Diet',
+  'Pepsi', 'Tango Orange', 'Fanta Orange', 'Mirinda Strawberry',
+  'Ribena Strawberry', 'Ribena Blackcurrant'
+];
 let cart = [], currentItem = null, currentQty = 1;
-let selectedToppings = new Set(), selectedKebabSauce = null, selectedSauces = new Set();
+let selectedToppings = new Set(), selectedKebabSauce = null, selectedSauces = new Set(), selectedDrink = null;
 
 function showSection(id, btn) {
   document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
@@ -391,6 +396,7 @@ function openCustomise(name, basePrice, itemType) {
   selectedToppings = new Set();
   selectedKebabSauce = null;
   selectedSauces = new Set();
+  selectedDrink = null;
   document.getElementById('customiseTitle').textContent = name;
   document.getElementById('customiseSubtitle').textContent = 'Base price: £' + basePrice.toFixed(2);
   document.getElementById('customiseQty').textContent = 1;
@@ -401,7 +407,19 @@ function openCustomise(name, basePrice, itemType) {
 
 function buildCustomiseBody(itemType) {
   let html = '';
-  if (itemType === 'burger' || itemType === 'kebab') {
+
+  // Drinks selector - show for meal deals only (at the top)
+  if (itemType === 'meal') {
+    html += '<div class="custom-group"><div class="custom-group-title">🥤 Choose Your Drink</div><div class="custom-group-subtitle">Select one</div><div class="options-grid">';
+    DRINK_OPTIONS.forEach(function(d) {
+      html += '<div class="option-row" onclick="selectDrink(this,\'' + d + '\')">';
+      html += '<div class="option-left"><div class="option-check" style="border-radius:50%"></div><div class="option-name">' + d + '</div></div>';
+      html += '<div class="option-price free">Free</div></div>';
+    });
+    html += '</div></div>';
+  }
+
+  if (itemType === 'burger' || itemType === 'kebab' || itemType === 'meal') {
     html += '<div class="custom-group"><div class="custom-group-title">🥗 Toppings</div><div class="custom-group-subtitle">Select all that apply (extras may cost more)</div><div class="options-grid">';
     TOPPINGS.forEach(t => {
       html += '<div class="option-row" onclick="toggleTopping(this,\'' + t.name + '\',' + t.price + ')">';
@@ -458,6 +476,16 @@ function toggleSauce(el, name) {
   else { selectedSauces.delete(name); check.textContent = ''; }
 }
 
+
+function selectDrink(el, name) {
+  el.closest('.options-grid').querySelectorAll('.option-row').forEach(function(r) {
+    r.classList.remove('selected');
+    r.querySelector('.option-check').textContent = '';
+  });
+  el.classList.add('selected');
+  el.querySelector('.option-check').textContent = '✓';
+  selectedDrink = name;
+}
 function getExtrasPrice() {
   let extra = 0;
   selectedToppings.forEach(name => { const t = TOPPINGS.find(x => x.name===name); if(t) extra+=t.price; });
@@ -471,6 +499,7 @@ function confirmAdd() {
   const toppingsList = [...selectedToppings];
   const saucesList = [...selectedSauces];
   let customNote = [];
+  if (selectedDrink) customNote.push('Drink: ' + selectedDrink);
   if (toppingsList.length) customNote.push('Toppings: ' + toppingsList.join(', '));
   if (selectedKebabSauce) customNote.push('Chilli pref: ' + selectedKebabSauce);
   if (saucesList.length) customNote.push('Sauces: ' + saucesList.join(', '));
