@@ -1320,11 +1320,19 @@ body { padding-bottom: 102px; }
 
       buildCustomiseBody(itemType);
       updateModalPrice();
-      document.getElementById('customiseModal').classList.add('open');
-      document.body.style.overflow = 'hidden';
-      setTimeout(function() {
+      // Scroll page to top first, then open modal
+      if (window.scrollY > 0) {
+        window.scrollTo({top: 0, behavior: 'smooth'});
+        setTimeout(function() {
+          document.getElementById('customiseModal').classList.add('open');
+          document.body.style.overflow = 'hidden';
+          document.getElementById('customiseModalInner').scrollTop = 0;
+        }, 300);
+      } else {
+        document.getElementById('customiseModal').classList.add('open');
+        document.body.style.overflow = 'hidden';
         document.getElementById('customiseModalInner').scrollTop = 0;
-      }, 10);
+      }
     }
 
     function buildCustomiseBody(itemType) {
