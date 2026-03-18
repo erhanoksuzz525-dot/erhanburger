@@ -31,7 +31,7 @@
       background: var(--bg);
       color: var(--text);
       min-height: 100vh;
-      padding-bottom: 108px;
+      padding-bottom: 106px;
       max-width: 480px;
       margin: 0 auto;
     }
@@ -41,14 +41,14 @@
       position: sticky;
       top: 0;
       z-index: 200;
-      box-shadow: 0 2px 16px rgba(0,0,0,0.35);
+      box-shadow: 0 2px 18px rgba(0,0,0,0.45);
     }
 
     .header-main {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 10px 14px 6px;
+      padding: 9px 14px 6px;
     }
 
     .brand {
@@ -58,23 +58,23 @@
     }
 
     .brand-emoji {
-      font-size: 1.8rem;
+      font-size: 1.7rem;
       line-height: 1;
     }
 
     .brand-name {
       font-family: 'Bangers', 'Arial Black', Impact, cursive;
-      font-size: 1.65rem;
+      font-size: 1.6rem;
       color: var(--yellow);
       letter-spacing: 2px;
-      text-shadow: 2px 2px 0 rgba(0,0,0,0.35);
+      text-shadow: 2px 3px 0 rgba(0,0,0,0.35);
       line-height: 1;
     }
 
     .brand-sub {
-      font-size: 0.48rem;
+      font-size: 0.46rem;
       color: rgba(255,255,255,0.65);
-      letter-spacing: 2.6px;
+      letter-spacing: 3px;
       font-weight: 700;
       text-transform: uppercase;
       margin-top: 2px;
@@ -86,16 +86,16 @@
       font-size: 0.62rem;
       font-weight: 900;
       padding: 5px 10px;
-      border-radius: 18px;
+      border-radius: 20px;
       letter-spacing: 1px;
-      flex-shrink: 0;
+      white-space: nowrap;
     }
 
     .nav-tabs {
       display: flex;
       overflow-x: auto;
       gap: 6px;
-      padding: 0 12px 8px;
+      padding: 0 10px 8px;
       scrollbar-width: none;
     }
 
@@ -107,15 +107,14 @@
       white-space: nowrap;
       border: none;
       cursor: pointer;
-      padding: 8px 15px;
+      padding: 7px 14px;
       border-radius: 18px;
       font-family: 'Nunito', 'Helvetica Neue', Arial, sans-serif;
       font-weight: 800;
-      font-size: 0.74rem;
+      font-size: 0.72rem;
       transition: all 0.2s;
-      background: rgba(255,255,255,0.14);
-      color: rgba(255,255,255,0.82);
-      min-height: 36px;
+      background: rgba(255,255,255,0.13);
+      color: rgba(255,255,255,0.78);
     }
 
     .tab-btn.active {
@@ -124,7 +123,7 @@
     }
 
     .hero {
-      background: linear-gradient(160deg, var(--dark-red) 0%, var(--red) 70%);
+      background: linear-gradient(160deg, var(--dark-red) 0%, var(--red) 72%);
       padding: 12px 14px 14px;
       text-align: center;
       position: relative;
@@ -134,27 +133,26 @@
     .hero::before {
       content: '🍔🍟🌭🥙';
       position: absolute;
-      font-size: 4rem;
+      font-size: 4.2rem;
       opacity: 0.045;
-      top: -10px;
-      right: -8px;
-      line-height: 1;
+      top: -12px;
+      right: -10px;
     }
 
     .hero h2 {
       font-family: 'Bangers', 'Arial Black', Impact, cursive;
-      font-size: 1.1rem;
+      font-size: 1.12rem;
       color: var(--yellow);
       letter-spacing: 2px;
-      margin-bottom: 3px;
+      margin-bottom: 2px;
       line-height: 1.05;
     }
 
     .hero p {
-      color: rgba(255,255,255,0.82);
-      font-size: 0.74rem;
+      color: rgba(255,255,255,0.83);
+      font-size: 0.72rem;
       font-weight: 700;
-      line-height: 1.25;
+      line-height: 1.2;
     }
 
     .hero-hours {
@@ -163,7 +161,7 @@
       margin-top: 8px;
       background: rgba(0,0,0,0.28);
       border-radius: 18px;
-      padding: 6px 12px;
+      padding: 5px 12px;
       border: 1px solid rgba(255,255,255,0.08);
       flex-wrap: wrap;
       justify-content: center;
@@ -171,9 +169,71 @@
 
     .hero-hours span {
       color: var(--yellow);
-      font-size: 0.68rem;
+      font-size: 0.66rem;
       font-weight: 800;
-      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .search-wrap {
+      padding: 10px 10px 6px;
+      background: var(--bg);
+      position: sticky;
+      top: 96px;
+      z-index: 180;
+    }
+
+    .search-box {
+      position: relative;
+    }
+
+    .search-input {
+      width: 100%;
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      color: var(--text);
+      border-radius: 14px;
+      padding: 12px 42px 12px 14px;
+      font-size: 0.86rem;
+      font-family: 'Nunito', 'Helvetica Neue', Arial, sans-serif;
+      outline: none;
+    }
+
+    .search-input:focus {
+      border-color: var(--red);
+    }
+
+    .search-clear {
+      position: absolute;
+      right: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+      border: none;
+      background: transparent;
+      color: var(--muted);
+      font-size: 1rem;
+      width: 28px;
+      height: 28px;
+      cursor: pointer;
+      display: none;
+      border-radius: 50%;
+    }
+
+    .search-clear.visible {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .search-results-info {
+      padding: 2px 14px 6px;
+      font-size: 0.72rem;
+      color: var(--muted);
+      font-weight: 700;
+      display: none;
+    }
+
+    .search-results-info.visible {
+      display: block;
     }
 
     .section {
@@ -182,7 +242,7 @@
 
     .section.active {
       display: block;
-      animation: fadeIn 0.2s ease;
+      animation: fadeIn 0.18s ease;
     }
 
     @keyframes fadeIn {
@@ -194,19 +254,18 @@
       display: flex;
       align-items: center;
       gap: 8px;
-      padding: 12px 16px 8px;
+      padding: 12px 14px 8px;
       font-family: 'Bangers', 'Arial Black', Impact, cursive;
-      font-size: 1.32rem;
+      font-size: 1.25rem;
       color: var(--yellow);
       letter-spacing: 1px;
-      line-height: 1;
     }
 
     .deals-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      padding: 0 12px 12px;
+      gap: 10px;
+      padding: 0 10px 10px;
     }
 
     .deal-card {
@@ -222,20 +281,24 @@
       transform: scale(0.97);
     }
 
+    .deal-card.hidden,
+    .item-row.hidden {
+      display: none !important;
+    }
+
     .deal-header {
       background: var(--red);
       color: white;
       text-align: center;
-      padding: 7px;
+      padding: 6px;
       font-family: 'Bangers', 'Arial Black', Impact, cursive;
-      font-size: 1rem;
+      font-size: 0.95rem;
       letter-spacing: 1px;
-      line-height: 1;
     }
 
     .deal-img {
       width: 100%;
-      height: 85px;
+      height: 82px;
       object-fit: cover;
       display: block;
     }
@@ -244,9 +307,9 @@
       text-align: center;
       padding: 6px 8px 0;
       font-weight: 800;
-      font-size: 0.75rem;
+      font-size: 0.74rem;
       color: var(--text);
-      line-height: 1.3;
+      line-height: 1.25;
     }
 
     .deal-price {
@@ -255,10 +318,9 @@
       text-align: center;
       margin: 6px 8px;
       border-radius: 8px;
-      padding: 5px;
+      padding: 4px;
       font-family: 'Bangers', 'Arial Black', Impact, cursive;
-      font-size: 1.3rem;
-      line-height: 1;
+      font-size: 1.2rem;
     }
 
     .deal-add-btn {
@@ -268,9 +330,9 @@
       color: white;
       border: none;
       border-radius: 10px;
-      padding: 9px;
+      padding: 8px;
       font-weight: 800;
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       cursor: pointer;
       transition: background 0.2s;
       font-family: 'Nunito', 'Helvetica Neue', Arial, sans-serif;
@@ -281,7 +343,7 @@
     }
 
     .items-list {
-      padding: 0 12px 12px;
+      padding: 0 10px 10px;
       display: flex;
       flex-direction: column;
       gap: 8px;
@@ -296,7 +358,7 @@
       padding: 10px 12px;
       border: 1.5px solid var(--border);
       transition: border-color 0.15s;
-      gap: 10px;
+      gap: 8px;
     }
 
     .item-row:active {
@@ -312,8 +374,8 @@
     }
 
     .item-img {
-      width: 52px;
-      height: 52px;
+      width: 50px;
+      height: 50px;
       border-radius: 10px;
       object-fit: cover;
       flex-shrink: 0;
@@ -327,8 +389,9 @@
 
     .item-name {
       font-weight: 800;
-      font-size: 0.85rem;
+      font-size: 0.83rem;
       color: var(--text);
+      line-height: 1.2;
     }
 
     .item-right {
@@ -340,21 +403,20 @@
 
     .item-price {
       font-family: 'Bangers', 'Arial Black', Impact, cursive;
-      font-size: 1.2rem;
+      font-size: 1.12rem;
       color: var(--yellow);
       min-width: 42px;
       text-align: right;
-      line-height: 1;
     }
 
     .add-btn {
-      width: 34px;
-      height: 34px;
+      width: 33px;
+      height: 33px;
       border-radius: 50%;
       background: var(--red);
       color: white;
       border: none;
-      font-size: 1.3rem;
+      font-size: 1.25rem;
       cursor: pointer;
       display: flex;
       align-items: center;
@@ -367,6 +429,23 @@
     .add-btn:active {
       transform: scale(0.88);
       background: var(--dark-red);
+    }
+
+    .empty-search {
+      display: none;
+      margin: 6px 10px 12px;
+      padding: 16px;
+      border-radius: 14px;
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.84rem;
+      font-weight: 700;
+    }
+
+    .empty-search.visible {
+      display: block;
     }
 
     .modal-overlay {
@@ -393,7 +472,7 @@
       overflow-y: auto;
       -webkit-overflow-scrolling: touch;
       overscroll-behavior: contain;
-      padding: 20px 16px 32px;
+      padding: 18px 14px 34px;
       animation: slideUp 0.25s cubic-bezier(0.34,1.2,0.64,1);
     }
 
@@ -412,17 +491,17 @@
 
     .modal-title {
       font-family: 'Bangers', 'Arial Black', Impact, cursive;
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       color: var(--yellow);
       letter-spacing: 1px;
-      line-height: 1;
+      line-height: 1.05;
     }
 
     .modal-subtitle {
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       color: var(--muted);
       font-weight: 700;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
 
     .modal-close {
@@ -442,12 +521,12 @@
     }
 
     .custom-group {
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
 
     .custom-group-title {
       font-weight: 900;
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       color: var(--red);
       text-transform: uppercase;
       letter-spacing: 1px;
@@ -457,7 +536,7 @@
     }
 
     .custom-group-subtitle {
-      font-size: 0.7rem;
+      font-size: 0.68rem;
       color: var(--muted);
       font-weight: 600;
       margin-bottom: 10px;
@@ -473,13 +552,13 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 11px 12px;
+      padding: 10px 11px;
       border-radius: 10px;
       border: 1.5px solid var(--border);
       cursor: pointer;
       transition: all 0.15s;
       background: var(--card2);
-      gap: 10px;
+      gap: 8px;
     }
 
     .option-row.selected {
@@ -516,13 +595,14 @@
 
     .option-name {
       font-weight: 700;
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       color: var(--text);
+      line-height: 1.2;
     }
 
     .option-price {
       font-weight: 800;
-      font-size: 0.8rem;
+      font-size: 0.76rem;
       color: var(--red);
       flex-shrink: 0;
     }
@@ -533,25 +613,25 @@
     }
 
     .modal-footer {
-      margin-top: 20px;
+      margin-top: 18px;
     }
 
     .qty-row {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 20px;
-      margin-bottom: 14px;
+      gap: 18px;
+      margin-bottom: 12px;
     }
 
     .qty-btn-big {
-      width: 42px;
-      height: 42px;
+      width: 40px;
+      height: 40px;
       border-radius: 50%;
       border: 2px solid var(--red);
       background: transparent;
       color: var(--red);
-      font-size: 1.4rem;
+      font-size: 1.3rem;
       font-weight: 900;
       cursor: pointer;
       display: flex;
@@ -567,7 +647,7 @@
 
     .qty-display {
       font-family: 'Bangers', 'Arial Black', Impact, cursive;
-      font-size: 2rem;
+      font-size: 1.9rem;
       min-width: 40px;
       text-align: center;
       color: var(--text);
@@ -579,9 +659,9 @@
       color: white;
       border: none;
       border-radius: 14px;
-      padding: 15px;
+      padding: 14px;
       font-family: 'Bangers', 'Arial Black', Impact, cursive;
-      font-size: 1.22rem;
+      font-size: 1.2rem;
       letter-spacing: 2px;
       cursor: pointer;
       display: flex;
@@ -604,8 +684,8 @@
       max-width: 480px;
       background: var(--card);
       border-top: 1px solid var(--border);
-      padding: 8px 14px 12px;
-      box-shadow: 0 -8px 24px rgba(0,0,0,0.35);
+      padding: 9px 12px 12px;
+      box-shadow: 0 -8px 26px rgba(0,0,0,0.38);
       z-index: 300;
       display: none;
     }
@@ -620,14 +700,13 @@
       align-items: center;
       justify-content: space-between;
       margin-bottom: 8px;
-      gap: 10px;
+      gap: 8px;
     }
 
     .cart-count {
       font-weight: 800;
       color: var(--muted);
       font-size: 0.8rem;
-      line-height: 1;
     }
 
     .cart-count span {
@@ -636,7 +715,7 @@
 
     .cart-total {
       font-family: 'Bangers', 'Arial Black', Impact, cursive;
-      font-size: 1.25rem;
+      font-size: 1.35rem;
       color: var(--yellow);
       line-height: 1;
     }
@@ -647,16 +726,15 @@
       background: var(--red);
       color: white;
       border: none;
-      border-radius: 12px;
+      border-radius: 14px;
       font-family: 'Bangers', 'Arial Black', Impact, cursive;
-      font-size: 1.06rem;
-      letter-spacing: 1.5px;
+      font-size: 1.12rem;
+      letter-spacing: 2px;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 8px;
-      min-height: 50px;
     }
 
     .order-btn:active {
@@ -664,14 +742,14 @@
     }
 
     #cartModal .modal-title {
-      font-size: 1.6rem;
+      font-size: 1.5rem;
     }
 
     .cart-item-row {
       display: flex;
       align-items: flex-start;
       justify-content: space-between;
-      padding: 12px 0;
+      padding: 11px 0;
       border-bottom: 1px solid var(--border);
       gap: 8px;
     }
@@ -683,15 +761,16 @@
 
     .cart-item-name {
       font-weight: 800;
-      font-size: 0.85rem;
+      font-size: 0.84rem;
       color: var(--text);
+      line-height: 1.2;
     }
 
     .cart-item-customise {
-      font-size: 0.7rem;
+      font-size: 0.68rem;
       color: var(--muted);
       margin-top: 3px;
-      line-height: 1.5;
+      line-height: 1.45;
     }
 
     .cart-item-controls {
@@ -718,7 +797,7 @@
 
     .qty-num {
       font-weight: 900;
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       min-width: 20px;
       text-align: center;
       color: var(--text);
@@ -726,10 +805,26 @@
 
     .cart-item-price {
       font-family: 'Bangers', 'Arial Black', Impact, cursive;
-      font-size: 1.1rem;
+      font-size: 1.02rem;
       color: var(--yellow);
-      min-width: 50px;
+      min-width: 48px;
       text-align: right;
+      flex-shrink: 0;
+    }
+
+    .remove-btn {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: none;
+      background: #2b0f14;
+      color: #ff8fa1;
+      font-size: 0.95rem;
+      font-weight: 900;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       flex-shrink: 0;
     }
 
@@ -737,21 +832,22 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 16px 0 0;
+      padding: 14px 0 0;
       margin-top: 8px;
       border-top: 1px solid var(--border);
     }
 
     .modal-total-label {
       font-weight: 900;
-      font-size: 1rem;
+      font-size: 0.96rem;
       color: var(--text);
     }
 
     .modal-total-price {
       font-family: 'Bangers', 'Arial Black', Impact, cursive;
-      font-size: 2.1rem;
+      font-size: 2rem;
       color: var(--yellow);
+      line-height: 1;
     }
 
     .note-input {
@@ -761,7 +857,7 @@
       border-radius: 12px;
       padding: 10px 12px;
       font-family: 'Nunito', 'Helvetica Neue', Arial, sans-serif;
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       outline: none;
       resize: none;
       color: var(--text);
@@ -774,14 +870,14 @@
 
     .whatsapp-btn {
       width: 100%;
-      margin-top: 14px;
+      margin-top: 12px;
       background: #25D366;
       color: white;
       border: none;
       border-radius: 14px;
-      padding: 15px;
+      padding: 14px;
       font-family: 'Bangers', 'Arial Black', Impact, cursive;
-      font-size: 1.25rem;
+      font-size: 1.18rem;
       letter-spacing: 1px;
       cursor: pointer;
       display: flex;
@@ -797,9 +893,9 @@
       color: var(--red);
       border: 2px solid var(--red);
       border-radius: 14px;
-      padding: 13px;
+      padding: 12px;
       font-family: 'Bangers', 'Arial Black', Impact, cursive;
-      font-size: 1.14rem;
+      font-size: 1.08rem;
       letter-spacing: 1px;
       cursor: pointer;
       display: flex;
@@ -810,13 +906,13 @@
 
     .empty-cart {
       text-align: center;
-      padding: 30px 0;
+      padding: 28px 0;
       color: var(--muted);
-      font-size: 0.9rem;
+      font-size: 0.88rem;
     }
 
     .empty-cart .big {
-      font-size: 3rem;
+      font-size: 2.7rem;
       display: block;
       margin-bottom: 8px;
     }
@@ -824,14 +920,14 @@
     .info-card {
       background: var(--card);
       border-radius: 16px;
-      margin: 0 12px 12px;
-      padding: 16px;
+      margin: 0 10px 10px;
+      padding: 14px;
       border: 1.5px solid var(--border);
     }
 
     .info-card h3 {
       font-weight: 900;
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       color: var(--red);
       margin-bottom: 8px;
     }
@@ -849,20 +945,22 @@
     }
 
     .info-icon {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
     }
 
     .info-text {
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       font-weight: 700;
       color: var(--text);
+      line-height: 1.2;
     }
 
     .info-text .sub {
       font-weight: 400;
       color: var(--muted);
-      font-size: 0.75rem;
+      font-size: 0.73rem;
       display: block;
+      margin-top: 2px;
     }
 
     .big-call-btn {
@@ -873,10 +971,10 @@
       color: white;
       text-decoration: none;
       border-radius: 14px;
-      padding: 15px;
-      margin: 0 12px 10px;
+      padding: 14px;
+      margin: 0 10px 10px;
       font-family: 'Bangers', 'Arial Black', Impact, cursive;
-      font-size: 1.25rem;
+      font-size: 1.2rem;
       letter-spacing: 2px;
     }
 
@@ -889,37 +987,22 @@
       border: 2px solid var(--red);
       text-decoration: none;
       border-radius: 14px;
-      padding: 13px;
-      margin: 0 12px 12px;
+      padding: 12px;
+      margin: 0 10px 10px;
       font-family: 'Bangers', 'Arial Black', Impact, cursive;
-      font-size: 1.06rem;
+      font-size: 1.04rem;
       letter-spacing: 1px;
     }
 
     @media (max-width: 360px) {
-      body {
-        padding-bottom: 104px;
-      }
-
-      .deals-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .brand-name {
-        font-size: 1.48rem;
-      }
-
-      .hero h2 {
-        font-size: 1rem;
-      }
-
-      .hero-hours {
-        gap: 8px;
-      }
-
-      .tab-btn {
-        padding: 7px 13px;
-      }
+      body { padding-bottom: 102px; }
+      .search-wrap { top: 94px; }
+      .brand-name { font-size: 1.42rem; }
+      .hero h2 { font-size: 1rem; }
+      .hero-hours { gap: 8px; padding: 5px 10px; }
+      .deals-grid { gap: 8px; }
+      .deal-img { height: 76px; }
+      .order-btn { font-size: 1rem; }
     }
   </style>
 </head>
@@ -956,45 +1039,61 @@
     </div>
   </div>
 
+  <div class="search-wrap">
+    <div class="search-box">
+      <input
+        id="searchInput"
+        class="search-input"
+        type="text"
+        placeholder="Search burgers, kebabs, drinks..."
+        oninput="filterMenu()"
+      >
+      <button id="searchClear" class="search-clear" onclick="clearSearch()">✕</button>
+    </div>
+  </div>
+
+  <div id="searchInfo" class="search-results-info"></div>
+  <div id="emptySearch" class="empty-search">No items found for your search.</div>
+
   <div class="section active" id="section-deals">
     <div class="section-title"><span class="icon">🔥</span> MEAL DEALS</div>
     <div class="deals-grid">
-      <div class="deal-card">
+      <div class="deal-card searchable" data-name="deal 1 quarter burger chips drink meal deal burger">
         <div class="deal-header">DEAL 1</div>
         <img class="deal-img" src="IMG_0401.jpeg" alt="¼ Burger Meal">
         <div class="deal-name">¼ Burger<br>Chips &amp; Drink</div>
         <div class="deal-price">£7.80</div>
         <button class="deal-add-btn" onclick="openCustomise('Deal 1 – ¼ Burger, Chips & Drink',7.80,'meal')">+ Customise &amp; Add</button>
       </div>
-      <div class="deal-card">
+      <div class="deal-card searchable" data-name="deal 2 half burger chips drink meal deal burger">
         <div class="deal-header">DEAL 2</div>
         <img class="deal-img" src="IMG_0405.jpeg" alt="½ Burger Meal">
         <div class="deal-name">½ Burger<br>Chips &amp; Drink</div>
         <div class="deal-price">£9.80</div>
         <button class="deal-add-btn" onclick="openCustomise('Deal 2 – ½ Burger, Chips & Drink',9.80,'meal')">+ Customise &amp; Add</button>
       </div>
-      <div class="deal-card">
+      <div class="deal-card searchable" data-name="deal 3 chicken burger chips drink meal deal">
         <div class="deal-header">DEAL 3</div>
         <img class="deal-img" src="IMG_0400.jpeg" alt="Chicken Burger Meal">
         <div class="deal-name">Chicken Burger<br>Chips &amp; Drink</div>
         <div class="deal-price">£7.80</div>
         <button class="deal-add-btn" onclick="openCustomise('Deal 3 – Chicken Burger, Chips & Drink',7.80,'meal')">+ Customise &amp; Add</button>
       </div>
-      <div class="deal-card">
+      <div class="deal-card searchable" data-name="deal 4 chicken nuggets chips drink meal deal nuggets">
         <div class="deal-header">DEAL 4</div>
         <img class="deal-img" src="IMG_0404.webp" alt="Nuggets Meal">
         <div class="deal-name">Chicken Nuggets<br>Chips &amp; Drink</div>
         <div class="deal-price">£7.80</div>
         <button class="deal-add-btn" onclick="openCustomise('Deal 4 – Chicken Nuggets, Chips & Drink',7.80,'meal')">+ Customise &amp; Add</button>
       </div>
-      <div class="deal-card">
+      <div class="deal-card searchable" data-name="deal 5 hot dog chips drink meal deal">
         <div class="deal-header">DEAL 5</div>
         <img class="deal-img" src="IMG_0402.jpeg" alt="Hot Dog Meal">
         <div class="deal-name">Hot Dog<br>Chips &amp; Drink</div>
         <div class="deal-price">£7.80</div>
         <button class="deal-add-btn" onclick="openCustomise('Deal 5 – Hot Dog, Chips & Drink',7.80,'meal')">+ Customise &amp; Add</button>
       </div>
-      <div class="deal-card">
+      <div class="deal-card searchable" data-name="deal 6 veggi veggie burger chips drink meal deal">
         <div class="deal-header">DEAL 6</div>
         <img class="deal-img" src="IMG_0403.jpeg" alt="Veggie Burger Meal">
         <div class="deal-name">Veggi Burger<br>Chips &amp; Drink</div>
@@ -1007,72 +1106,72 @@
   <div class="section" id="section-burgers">
     <div class="section-title"><span class="icon">🍔</span> BURGERS</div>
     <div class="items-list">
-      <div class="item-row"><div class="item-left"><img class="item-img" src="IMG_0351.png" alt="¼ Pounder Burger"><div class="item-info"><div class="item-name">¼ Pounder Burger</div></div></div><div class="item-right"><div class="item-price">£4.50</div><button class="add-btn" onclick="openCustomise('¼ Pounder Burger',4.50,'burger')">+</button></div></div>
-      <div class="item-row"><div class="item-left"><img class="item-img" src="IMG_0351.png" alt="¼ Pounder Burger"><div class="item-info"><div class="item-name">¼ Pounder with Cheese</div></div></div><div class="item-right"><div class="item-price">£4.80</div><button class="add-btn" onclick="openCustomise('¼ Pounder Burger with Cheese',4.80,'burger')">+</button></div></div>
-      <div class="item-row"><div class="item-left"><img class="item-img" src="IMG_0351.png" alt="¼ Pounder Burger"><div class="item-info"><div class="item-name">¼ Pounder with Egg</div></div></div><div class="item-right"><div class="item-price">£5.50</div><button class="add-btn" onclick="openCustomise('¼ Pounder Burger with Egg',5.50,'burger')">+</button></div></div>
-      <div class="item-row"><div class="item-left"><img class="item-img" src="IMG_0351.png" alt="¼ Pounder Burger"><div class="item-info"><div class="item-name">¼ Pounder Cheese &amp; Egg</div></div></div><div class="item-right"><div class="item-price">£5.80</div><button class="add-btn" onclick="openCustomise('¼ Pounder Burger with Cheese & Egg',5.80,'burger')">+</button></div></div>
-      <div class="item-row"><div class="item-left"><img class="item-img" src="IMG_0352.png" alt="½ Pounder Burger"><div class="item-info"><div class="item-name">½ Pounder Burger</div></div></div><div class="item-right"><div class="item-price">£6.50</div><button class="add-btn" onclick="openCustomise('½ Pounder Burger',6.50,'burger')">+</button></div></div>
-      <div class="item-row"><div class="item-left"><img class="item-img" src="IMG_0352.png" alt="½ Pounder Burger"><div class="item-info"><div class="item-name">½ Pounder with Cheese</div></div></div><div class="item-right"><div class="item-price">£6.80</div><button class="add-btn" onclick="openCustomise('½ Pounder Burger with Cheese',6.80,'burger')">+</button></div></div>
-      <div class="item-row"><div class="item-left"><img class="item-img" src="IMG_0352.png" alt="½ Pounder Burger"><div class="item-info"><div class="item-name">½ Pounder Cheese &amp; Egg</div></div></div><div class="item-right"><div class="item-price">£7.50</div><button class="add-btn" onclick="openCustomise('½ Pounder Burger Cheese & Egg',7.50,'burger')">+</button></div></div>
-      <div class="item-row"><div class="item-left"><img class="item-img" src="IMG_0351.png" alt="Veggie Burger"><div class="item-info"><div class="item-name">Veggie Burger</div></div></div><div class="item-right"><div class="item-price">£4.30</div><button class="add-btn" onclick="openCustomise('Veggie Burger',4.30,'burger')">+</button></div></div>
-      <div class="item-row"><div class="item-left"><img class="item-img" src="IMG_0351.png" alt="Veggie Burger"><div class="item-info"><div class="item-name">Veggie Burger with Cheese</div></div></div><div class="item-right"><div class="item-price">£4.50</div><button class="add-btn" onclick="openCustomise('Veggie Burger with Cheese',4.50,'burger')">+</button></div></div>
-      <div class="item-row"><div class="item-left"><img class="item-img" src="IMG_0350.png" alt="Chicken Burger"><div class="item-info"><div class="item-name">Chicken Burger</div></div></div><div class="item-right"><div class="item-price">£4.50</div><button class="add-btn" onclick="openCustomise('Chicken Burger',4.50,'burger')">+</button></div></div>
-      <div class="item-row"><div class="item-left"><img class="item-img" src="IMG_0350.png" alt="Chicken Burger"><div class="item-info"><div class="item-name">Chicken Burger with Cheese</div></div></div><div class="item-right"><div class="item-price">£4.80</div><button class="add-btn" onclick="openCustomise('Chicken Burger with Cheese',4.80,'burger')">+</button></div></div>
+      <div class="item-row searchable" data-name="quarter pounder burger"><div class="item-left"><img class="item-img" src="IMG_0351.png" alt="¼ Pounder Burger"><div class="item-info"><div class="item-name">¼ Pounder Burger</div></div></div><div class="item-right"><div class="item-price">£4.50</div><button class="add-btn" onclick="openCustomise('¼ Pounder Burger',4.50,'burger')">+</button></div></div>
+      <div class="item-row searchable" data-name="quarter pounder burger cheese"><div class="item-left"><img class="item-img" src="IMG_0351.png" alt="¼ Pounder Burger"><div class="item-info"><div class="item-name">¼ Pounder with Cheese</div></div></div><div class="item-right"><div class="item-price">£4.80</div><button class="add-btn" onclick="openCustomise('¼ Pounder Burger with Cheese',4.80,'burger')">+</button></div></div>
+      <div class="item-row searchable" data-name="quarter pounder burger egg"><div class="item-left"><img class="item-img" src="IMG_0351.png" alt="¼ Pounder Burger"><div class="item-info"><div class="item-name">¼ Pounder with Egg</div></div></div><div class="item-right"><div class="item-price">£5.50</div><button class="add-btn" onclick="openCustomise('¼ Pounder Burger with Egg',5.50,'burger')">+</button></div></div>
+      <div class="item-row searchable" data-name="quarter pounder burger cheese egg"><div class="item-left"><img class="item-img" src="IMG_0351.png" alt="¼ Pounder Burger"><div class="item-info"><div class="item-name">¼ Pounder Cheese &amp; Egg</div></div></div><div class="item-right"><div class="item-price">£5.80</div><button class="add-btn" onclick="openCustomise('¼ Pounder Burger with Cheese & Egg',5.80,'burger')">+</button></div></div>
+      <div class="item-row searchable" data-name="half pounder burger"><div class="item-left"><img class="item-img" src="IMG_0352.png" alt="½ Pounder Burger"><div class="item-info"><div class="item-name">½ Pounder Burger</div></div></div><div class="item-right"><div class="item-price">£6.50</div><button class="add-btn" onclick="openCustomise('½ Pounder Burger',6.50,'burger')">+</button></div></div>
+      <div class="item-row searchable" data-name="half pounder burger cheese"><div class="item-left"><img class="item-img" src="IMG_0352.png" alt="½ Pounder Burger"><div class="item-info"><div class="item-name">½ Pounder with Cheese</div></div></div><div class="item-right"><div class="item-price">£6.80</div><button class="add-btn" onclick="openCustomise('½ Pounder Burger with Cheese',6.80,'burger')">+</button></div></div>
+      <div class="item-row searchable" data-name="half pounder burger cheese egg"><div class="item-left"><img class="item-img" src="IMG_0352.png" alt="½ Pounder Burger"><div class="item-info"><div class="item-name">½ Pounder Cheese &amp; Egg</div></div></div><div class="item-right"><div class="item-price">£7.50</div><button class="add-btn" onclick="openCustomise('½ Pounder Burger Cheese & Egg',7.50,'burger')">+</button></div></div>
+      <div class="item-row searchable" data-name="veggie burger veggi burger"><div class="item-left"><img class="item-img" src="IMG_0351.png" alt="Veggie Burger"><div class="item-info"><div class="item-name">Veggie Burger</div></div></div><div class="item-right"><div class="item-price">£4.30</div><button class="add-btn" onclick="openCustomise('Veggie Burger',4.30,'burger')">+</button></div></div>
+      <div class="item-row searchable" data-name="veggie burger cheese veggi"><div class="item-left"><img class="item-img" src="IMG_0351.png" alt="Veggie Burger"><div class="item-info"><div class="item-name">Veggie Burger with Cheese</div></div></div><div class="item-right"><div class="item-price">£4.50</div><button class="add-btn" onclick="openCustomise('Veggie Burger with Cheese',4.50,'burger')">+</button></div></div>
+      <div class="item-row searchable" data-name="chicken burger"><div class="item-left"><img class="item-img" src="IMG_0350.png" alt="Chicken Burger"><div class="item-info"><div class="item-name">Chicken Burger</div></div></div><div class="item-right"><div class="item-price">£4.50</div><button class="add-btn" onclick="openCustomise('Chicken Burger',4.50,'burger')">+</button></div></div>
+      <div class="item-row searchable" data-name="chicken burger cheese"><div class="item-left"><img class="item-img" src="IMG_0350.png" alt="Chicken Burger"><div class="item-info"><div class="item-name">Chicken Burger with Cheese</div></div></div><div class="item-right"><div class="item-price">£4.80</div><button class="add-btn" onclick="openCustomise('Chicken Burger with Cheese',4.80,'burger')">+</button></div></div>
     </div>
   </div>
 
   <div class="section" id="section-kebab">
     <div class="section-title"><span class="icon">🥙</span> KEBABS</div>
-    <p style="padding:0 16px 8px;font-size:0.75rem;color:var(--muted);font-weight:600;">All kebabs cut from fresh meat. Served with fresh onions, cucumber, tomatoes, lettuce, long chillies, mixed cabbage &amp; sauce.</p>
+    <p style="padding:0 14px 8px;font-size:0.72rem;color:var(--muted);font-weight:600;line-height:1.35;">All kebabs cut from fresh meat. Served with fresh onions, cucumber, tomatoes, lettuce, long chillies, mixed cabbage &amp; sauce.</p>
     <div class="items-list">
-      <div class="item-row"><div class="item-left"><img class="item-img" src="IMG_0457.jpeg" alt="Chicken Shish"><div class="item-info"><div class="item-name">Chicken Shish – Medium</div></div></div><div class="item-right"><div class="item-price">£9.80</div><button class="add-btn" onclick="openCustomise('Chicken Shish – Medium',9.80,'kebab')">+</button></div></div>
-      <div class="item-row"><div class="item-left"><img class="item-img" src="IMG_0457.jpeg" alt="Chicken Shish"><div class="item-info"><div class="item-name">Chicken Shish – Med + Chips</div></div></div><div class="item-right"><div class="item-price">£10.80</div><button class="add-btn" onclick="openCustomise('Chicken Shish – Medium with Chips',10.80,'kebab')">+</button></div></div>
-      <div class="item-row"><div class="item-left"><img class="item-img" src="IMG_0457.jpeg" alt="Chicken Shish"><div class="item-info"><div class="item-name">Chicken Shish – Large</div></div></div><div class="item-right"><div class="item-price">£11.80</div><button class="add-btn" onclick="openCustomise('Chicken Shish – Large',11.80,'kebab')">+</button></div></div>
-      <div class="item-row"><div class="item-left"><img class="item-img" src="IMG_0457.jpeg" alt="Chicken Shish"><div class="item-info"><div class="item-name">Chicken Shish – Large + Chips</div></div></div><div class="item-right"><div class="item-price">£12.80</div><button class="add-btn" onclick="openCustomise('Chicken Shish – Large with Chips',12.80,'kebab')">+</button></div></div>
+      <div class="item-row searchable" data-name="chicken shish medium kebab"><div class="item-left"><img class="item-img" src="IMG_0457.jpeg" alt="Chicken Shish"><div class="item-info"><div class="item-name">Chicken Shish – Medium</div></div></div><div class="item-right"><div class="item-price">£9.80</div><button class="add-btn" onclick="openCustomise('Chicken Shish – Medium',9.80,'kebab')">+</button></div></div>
+      <div class="item-row searchable" data-name="chicken shish medium chips kebab"><div class="item-left"><img class="item-img" src="IMG_0457.jpeg" alt="Chicken Shish"><div class="item-info"><div class="item-name">Chicken Shish – Med + Chips</div></div></div><div class="item-right"><div class="item-price">£10.80</div><button class="add-btn" onclick="openCustomise('Chicken Shish – Medium with Chips',10.80,'kebab')">+</button></div></div>
+      <div class="item-row searchable" data-name="chicken shish large kebab"><div class="item-left"><img class="item-img" src="IMG_0457.jpeg" alt="Chicken Shish"><div class="item-info"><div class="item-name">Chicken Shish – Large</div></div></div><div class="item-right"><div class="item-price">£11.80</div><button class="add-btn" onclick="openCustomise('Chicken Shish – Large',11.80,'kebab')">+</button></div></div>
+      <div class="item-row searchable" data-name="chicken shish large chips kebab"><div class="item-left"><img class="item-img" src="IMG_0457.jpeg" alt="Chicken Shish"><div class="item-info"><div class="item-name">Chicken Shish – Large + Chips</div></div></div><div class="item-right"><div class="item-price">£12.80</div><button class="add-btn" onclick="openCustomise('Chicken Shish – Large with Chips',12.80,'kebab')">+</button></div></div>
     </div>
   </div>
 
   <div class="section" id="section-hotdog">
     <div class="section-title"><span class="icon">🌭</span> HOT DOGS</div>
-    <p style="padding:0 16px 8px;font-size:0.75rem;color:var(--muted);font-weight:600;">Chicken sausage</p>
+    <p style="padding:0 14px 8px;font-size:0.72rem;color:var(--muted);font-weight:600;">Chicken sausage</p>
     <div class="items-list">
-      <div class="item-row"><div class="item-left"><img class="item-img" src="IMG_0353.png" alt="Hot Dog"><div class="item-info"><div class="item-name">Hot Dog</div></div></div><div class="item-right"><div class="item-price">£4.50</div><button class="add-btn" onclick="openCustomise('Hot Dog',4.50,'burger')">+</button></div></div>
-      <div class="item-row"><div class="item-left"><img class="item-img" src="IMG_0353.png" alt="Hot Dog"><div class="item-info"><div class="item-name">Hot Dog with Cheese</div></div></div><div class="item-right"><div class="item-price">£4.80</div><button class="add-btn" onclick="openCustomise('Hot Dog with Cheese',4.80,'burger')">+</button></div></div>
-      <div class="item-row"><div class="item-left"><img class="item-img" src="IMG_0353.png" alt="Hot Dog"><div class="item-info"><div class="item-name">Hot Dog with Cheese &amp; Egg</div></div></div><div class="item-right"><div class="item-price">£5.50</div><button class="add-btn" onclick="openCustomise('Hot Dog with Cheese & Egg',5.50,'burger')">+</button></div></div>
-      <div class="item-row"><div class="item-left"><img class="item-img" src="IMG_0355.jpeg" alt="Halloumi"><div class="item-info"><div class="item-name">Halloumi Cheese Sandwich</div></div></div><div class="item-right"><div class="item-price">£4.80</div><button class="add-btn" onclick="openCustomise('Halloumi Cheese Sandwich',4.80,'burger')">+</button></div></div>
+      <div class="item-row searchable" data-name="hot dog"><div class="item-left"><img class="item-img" src="IMG_0353.png" alt="Hot Dog"><div class="item-info"><div class="item-name">Hot Dog</div></div></div><div class="item-right"><div class="item-price">£4.50</div><button class="add-btn" onclick="openCustomise('Hot Dog',4.50,'burger')">+</button></div></div>
+      <div class="item-row searchable" data-name="hot dog cheese"><div class="item-left"><img class="item-img" src="IMG_0353.png" alt="Hot Dog"><div class="item-info"><div class="item-name">Hot Dog with Cheese</div></div></div><div class="item-right"><div class="item-price">£4.80</div><button class="add-btn" onclick="openCustomise('Hot Dog with Cheese',4.80,'burger')">+</button></div></div>
+      <div class="item-row searchable" data-name="hot dog cheese egg"><div class="item-left"><img class="item-img" src="IMG_0353.png" alt="Hot Dog"><div class="item-info"><div class="item-name">Hot Dog with Cheese &amp; Egg</div></div></div><div class="item-right"><div class="item-price">£5.50</div><button class="add-btn" onclick="openCustomise('Hot Dog with Cheese & Egg',5.50,'burger')">+</button></div></div>
+      <div class="item-row searchable" data-name="halloumi cheese sandwich"><div class="item-left"><img class="item-img" src="IMG_0355.jpeg" alt="Halloumi"><div class="item-info"><div class="item-name">Halloumi Cheese Sandwich</div></div></div><div class="item-right"><div class="item-price">£4.80</div><button class="add-btn" onclick="openCustomise('Halloumi Cheese Sandwich',4.80,'burger')">+</button></div></div>
     </div>
   </div>
 
   <div class="section" id="section-sides">
     <div class="section-title"><span class="icon">🍟</span> SIDES &amp; SNACKS</div>
     <div class="items-list">
-      <div class="item-row"><div class="item-left"><img class="item-img" src="IMG_0373.jpeg" alt="6pcs Chicken Nuggets"><div class="item-info"><div class="item-name">6pcs Chicken Nuggets</div></div></div><div class="item-right"><div class="item-price">£3.80</div><button class="add-btn" onclick="openCustomise('6pcs Chicken Nuggets',3.80,'none')">+</button></div></div>
-      <div class="item-row"><div class="item-left"><img class="item-img" src="IMG_0373.jpeg" alt="9pcs Chicken Nuggets"><div class="item-info"><div class="item-name">9pcs Chicken Nuggets</div></div></div><div class="item-right"><div class="item-price">£4.80</div><button class="add-btn" onclick="openCustomise('9pcs Chicken Nuggets',4.80,'none')">+</button></div></div>
-      <div class="item-row"><div class="item-left"><img class="item-img" src="IMG_0356.jpeg" alt="Chips"><div class="item-info"><div class="item-name">Chips – Small</div></div></div><div class="item-right"><div class="item-price">£2.80</div><button class="add-btn" onclick="openCustomise('Chips – Small',2.80,'none')">+</button></div></div>
-      <div class="item-row"><div class="item-left"><img class="item-img" src="IMG_0356.jpeg" alt="Chips"><div class="item-info"><div class="item-name">Chips – Large</div></div></div><div class="item-right"><div class="item-price">£3.80</div><button class="add-btn" onclick="openCustomise('Chips – Large',3.80,'none')">+</button></div></div>
-      <div class="item-row"><div class="item-left"><span style="font-size:1.8rem">🍫</span><div class="item-info"><div class="item-name">Snickers</div></div></div><div class="item-right"><div class="item-price">£0.90</div><button class="add-btn" onclick="directAdd('Snickers',0.90)">+</button></div></div>
-      <div class="item-row"><div class="item-left"><span style="font-size:1.8rem">🍫</span><div class="item-info"><div class="item-name">Kit Kat</div></div></div><div class="item-right"><div class="item-price">£0.90</div><button class="add-btn" onclick="directAdd('Kit Kat',0.90)">+</button></div></div>
-      <div class="item-row"><div class="item-left"><span style="font-size:1.8rem">🍫</span><div class="item-info"><div class="item-name">Mars</div></div></div><div class="item-right"><div class="item-price">£0.90</div><button class="add-btn" onclick="directAdd('Mars',0.90)">+</button></div></div>
-      <div class="item-row"><div class="item-left"><span style="font-size:1.8rem">🥥</span><div class="item-info"><div class="item-name">Bounty</div></div></div><div class="item-right"><div class="item-price">£0.90</div><button class="add-btn" onclick="directAdd('Bounty',0.90)">+</button></div></div>
+      <div class="item-row searchable" data-name="6 chicken nuggets"><div class="item-left"><img class="item-img" src="IMG_0373.jpeg" alt="6pcs Chicken Nuggets"><div class="item-info"><div class="item-name">6pcs Chicken Nuggets</div></div></div><div class="item-right"><div class="item-price">£3.80</div><button class="add-btn" onclick="openCustomise('6pcs Chicken Nuggets',3.80,'none')">+</button></div></div>
+      <div class="item-row searchable" data-name="9 chicken nuggets"><div class="item-left"><img class="item-img" src="IMG_0373.jpeg" alt="9pcs Chicken Nuggets"><div class="item-info"><div class="item-name">9pcs Chicken Nuggets</div></div></div><div class="item-right"><div class="item-price">£4.80</div><button class="add-btn" onclick="openCustomise('9pcs Chicken Nuggets',4.80,'none')">+</button></div></div>
+      <div class="item-row searchable" data-name="chips small fries"><div class="item-left"><img class="item-img" src="IMG_0356.jpeg" alt="Chips"><div class="item-info"><div class="item-name">Chips – Small</div></div></div><div class="item-right"><div class="item-price">£2.80</div><button class="add-btn" onclick="openCustomise('Chips – Small',2.80,'none')">+</button></div></div>
+      <div class="item-row searchable" data-name="chips large fries"><div class="item-left"><img class="item-img" src="IMG_0356.jpeg" alt="Chips"><div class="item-info"><div class="item-name">Chips – Large</div></div></div><div class="item-right"><div class="item-price">£3.80</div><button class="add-btn" onclick="openCustomise('Chips – Large',3.80,'none')">+</button></div></div>
+      <div class="item-row searchable" data-name="snickers chocolate"><div class="item-left"><span style="font-size:1.8rem">🍫</span><div class="item-info"><div class="item-name">Snickers</div></div></div><div class="item-right"><div class="item-price">£0.90</div><button class="add-btn" onclick="directAdd('Snickers',0.90)">+</button></div></div>
+      <div class="item-row searchable" data-name="kit kat chocolate"><div class="item-left"><span style="font-size:1.8rem">🍫</span><div class="item-info"><div class="item-name">Kit Kat</div></div></div><div class="item-right"><div class="item-price">£0.90</div><button class="add-btn" onclick="directAdd('Kit Kat',0.90)">+</button></div></div>
+      <div class="item-row searchable" data-name="mars chocolate"><div class="item-left"><span style="font-size:1.8rem">🍫</span><div class="item-info"><div class="item-name">Mars</div></div></div><div class="item-right"><div class="item-price">£0.90</div><button class="add-btn" onclick="directAdd('Mars',0.90)">+</button></div></div>
+      <div class="item-row searchable" data-name="bounty chocolate coconut"><div class="item-left"><span style="font-size:1.8rem">🥥</span><div class="item-info"><div class="item-name">Bounty</div></div></div><div class="item-right"><div class="item-price">£0.90</div><button class="add-btn" onclick="directAdd('Bounty',0.90)">+</button></div></div>
     </div>
   </div>
 
   <div class="section" id="section-drinks">
     <div class="section-title"><span class="icon">🥤</span> DRINKS</div>
     <div class="items-list">
-      <div class="item-row"><div class="item-left"><img class="item-img" src="IMG_0397.jpeg" alt="Water"><div class="item-info"><div class="item-name">Water</div></div></div><div class="item-right"><div class="item-price">£1.50</div><button class="add-btn" onclick="directAdd('Water',1.5)">+</button></div></div>
-      <div class="item-row"><div class="item-left"><img class="item-img" src="IMG_0358.jpeg" alt="Coca-Cola Classic"><div class="item-info"><div class="item-name">Coca-Cola Classic</div></div></div><div class="item-right"><div class="item-price">£1.50</div><button class="add-btn" onclick="directAdd('Coca-Cola Classic',1.5)">+</button></div></div>
-      <div class="item-row"><div class="item-left"><img class="item-img" src="IMG_0359.webp" alt="Coca-Cola Zero"><div class="item-info"><div class="item-name">Coca-Cola Zero</div></div></div><div class="item-right"><div class="item-price">£1.50</div><button class="add-btn" onclick="directAdd('Coca-Cola Zero',1.5)">+</button></div></div>
-      <div class="item-row"><div class="item-left"><img class="item-img" src="IMG_0360.png" alt="Coca-Cola Diet"><div class="item-info"><div class="item-name">Coca-Cola Diet</div></div></div><div class="item-right"><div class="item-price">£1.50</div><button class="add-btn" onclick="directAdd('Coca-Cola Diet',1.5)">+</button></div></div>
-      <div class="item-row"><div class="item-left"><img class="item-img" src="IMG_0357.png" alt="Pepsi"><div class="item-info"><div class="item-name">Pepsi</div></div></div><div class="item-right"><div class="item-price">£1.50</div><button class="add-btn" onclick="directAdd('Pepsi',1.5)">+</button></div></div>
-      <div class="item-row"><div class="item-left"><img class="item-img" src="IMG_0361.jpeg" alt="Tango Orange"><div class="item-info"><div class="item-name">Tango Orange</div></div></div><div class="item-right"><div class="item-price">£1.50</div><button class="add-btn" onclick="directAdd('Tango Orange',1.5)">+</button></div></div>
-      <div class="item-row"><div class="item-left"><img class="item-img" src="IMG_0362.jpeg" alt="Fanta Orange"><div class="item-info"><div class="item-name">Fanta Orange</div></div></div><div class="item-right"><div class="item-price">£1.50</div><button class="add-btn" onclick="directAdd('Fanta Orange',1.5)">+</button></div></div>
-      <div class="item-row"><div class="item-left"><img class="item-img" src="IMG_0363.png" alt="Mirinda Strawberry"><div class="item-info"><div class="item-name">Mirinda Strawberry</div></div></div><div class="item-right"><div class="item-price">£1.50</div><button class="add-btn" onclick="directAdd('Mirinda Strawberry',1.5)">+</button></div></div>
-      <div class="item-row"><div class="item-left"><img class="item-img" src="IMG_0368.webp" alt="Ribena Strawberry"><div class="item-info"><div class="item-name">Ribena Strawberry</div></div></div><div class="item-right"><div class="item-price">£1.50</div><button class="add-btn" onclick="directAdd('Ribena Strawberry',1.5)">+</button></div></div>
-      <div class="item-row"><div class="item-left"><img class="item-img" src="IMG_0369.jpeg" alt="Ribena Blackcurrant"><div class="item-info"><div class="item-name">Ribena Blackcurrant</div></div></div><div class="item-right"><div class="item-price">£1.50</div><button class="add-btn" onclick="directAdd('Ribena Blackcurrant',1.5)">+</button></div></div>
-      <div class="item-row"><div class="item-left"><img class="item-img" src="IMG_0366.jpeg" alt="Lucozade Orange"><div class="item-info"><div class="item-name">Lucozade Orange</div></div></div><div class="item-right"><div class="item-price">£1.90</div><button class="add-btn" onclick="directAdd('Lucozade Orange',1.9)">+</button></div></div>
-      <div class="item-row"><div class="item-left"><img class="item-img" src="IMG_0367.jpeg" alt="Lucozade Original"><div class="item-info"><div class="item-name">Lucozade Original</div></div></div><div class="item-right"><div class="item-price">£1.90</div><button class="add-btn" onclick="directAdd('Lucozade Original',1.9)">+</button></div></div>
-      <div class="item-row"><div class="item-left"><img class="item-img" src="IMG_0364.png" alt="Red Bull"><div class="item-info"><div class="item-name">Red Bull</div></div></div><div class="item-right"><div class="item-price">£2.30</div><button class="add-btn" onclick="directAdd('Red Bull',2.3)">+</button></div></div>
+      <div class="item-row searchable" data-name="water"><div class="item-left"><img class="item-img" src="IMG_0397.jpeg" alt="Water"><div class="item-info"><div class="item-name">Water</div></div></div><div class="item-right"><div class="item-price">£1.50</div><button class="add-btn" onclick="directAdd('Water',1.5)">+</button></div></div>
+      <div class="item-row searchable" data-name="coca cola classic coke"><div class="item-left"><img class="item-img" src="IMG_0358.jpeg" alt="Coca-Cola Classic"><div class="item-info"><div class="item-name">Coca-Cola Classic</div></div></div><div class="item-right"><div class="item-price">£1.50</div><button class="add-btn" onclick="directAdd('Coca-Cola Classic',1.5)">+</button></div></div>
+      <div class="item-row searchable" data-name="coca cola zero coke"><div class="item-left"><img class="item-img" src="IMG_0359.webp" alt="Coca-Cola Zero"><div class="item-info"><div class="item-name">Coca-Cola Zero</div></div></div><div class="item-right"><div class="item-price">£1.50</div><button class="add-btn" onclick="directAdd('Coca-Cola Zero',1.5)">+</button></div></div>
+      <div class="item-row searchable" data-name="coca cola diet coke"><div class="item-left"><img class="item-img" src="IMG_0360.png" alt="Coca-Cola Diet"><div class="item-info"><div class="item-name">Coca-Cola Diet</div></div></div><div class="item-right"><div class="item-price">£1.50</div><button class="add-btn" onclick="directAdd('Coca-Cola Diet',1.5)">+</button></div></div>
+      <div class="item-row searchable" data-name="pepsi"><div class="item-left"><img class="item-img" src="IMG_0357.png" alt="Pepsi"><div class="item-info"><div class="item-name">Pepsi</div></div></div><div class="item-right"><div class="item-price">£1.50</div><button class="add-btn" onclick="directAdd('Pepsi',1.5)">+</button></div></div>
+      <div class="item-row searchable" data-name="tango orange"><div class="item-left"><img class="item-img" src="IMG_0361.jpeg" alt="Tango Orange"><div class="item-info"><div class="item-name">Tango Orange</div></div></div><div class="item-right"><div class="item-price">£1.50</div><button class="add-btn" onclick="directAdd('Tango Orange',1.5)">+</button></div></div>
+      <div class="item-row searchable" data-name="fanta orange"><div class="item-left"><img class="item-img" src="IMG_0362.jpeg" alt="Fanta Orange"><div class="item-info"><div class="item-name">Fanta Orange</div></div></div><div class="item-right"><div class="item-price">£1.50</div><button class="add-btn" onclick="directAdd('Fanta Orange',1.5)">+</button></div></div>
+      <div class="item-row searchable" data-name="mirinda strawberry"><div class="item-left"><img class="item-img" src="IMG_0363.png" alt="Mirinda Strawberry"><div class="item-info"><div class="item-name">Mirinda Strawberry</div></div></div><div class="item-right"><div class="item-price">£1.50</div><button class="add-btn" onclick="directAdd('Mirinda Strawberry',1.5)">+</button></div></div>
+      <div class="item-row searchable" data-name="ribena strawberry"><div class="item-left"><img class="item-img" src="IMG_0368.webp" alt="Ribena Strawberry"><div class="item-info"><div class="item-name">Ribena Strawberry</div></div></div><div class="item-right"><div class="item-price">£1.50</div><button class="add-btn" onclick="directAdd('Ribena Strawberry',1.5)">+</button></div></div>
+      <div class="item-row searchable" data-name="ribena blackcurrant"><div class="item-left"><img class="item-img" src="IMG_0369.jpeg" alt="Ribena Blackcurrant"><div class="item-info"><div class="item-name">Ribena Blackcurrant</div></div></div><div class="item-right"><div class="item-price">£1.50</div><button class="add-btn" onclick="directAdd('Ribena Blackcurrant',1.5)">+</button></div></div>
+      <div class="item-row searchable" data-name="lucozade orange"><div class="item-left"><img class="item-img" src="IMG_0366.jpeg" alt="Lucozade Orange"><div class="item-info"><div class="item-name">Lucozade Orange</div></div></div><div class="item-right"><div class="item-price">£1.90</div><button class="add-btn" onclick="directAdd('Lucozade Orange',1.9)">+</button></div></div>
+      <div class="item-row searchable" data-name="lucozade original"><div class="item-left"><img class="item-img" src="IMG_0367.jpeg" alt="Lucozade Original"><div class="item-info"><div class="item-name">Lucozade Original</div></div></div><div class="item-right"><div class="item-price">£1.90</div><button class="add-btn" onclick="directAdd('Lucozade Original',1.9)">+</button></div></div>
+      <div class="item-row searchable" data-name="red bull energy drink"><div class="item-left"><img class="item-img" src="IMG_0364.png" alt="Red Bull"><div class="item-info"><div class="item-name">Red Bull</div></div></div><div class="item-right"><div class="item-price">£2.30</div><button class="add-btn" onclick="directAdd('Red Bull',2.3)">+</button></div></div>
     </div>
   </div>
 
@@ -1357,6 +1456,11 @@
       const saucesList = Array.from(selectedSauces);
       let customNote = [];
 
+      if (currentItem.itemType === 'meal' && !selectedDrink) {
+        alert('Please choose a drink first.');
+        return;
+      }
+
       if (selectedDrink) customNote.push('Drink: ' + selectedDrink);
       if (toppingsList.length) customNote.push('Toppings: ' + toppingsList.join(', '));
       if (selectedKebabSauce) customNote.push('Chilli pref: ' + selectedKebabSauce);
@@ -1441,6 +1545,12 @@
       renderCartModal();
     }
 
+    function removeCartItem(idx) {
+      cart.splice(idx, 1);
+      updateCartUI();
+      renderCartModal();
+    }
+
     function renderCartModal() {
       const el = document.getElementById('cartItemsList');
 
@@ -1460,6 +1570,7 @@
           '<button class="qty-btn" onclick="changeCartQty(' + idx + ',-1)">−</button>' +
           '<span class="qty-num">' + item.qty + '</span>' +
           '<button class="qty-btn" onclick="changeCartQty(' + idx + ',1)">+</button>' +
+          '<button class="remove-btn" onclick="removeCartItem(' + idx + ')" title="Remove item">🗑</button>' +
           '</div>' +
           '<div class="cart-item-price">£' + (item.unitPrice * item.qty).toFixed(2) + '</div>' +
           '</div>';
@@ -1495,8 +1606,42 @@
       }
 
       msg += '\n\n_Collection order — please confirm. Thank you!_';
-
       window.open('https://wa.me/447576113811?text=' + encodeURIComponent(msg), '_blank');
+    }
+
+    function filterMenu() {
+      const input = document.getElementById('searchInput');
+      const clearBtn = document.getElementById('searchClear');
+      const info = document.getElementById('searchInfo');
+      const empty = document.getElementById('emptySearch');
+      const query = input.value.trim().toLowerCase();
+      const items = document.querySelectorAll('.searchable');
+      let visibleCount = 0;
+
+      clearBtn.classList.toggle('visible', query.length > 0);
+
+      items.forEach(function(item) {
+        const haystack = (item.dataset.name || '').toLowerCase();
+        const match = query === '' || haystack.includes(query);
+        item.classList.toggle('hidden', !match);
+        if (match) visibleCount++;
+      });
+
+      if (query) {
+        info.classList.add('visible');
+        info.textContent = visibleCount + ' result' + (visibleCount === 1 ? '' : 's') + ' for "' + input.value.trim() + '"';
+      } else {
+        info.classList.remove('visible');
+        info.textContent = '';
+      }
+
+      empty.classList.toggle('visible', query !== '' && visibleCount === 0);
+    }
+
+    function clearSearch() {
+      document.getElementById('searchInput').value = '';
+      filterMenu();
+      document.getElementById('searchInput').focus();
     }
 
     function showToast(msg) {
@@ -1505,7 +1650,7 @@
       if (!t) {
         t = document.createElement('div');
         t.id = 'toast';
-        t.style.cssText = 'position:fixed;bottom:112px;left:50%;transform:translateX(-50%);background:#c8102e;color:white;padding:10px 18px;border-radius:30px;font-weight:800;font-size:0.82rem;z-index:999;opacity:0;transition:opacity 0.3s;white-space:nowrap;';
+        t.style.cssText = 'position:fixed;bottom:112px;left:50%;transform:translateX(-50%);background:#c8102e;color:white;padding:9px 18px;border-radius:30px;font-weight:800;font-size:0.82rem;z-index:999;opacity:0;transition:opacity 0.3s;white-space:nowrap;';
         document.body.appendChild(t);
       }
 
