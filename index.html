@@ -488,10 +488,12 @@ font-family: ‘Bangers’, ‘Arial Black’, Impact, cursive;
 font-size: 1.4rem;
 color: #FFD700;
 letter-spacing: 1px;
-line-height: 1.05;
+line-height: 1.1;
 flex: 1;
 min-width: 0;
-word-break: break-word;
+overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
 }
 
 .modal-subtitle {
@@ -1180,7 +1182,7 @@ body { padding-bottom: 102px; }
   <div class="modal-overlay" id="customiseModal" onclick="closeCustomiseOutside(event)">
     <div class="modal" id="customiseModalInner">
       <div class="modal-header">
-        <div style="flex:1;min-width:0;overflow:hidden;">
+        <div style="flex:1;min-width:0;">
           <div class="modal-title" id="customiseTitle">Customise</div>
           <div class="modal-subtitle" id="customiseSubtitle"></div>
         </div>
