@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
   <title>Er-Han Burger | Order Online</title>
-
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;600;700;800;900&display=swap');
 
@@ -32,7 +31,7 @@
       background: var(--bg);
       color: var(--text);
       min-height: 100vh;
-      padding-bottom: 140px;
+      padding-bottom: 108px;
       max-width: 480px;
       margin: 0 auto;
     }
@@ -42,58 +41,61 @@
       position: sticky;
       top: 0;
       z-index: 200;
-      box-shadow: 0 2px 20px rgba(0,0,0,0.5);
+      box-shadow: 0 2px 16px rgba(0,0,0,0.35);
     }
 
     .header-main {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 12px 16px 8px;
+      padding: 10px 14px 6px;
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
     }
 
     .brand-emoji {
-      font-size: 2rem;
+      font-size: 1.8rem;
+      line-height: 1;
     }
 
     .brand-name {
       font-family: 'Bangers', 'Arial Black', Impact, cursive;
-      font-size: 1.9rem;
+      font-size: 1.65rem;
       color: var(--yellow);
-      letter-spacing: 3px;
-      text-shadow: 2px 3px 0 rgba(0,0,0,0.4);
+      letter-spacing: 2px;
+      text-shadow: 2px 2px 0 rgba(0,0,0,0.35);
       line-height: 1;
     }
 
     .brand-sub {
-      font-size: 0.5rem;
-      color: rgba(255,255,255,0.6);
-      letter-spacing: 3px;
+      font-size: 0.48rem;
+      color: rgba(255,255,255,0.65);
+      letter-spacing: 2.6px;
       font-weight: 700;
       text-transform: uppercase;
+      margin-top: 2px;
     }
 
     .halal-badge {
       background: var(--yellow);
       color: var(--dark-red);
-      font-size: 0.65rem;
+      font-size: 0.62rem;
       font-weight: 900;
       padding: 5px 10px;
-      border-radius: 20px;
+      border-radius: 18px;
       letter-spacing: 1px;
+      flex-shrink: 0;
     }
 
     .nav-tabs {
       display: flex;
       overflow-x: auto;
       gap: 6px;
-      padding: 0 12px 10px;
+      padding: 0 12px 8px;
       scrollbar-width: none;
     }
 
@@ -105,14 +107,15 @@
       white-space: nowrap;
       border: none;
       cursor: pointer;
-      padding: 7px 16px;
-      border-radius: 20px;
+      padding: 8px 15px;
+      border-radius: 18px;
       font-family: 'Nunito', 'Helvetica Neue', Arial, sans-serif;
       font-weight: 800;
-      font-size: 0.75rem;
+      font-size: 0.74rem;
       transition: all 0.2s;
-      background: rgba(255,255,255,0.12);
-      color: rgba(255,255,255,0.75);
+      background: rgba(255,255,255,0.14);
+      color: rgba(255,255,255,0.82);
+      min-height: 36px;
     }
 
     .tab-btn.active {
@@ -122,7 +125,7 @@
 
     .hero {
       background: linear-gradient(160deg, var(--dark-red) 0%, var(--red) 70%);
-      padding: 22px 16px 26px;
+      padding: 12px 14px 14px;
       text-align: center;
       position: relative;
       overflow: hidden;
@@ -131,42 +134,46 @@
     .hero::before {
       content: '🍔🍟🌭🥙';
       position: absolute;
-      font-size: 6rem;
-      opacity: 0.05;
-      top: -15px;
-      right: -15px;
+      font-size: 4rem;
+      opacity: 0.045;
+      top: -10px;
+      right: -8px;
+      line-height: 1;
     }
 
     .hero h2 {
       font-family: 'Bangers', 'Arial Black', Impact, cursive;
-      font-size: 1.5rem;
+      font-size: 1.1rem;
       color: var(--yellow);
-      letter-spacing: 3px;
-      margin-bottom: 4px;
+      letter-spacing: 2px;
+      margin-bottom: 3px;
+      line-height: 1.05;
     }
 
     .hero p {
-      color: rgba(255,255,255,0.8);
-      font-size: 0.8rem;
-      font-weight: 600;
+      color: rgba(255,255,255,0.82);
+      font-size: 0.74rem;
+      font-weight: 700;
+      line-height: 1.25;
     }
 
     .hero-hours {
       display: inline-flex;
-      gap: 16px;
-      margin-top: 12px;
-      background: rgba(0,0,0,0.3);
-      border-radius: 20px;
-      padding: 7px 18px;
-      border: 1px solid rgba(255,255,255,0.1);
+      gap: 10px;
+      margin-top: 8px;
+      background: rgba(0,0,0,0.28);
+      border-radius: 18px;
+      padding: 6px 12px;
+      border: 1px solid rgba(255,255,255,0.08);
       flex-wrap: wrap;
       justify-content: center;
     }
 
     .hero-hours span {
       color: var(--yellow);
-      font-size: 0.7rem;
-      font-weight: 700;
+      font-size: 0.68rem;
+      font-weight: 800;
+      line-height: 1;
     }
 
     .section {
@@ -187,11 +194,12 @@
       display: flex;
       align-items: center;
       gap: 8px;
-      padding: 18px 16px 10px;
+      padding: 12px 16px 8px;
       font-family: 'Bangers', 'Arial Black', Impact, cursive;
-      font-size: 1.5rem;
+      font-size: 1.32rem;
       color: var(--yellow);
       letter-spacing: 1px;
+      line-height: 1;
     }
 
     .deals-grid {
@@ -222,6 +230,7 @@
       font-family: 'Bangers', 'Arial Black', Impact, cursive;
       font-size: 1rem;
       letter-spacing: 1px;
+      line-height: 1;
     }
 
     .deal-img {
@@ -249,6 +258,7 @@
       padding: 5px;
       font-family: 'Bangers', 'Arial Black', Impact, cursive;
       font-size: 1.3rem;
+      line-height: 1;
     }
 
     .deal-add-btn {
@@ -334,6 +344,7 @@
       color: var(--yellow);
       min-width: 42px;
       text-align: right;
+      line-height: 1;
     }
 
     .add-btn {
@@ -382,7 +393,7 @@
       overflow-y: auto;
       -webkit-overflow-scrolling: touch;
       overscroll-behavior: contain;
-      padding: 20px 16px 40px;
+      padding: 20px 16px 32px;
       animation: slideUp 0.25s cubic-bezier(0.34,1.2,0.64,1);
     }
 
@@ -404,6 +415,7 @@
       font-size: 1.5rem;
       color: var(--yellow);
       letter-spacing: 1px;
+      line-height: 1;
     }
 
     .modal-subtitle {
@@ -567,9 +579,9 @@
       color: white;
       border: none;
       border-radius: 14px;
-      padding: 16px;
+      padding: 15px;
       font-family: 'Bangers', 'Arial Black', Impact, cursive;
-      font-size: 1.3rem;
+      font-size: 1.22rem;
       letter-spacing: 2px;
       cursor: pointer;
       display: flex;
@@ -592,8 +604,8 @@
       max-width: 480px;
       background: var(--card);
       border-top: 1px solid var(--border);
-      padding: 12px 16px 20px;
-      box-shadow: 0 -8px 30px rgba(0,0,0,0.4);
+      padding: 8px 14px 12px;
+      box-shadow: 0 -8px 24px rgba(0,0,0,0.35);
       z-index: 300;
       display: none;
     }
@@ -607,14 +619,15 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
       gap: 10px;
     }
 
     .cart-count {
       font-weight: 800;
       color: var(--muted);
-      font-size: 0.85rem;
+      font-size: 0.8rem;
+      line-height: 1;
     }
 
     .cart-count span {
@@ -623,25 +636,27 @@
 
     .cart-total {
       font-family: 'Bangers', 'Arial Black', Impact, cursive;
-      font-size: 1.6rem;
+      font-size: 1.25rem;
       color: var(--yellow);
+      line-height: 1;
     }
 
     .order-btn {
       width: 100%;
-      padding: 15px;
+      padding: 12px;
       background: var(--red);
       color: white;
       border: none;
-      border-radius: 14px;
+      border-radius: 12px;
       font-family: 'Bangers', 'Arial Black', Impact, cursive;
-      font-size: 1.3rem;
-      letter-spacing: 2px;
+      font-size: 1.06rem;
+      letter-spacing: 1.5px;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 8px;
+      min-height: 50px;
     }
 
     .order-btn:active {
@@ -735,7 +750,7 @@
 
     .modal-total-price {
       font-family: 'Bangers', 'Arial Black', Impact, cursive;
-      font-size: 2.2rem;
+      font-size: 2.1rem;
       color: var(--yellow);
     }
 
@@ -766,7 +781,7 @@
       border-radius: 14px;
       padding: 15px;
       font-family: 'Bangers', 'Arial Black', Impact, cursive;
-      font-size: 1.3rem;
+      font-size: 1.25rem;
       letter-spacing: 1px;
       cursor: pointer;
       display: flex;
@@ -784,7 +799,7 @@
       border-radius: 14px;
       padding: 13px;
       font-family: 'Bangers', 'Arial Black', Impact, cursive;
-      font-size: 1.2rem;
+      font-size: 1.14rem;
       letter-spacing: 1px;
       cursor: pointer;
       display: flex;
@@ -858,10 +873,10 @@
       color: white;
       text-decoration: none;
       border-radius: 14px;
-      padding: 16px;
-      margin: 0 12px 12px;
+      padding: 15px;
+      margin: 0 12px 10px;
       font-family: 'Bangers', 'Arial Black', Impact, cursive;
-      font-size: 1.4rem;
+      font-size: 1.25rem;
       letter-spacing: 2px;
     }
 
@@ -874,20 +889,36 @@
       border: 2px solid var(--red);
       text-decoration: none;
       border-radius: 14px;
-      padding: 14px;
+      padding: 13px;
       margin: 0 12px 12px;
       font-family: 'Bangers', 'Arial Black', Impact, cursive;
-      font-size: 1.2rem;
+      font-size: 1.06rem;
       letter-spacing: 1px;
     }
 
     @media (max-width: 360px) {
+      body {
+        padding-bottom: 104px;
+      }
+
       .deals-grid {
         grid-template-columns: 1fr;
       }
 
+      .brand-name {
+        font-size: 1.48rem;
+      }
+
+      .hero h2 {
+        font-size: 1rem;
+      }
+
       .hero-hours {
         gap: 8px;
+      }
+
+      .tab-btn {
+        padding: 7px 13px;
       }
     }
   </style>
@@ -905,7 +936,6 @@
       </div>
       <div class="halal-badge">☪ HALAL</div>
     </div>
-
     <div class="nav-tabs">
       <button class="tab-btn active" onclick="showSection('deals',this)">🔥 Meal Deals</button>
       <button class="tab-btn" onclick="showSection('burgers',this)">🍔 Burgers</button>
@@ -936,7 +966,6 @@
         <div class="deal-price">£7.80</div>
         <button class="deal-add-btn" onclick="openCustomise('Deal 1 – ¼ Burger, Chips & Drink',7.80,'meal')">+ Customise &amp; Add</button>
       </div>
-
       <div class="deal-card">
         <div class="deal-header">DEAL 2</div>
         <img class="deal-img" src="IMG_0405.jpeg" alt="½ Burger Meal">
@@ -944,7 +973,6 @@
         <div class="deal-price">£9.80</div>
         <button class="deal-add-btn" onclick="openCustomise('Deal 2 – ½ Burger, Chips & Drink',9.80,'meal')">+ Customise &amp; Add</button>
       </div>
-
       <div class="deal-card">
         <div class="deal-header">DEAL 3</div>
         <img class="deal-img" src="IMG_0400.jpeg" alt="Chicken Burger Meal">
@@ -952,7 +980,6 @@
         <div class="deal-price">£7.80</div>
         <button class="deal-add-btn" onclick="openCustomise('Deal 3 – Chicken Burger, Chips & Drink',7.80,'meal')">+ Customise &amp; Add</button>
       </div>
-
       <div class="deal-card">
         <div class="deal-header">DEAL 4</div>
         <img class="deal-img" src="IMG_0404.webp" alt="Nuggets Meal">
@@ -960,7 +987,6 @@
         <div class="deal-price">£7.80</div>
         <button class="deal-add-btn" onclick="openCustomise('Deal 4 – Chicken Nuggets, Chips & Drink',7.80,'meal')">+ Customise &amp; Add</button>
       </div>
-
       <div class="deal-card">
         <div class="deal-header">DEAL 5</div>
         <img class="deal-img" src="IMG_0402.jpeg" alt="Hot Dog Meal">
@@ -968,7 +994,6 @@
         <div class="deal-price">£7.80</div>
         <button class="deal-add-btn" onclick="openCustomise('Deal 5 – Hot Dog, Chips & Drink',7.80,'meal')">+ Customise &amp; Add</button>
       </div>
-
       <div class="deal-card">
         <div class="deal-header">DEAL 6</div>
         <img class="deal-img" src="IMG_0403.jpeg" alt="Veggie Burger Meal">
@@ -998,7 +1023,7 @@
 
   <div class="section" id="section-kebab">
     <div class="section-title"><span class="icon">🥙</span> KEBABS</div>
-    <p style="padding:0 16px 10px;font-size:0.75rem;color:var(--muted);font-weight:600;">All kebabs cut from fresh meat. Served with fresh onions, cucumber, tomatoes, lettuce, long chillies, mixed cabbage &amp; sauce.</p>
+    <p style="padding:0 16px 8px;font-size:0.75rem;color:var(--muted);font-weight:600;">All kebabs cut from fresh meat. Served with fresh onions, cucumber, tomatoes, lettuce, long chillies, mixed cabbage &amp; sauce.</p>
     <div class="items-list">
       <div class="item-row"><div class="item-left"><img class="item-img" src="IMG_0457.jpeg" alt="Chicken Shish"><div class="item-info"><div class="item-name">Chicken Shish – Medium</div></div></div><div class="item-right"><div class="item-price">£9.80</div><button class="add-btn" onclick="openCustomise('Chicken Shish – Medium',9.80,'kebab')">+</button></div></div>
       <div class="item-row"><div class="item-left"><img class="item-img" src="IMG_0457.jpeg" alt="Chicken Shish"><div class="item-info"><div class="item-name">Chicken Shish – Med + Chips</div></div></div><div class="item-right"><div class="item-price">£10.80</div><button class="add-btn" onclick="openCustomise('Chicken Shish – Medium with Chips',10.80,'kebab')">+</button></div></div>
@@ -1009,7 +1034,7 @@
 
   <div class="section" id="section-hotdog">
     <div class="section-title"><span class="icon">🌭</span> HOT DOGS</div>
-    <p style="padding:0 16px 10px;font-size:0.75rem;color:var(--muted);font-weight:600;">Chicken sausage</p>
+    <p style="padding:0 16px 8px;font-size:0.75rem;color:var(--muted);font-weight:600;">Chicken sausage</p>
     <div class="items-list">
       <div class="item-row"><div class="item-left"><img class="item-img" src="IMG_0353.png" alt="Hot Dog"><div class="item-info"><div class="item-name">Hot Dog</div></div></div><div class="item-right"><div class="item-price">£4.50</div><button class="add-btn" onclick="openCustomise('Hot Dog',4.50,'burger')">+</button></div></div>
       <div class="item-row"><div class="item-left"><img class="item-img" src="IMG_0353.png" alt="Hot Dog"><div class="item-info"><div class="item-name">Hot Dog with Cheese</div></div></div><div class="item-right"><div class="item-price">£4.80</div><button class="add-btn" onclick="openCustomise('Hot Dog with Cheese',4.80,'burger')">+</button></div></div>
@@ -1072,16 +1097,13 @@
         </div>
         <button class="modal-close" onclick="closeCustomise()">✕</button>
       </div>
-
       <div id="customiseBody"></div>
-
       <div class="modal-footer">
         <div class="qty-row">
           <button class="qty-btn-big" onclick="changeQty(-1)">−</button>
           <div class="qty-display" id="customiseQty">1</div>
           <button class="qty-btn-big" onclick="changeQty(1)">+</button>
         </div>
-
         <button class="modal-add-btn" onclick="confirmAdd()">
           <span>ADD TO ORDER</span>
           <span id="modalAddPrice"></span>
@@ -1104,42 +1126,27 @@
         <div class="modal-title">🛒 Your Order</div>
         <button class="modal-close" onclick="closeCart()">✕</button>
       </div>
-
       <div id="cartItemsList"></div>
-
       <textarea class="note-input" id="orderNote" rows="2" placeholder="Any extra notes? (e.g. extra napkins, no salt on chips...)"></textarea>
-
       <div class="modal-total">
         <span class="modal-total-label">Total</span>
         <span class="modal-total-price">£<span id="modalTotal">0.00</span></span>
       </div>
-
       <button class="whatsapp-btn" onclick="orderWhatsApp()">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         ORDER VIA WHATSAPP
       </button>
-
       <button class="call-btn" onclick="window.location.href='tel:07576113811'">📞 CALL TO ORDER: 07576 113811</button>
     </div>
   </div>
 
   <script>
     const MEAL_TOPPINGS = [
-      {name:'All Salad',price:0},
-      {name:'Just Cheese',price:0},
-      {name:'Lettuce',price:0},
-      {name:'Plain',price:0},
-      {name:'Cucumber',price:0},
-      {name:'Extra Cheese',price:0.30},
-      {name:'Tomato',price:0},
-      {name:'Halloumi x2',price:2.00},
-      {name:'Onion',price:0},
-      {name:'Egg',price:0.60},
-      {name:'Pickle',price:0},
-      {name:'No Veggie',price:0},
-      {name:'No Onion',price:0},
-      {name:'No Pepper',price:0},
-      {name:'No Cheese',price:0}
+      {name:'All Salad',price:0},{name:'Just Cheese',price:0},{name:'Lettuce',price:0},
+      {name:'Plain',price:0},{name:'Cucumber',price:0},{name:'Extra Cheese',price:0.30},
+      {name:'Tomato',price:0},{name:'Halloumi x2',price:2.00},{name:'Onion',price:0},
+      {name:'Egg',price:0.60},{name:'Pickle',price:0},{name:'No Veggie',price:0},
+      {name:'No Onion',price:0},{name:'No Pepper',price:0},{name:'No Cheese',price:0}
     ];
 
     const TOPPINGS = MEAL_TOPPINGS.filter(function(t) {
@@ -1147,23 +1154,14 @@
     });
 
     const KEBAB_SAUCES = [
-      {name:'Chilli',price:0},
-      {name:'Extra Chilli',price:0},
-      {name:'Little Chilli',price:0},
-      {name:'No Chilli',price:0},
-      {name:'BBQ',price:0}
+      {name:'Chilli',price:0},{name:'Extra Chilli',price:0},{name:'Little Chilli',price:0},
+      {name:'No Chilli',price:0},{name:'BBQ',price:0}
     ];
 
     const SAUCES = [
-      {name:'Chilli Sauce',price:0},
-      {name:'Burger Sauce',price:0},
-      {name:'Mayo',price:0},
-      {name:'Garlic Mayo',price:0},
-      {name:'BBQ Sauce',price:0},
-      {name:'Ketchup',price:0},
-      {name:'Mustard',price:0},
-      {name:'Salt',price:0},
-      {name:'Vinegar',price:0}
+      {name:'Chilli Sauce',price:0},{name:'Burger Sauce',price:0},{name:'Mayo',price:0},
+      {name:'Garlic Mayo',price:0},{name:'BBQ Sauce',price:0},{name:'Ketchup',price:0},
+      {name:'Mustard',price:0},{name:'Salt',price:0},{name:'Vinegar',price:0}
     ];
 
     const DRINK_OPTIONS = [
@@ -1184,14 +1182,11 @@
       document.querySelectorAll('.section').forEach(function(s) {
         s.classList.remove('active');
       });
-
       document.querySelectorAll('.tab-btn').forEach(function(b) {
         b.classList.remove('active');
       });
-
       document.getElementById('section-' + id).classList.add('active');
       btn.classList.add('active');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
     function directAdd(name, price) {
@@ -1202,12 +1197,7 @@
       if (existing) {
         existing.qty += 1;
       } else {
-        cart.push({
-          name: name,
-          unitPrice: price,
-          qty: 1,
-          customNote: ''
-        });
+        cart.push({ name: name, unitPrice: price, qty: 1, customNote: '' });
       }
 
       updateCartUI();
@@ -1242,7 +1232,7 @@
       if (itemType === 'meal') {
         html += '<div class="custom-group"><div class="custom-group-title">🥤 Choose Your Drink</div><div class="custom-group-subtitle">Select one</div><div class="options-grid">';
         DRINK_OPTIONS.forEach(function(d) {
-          html += '<div class="option-row" onclick="selectDrink(this,\'' + escapeJs(d) + '\')">';
+          html += '<div class="option-row" onclick="selectDrink(this,\'' + d.replace(/'/g, "\\'") + '\')">';
           html += '<div class="option-left"><div class="option-check" style="border-radius:50%"></div><div class="option-name">' + d + '</div></div>';
           html += '<div class="option-price free">Free</div></div>';
         });
@@ -1250,11 +1240,11 @@
       }
 
       if (itemType === 'burger' || itemType === 'kebab' || itemType === 'meal') {
-        var toppingList = (itemType === 'meal') ? MEAL_TOPPINGS : TOPPINGS;
+        var toppingList = itemType === 'meal' ? MEAL_TOPPINGS : TOPPINGS;
 
         html += '<div class="custom-group"><div class="custom-group-title">🥗 Toppings</div><div class="custom-group-subtitle">Select all that apply (extras may cost more)</div><div class="options-grid">';
         toppingList.forEach(function(t) {
-          html += '<div class="option-row" onclick="toggleTopping(this,\'' + escapeJs(t.name) + '\',' + t.price + ')">';
+          html += '<div class="option-row" onclick="toggleTopping(this,\'' + t.name.replace(/'/g, "\\'") + '\',' + t.price + ')">';
           html += '<div class="option-left"><div class="option-check"></div><div class="option-name">' + t.name + '</div></div>';
           html += '<div class="option-price ' + (t.price === 0 ? 'free' : '') + '">' + (t.price === 0 ? 'Free' : '+£' + t.price.toFixed(2)) + '</div></div>';
         });
@@ -1263,7 +1253,7 @@
         if (itemType === 'kebab') {
           html += '<div class="custom-group"><div class="custom-group-title">🌶 Chilli Preference</div><div class="custom-group-subtitle">Select all that apply</div><div class="options-grid">';
           KEBAB_SAUCES.forEach(function(s) {
-            html += '<div class="option-row" onclick="toggleKebabSauce(this,\'' + escapeJs(s.name) + '\')">';
+            html += '<div class="option-row" onclick="toggleKebabSauce(this,\'' + s.name.replace(/'/g, "\\'") + '\')">';
             html += '<div class="option-left"><div class="option-check"></div><div class="option-name">' + s.name + '</div></div>';
             html += '<div class="option-price free">Free</div></div>';
           });
@@ -1273,17 +1263,13 @@
 
       html += '<div class="custom-group"><div class="custom-group-title">🍶 Sauces</div><div class="custom-group-subtitle">Select all that apply</div><div class="options-grid">';
       SAUCES.forEach(function(s) {
-        html += '<div class="option-row" onclick="toggleSauce(this,\'' + escapeJs(s.name) + '\')">';
+        html += '<div class="option-row" onclick="toggleSauce(this,\'' + s.name.replace(/'/g, "\\'") + '\')">';
         html += '<div class="option-left"><div class="option-check"></div><div class="option-name">' + s.name + '</div></div>';
         html += '<div class="option-price free">Free</div></div>';
       });
       html += '</div></div>';
 
       document.getElementById('customiseBody').innerHTML = html;
-    }
-
-    function escapeJs(str) {
-      return String(str).replace(/\\/g, '\\\\').replace(/'/g, "\\'");
     }
 
     function toggleTopping(el, name, price) {
@@ -1307,15 +1293,16 @@
 
       if (el.classList.contains('selected')) {
         check.textContent = '✓';
-        selectedKebabSauce = (selectedKebabSauce ? selectedKebabSauce + ', ' : '') + name;
       } else {
         check.textContent = '';
-        const remaining = [];
-        el.closest('.options-grid').querySelectorAll('.option-row.selected').forEach(function(r) {
-          remaining.push(r.querySelector('.option-name').textContent);
-        });
-        selectedKebabSauce = remaining.join(', ') || null;
       }
+
+      const selectedRows = el.closest('.options-grid').querySelectorAll('.option-row.selected');
+      const remaining = [];
+      selectedRows.forEach(function(r) {
+        remaining.push(r.querySelector('.option-name').textContent);
+      });
+      selectedKebabSauce = remaining.join(', ') || null;
     }
 
     function toggleSauce(el, name) {
@@ -1344,14 +1331,10 @@
 
     function getExtrasPrice() {
       let extra = 0;
-
       selectedToppings.forEach(function(name) {
-        const item = MEAL_TOPPINGS.find(function(x) {
-          return x.name === name;
-        });
-        if (item) extra += item.price;
+        const t = MEAL_TOPPINGS.find(function(x) { return x.name === name; });
+        if (t) extra += t.price;
       });
-
       return extra;
     }
 
@@ -1373,11 +1356,6 @@
       const toppingsList = Array.from(selectedToppings);
       const saucesList = Array.from(selectedSauces);
       let customNote = [];
-
-      if (currentItem.itemType === 'meal' && !selectedDrink) {
-        alert('Please choose a drink first.');
-        return;
-      }
 
       if (selectedDrink) customNote.push('Drink: ' + selectedDrink);
       if (toppingsList.length) customNote.push('Toppings: ' + toppingsList.join(', '));
@@ -1412,7 +1390,9 @@
     }
 
     function closeCustomiseOutside(e) {
-      if (e.target === document.getElementById('customiseModal')) closeCustomise();
+      if (e.target === document.getElementById('customiseModal')) {
+        closeCustomise();
+      }
     }
 
     function getTotal() {
@@ -1431,7 +1411,7 @@
       const total = getTotal();
       const count = getCount();
 
-      document.getElementById('cartCount').textContent = String(count);
+      document.getElementById('cartCount').textContent = count;
       document.getElementById('cartTotal').textContent = total.toFixed(2);
       document.getElementById('modalTotal').textContent = total.toFixed(2);
       document.getElementById('cartBar').classList.toggle('visible', count > 0);
@@ -1447,12 +1427,16 @@
     }
 
     function closeCartOutside(e) {
-      if (e.target === document.getElementById('cartModal')) closeCart();
+      if (e.target === document.getElementById('cartModal')) {
+        closeCart();
+      }
     }
 
     function changeCartQty(idx, delta) {
       cart[idx].qty = Math.max(0, cart[idx].qty + delta);
-      if (cart[idx].qty === 0) cart.splice(idx, 1);
+      if (cart[idx].qty === 0) {
+        cart.splice(idx, 1);
+      }
       updateCartUI();
       renderCartModal();
     }
@@ -1462,13 +1446,23 @@
 
       if (cart.length === 0) {
         el.innerHTML = '<div class="empty-cart"><span class="big">🛒</span>Your cart is empty.<br>Add items from the menu!</div>';
+        updateCartUI();
         return;
       }
 
       el.innerHTML = cart.map(function(item, idx) {
-        return '<div class="cart-item-row"><div class="cart-item-info"><div class="cart-item-name">' + item.name + '</div>' +
+        return '<div class="cart-item-row">' +
+          '<div class="cart-item-info">' +
+          '<div class="cart-item-name">' + item.name + '</div>' +
           (item.customNote ? '<div class="cart-item-customise">' + item.customNote + '</div>' : '') +
-          '</div><div class="cart-item-controls"><button class="qty-btn" onclick="changeCartQty(' + idx + ',-1)">−</button><span class="qty-num">' + item.qty + '</span><button class="qty-btn" onclick="changeCartQty(' + idx + ',1)">+</button></div><div class="cart-item-price">£' + (item.unitPrice * item.qty).toFixed(2) + '</div></div>';
+          '</div>' +
+          '<div class="cart-item-controls">' +
+          '<button class="qty-btn" onclick="changeCartQty(' + idx + ',-1)">−</button>' +
+          '<span class="qty-num">' + item.qty + '</span>' +
+          '<button class="qty-btn" onclick="changeCartQty(' + idx + ',1)">+</button>' +
+          '</div>' +
+          '<div class="cart-item-price">£' + (item.unitPrice * item.qty).toFixed(2) + '</div>' +
+          '</div>';
       }).join('');
 
       updateCartUI();
@@ -1501,6 +1495,7 @@
       }
 
       msg += '\n\n_Collection order — please confirm. Thank you!_';
+
       window.open('https://wa.me/447576113811?text=' + encodeURIComponent(msg), '_blank');
     }
 
@@ -1510,7 +1505,7 @@
       if (!t) {
         t = document.createElement('div');
         t.id = 'toast';
-        t.style.cssText = 'position:fixed;bottom:140px;left:50%;transform:translateX(-50%);background:#c8102e;color:white;padding:10px 20px;border-radius:30px;font-weight:800;font-size:0.85rem;z-index:999;opacity:0;transition:opacity 0.3s;white-space:nowrap;';
+        t.style.cssText = 'position:fixed;bottom:112px;left:50%;transform:translateX(-50%);background:#c8102e;color:white;padding:10px 18px;border-radius:30px;font-weight:800;font-size:0.82rem;z-index:999;opacity:0;transition:opacity 0.3s;white-space:nowrap;';
         document.body.appendChild(t);
       }
 
@@ -1521,8 +1516,6 @@
         t.style.opacity = '0';
       }, 2000);
     }
-
-    updateCartUI();
   </script>
 </body>
 </html>
