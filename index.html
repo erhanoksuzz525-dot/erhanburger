@@ -8,18 +8,6 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;600;700;800;900&display=swap');
 
-:root {
-–red: #c8102e;
-–dark-red: #8b0a1f;
-–yellow: #FFD700;
-–bg: #0f0f0f;
-–card: #1a1a1a;
-–card2: #222;
-–border: #2a2a2a;
-–text: #f0f0f0;
-–muted: #888;
-}
-
 - {
   margin: 0;
   padding: 0;
@@ -29,8 +17,8 @@
 
 body {
 font-family: ‘Nunito’, ‘Helvetica Neue’, Arial, sans-serif;
-background: var(–bg);
-color: var(–text);
+background: #0f0f0f;
+color: #f0f0f0;
 min-height: 100vh;
 padding-bottom: 106px;
 max-width: 480px;
@@ -38,7 +26,7 @@ margin: 0 auto;
 }
 
 header {
-background: var(–red);
+background: #c8102e;
 position: sticky;
 top: 0;
 z-index: 200;
@@ -66,7 +54,7 @@ line-height: 1;
 .brand-name {
 font-family: ‘Bangers’, ‘Arial Black’, Impact, cursive;
 font-size: 1.6rem;
-color: var(–yellow);
+color: #FFD700;
 letter-spacing: 2px;
 text-shadow: 2px 3px 0 rgba(0,0,0,0.35);
 line-height: 1;
@@ -82,8 +70,8 @@ margin-top: 2px;
 }
 
 .halal-badge {
-background: var(–yellow);
-color: var(–dark-red);
+background: #FFD700;
+color: #8b0a1f;
 font-size: 0.62rem;
 font-weight: 900;
 padding: 5px 10px;
@@ -119,12 +107,12 @@ color: rgba(255,255,255,0.78);
 }
 
 .tab-btn.active {
-background: var(–yellow);
-color: var(–dark-red);
+background: #FFD700;
+color: #8b0a1f;
 }
 
 .hero {
-background: linear-gradient(160deg, var(–dark-red) 0%, var(–red) 72%);
+background: linear-gradient(160deg, #8b0a1f 0%, #c8102e 72%);
 padding: 12px 14px 14px;
 text-align: center;
 position: relative;
@@ -143,7 +131,7 @@ right: -10px;
 .hero h2 {
 font-family: ‘Bangers’, ‘Arial Black’, Impact, cursive;
 font-size: 1.12rem;
-color: var(–yellow);
+color: #FFD700;
 letter-spacing: 2px;
 margin-bottom: 2px;
 line-height: 1.05;
@@ -169,7 +157,7 @@ justify-content: center;
 }
 
 .hero-hours span {
-color: var(–yellow);
+color: #FFD700;
 font-size: 0.66rem;
 font-weight: 800;
 white-space: nowrap;
@@ -177,7 +165,7 @@ white-space: nowrap;
 
 .search-wrap {
 padding: 10px 10px 6px;
-background: var(–bg);
+background: #0f0f0f;
 position: sticky;
 top: 96px;
 z-index: 180;
@@ -189,9 +177,9 @@ position: relative;
 
 .search-input {
 width: 100%;
-background: var(–card);
-border: 1.5px solid var(–border);
-color: var(–text);
+background: #1a1a1a;
+border: 1.5px solid #2a2a2a;
+color: #f0f0f0;
 border-radius: 14px;
 padding: 12px 42px 12px 14px;
 font-size: 0.86rem;
@@ -200,7 +188,7 @@ outline: none;
 }
 
 .search-input:focus {
-border-color: var(–red);
+border-color: #c8102e;
 }
 
 .search-clear {
@@ -210,7 +198,7 @@ top: 50%;
 transform: translateY(-50%);
 border: none;
 background: transparent;
-color: var(–muted);
+color: #888;
 font-size: 1rem;
 width: 28px;
 height: 28px;
@@ -228,7 +216,7 @@ justify-content: center;
 .search-results-info {
 padding: 2px 14px 6px;
 font-size: 0.72rem;
-color: var(–muted);
+color: #888;
 font-weight: 700;
 display: none;
 }
@@ -258,7 +246,7 @@ gap: 8px;
 padding: 12px 14px 8px;
 font-family: ‘Bangers’, ‘Arial Black’, Impact, cursive;
 font-size: 1.25rem;
-color: var(–yellow);
+color: #FFD700;
 letter-spacing: 1px;
 }
 
@@ -270,7 +258,7 @@ padding: 0 10px 10px;
 }
 
 .deal-card {
-background: var(–card);
+background: #1a1a1a;
 border-radius: 16px;
 border: 1.5px solid #2a2a2a;
 overflow: hidden;
@@ -288,7 +276,7 @@ display: none !important;
 }
 
 .deal-header {
-background: var(–red);
+background: #c8102e;
 color: white;
 text-align: center;
 padding: 6px;
@@ -309,13 +297,13 @@ text-align: center;
 padding: 6px 8px 0;
 font-weight: 800;
 font-size: 0.74rem;
-color: var(–text);
+color: #f0f0f0;
 line-height: 1.25;
 }
 
 .deal-price {
-background: var(–yellow);
-color: var(–dark-red);
+background: #FFD700;
+color: #8b0a1f;
 text-align: center;
 margin: 6px 8px;
 border-radius: 8px;
@@ -327,7 +315,7 @@ font-size: 1.2rem;
 .deal-add-btn {
 width: calc(100% - 16px);
 margin: 0 8px 10px;
-background: var(–red);
+background: #c8102e;
 color: white;
 border: none;
 border-radius: 10px;
@@ -340,7 +328,7 @@ font-family: ‘Nunito’, ‘Helvetica Neue’, Arial, sans-serif;
 }
 
 .deal-add-btn:active {
-background: var(–dark-red);
+background: #8b0a1f;
 }
 
 .items-list {
@@ -351,19 +339,19 @@ gap: 8px;
 }
 
 .item-row {
-background: var(–card);
+background: #1a1a1a;
 border-radius: 14px;
 display: flex;
 align-items: center;
 justify-content: space-between;
 padding: 10px 12px;
-border: 1.5px solid var(–border);
+border: 1.5px solid #2a2a2a;
 transition: border-color 0.15s;
 gap: 8px;
 }
 
 .item-row:active {
-border-color: var(–red);
+border-color: #c8102e;
 }
 
 .item-left {
@@ -391,7 +379,7 @@ min-width: 0;
 .item-name {
 font-weight: 800;
 font-size: 0.83rem;
-color: var(–text);
+color: #f0f0f0;
 line-height: 1.2;
 }
 
@@ -405,7 +393,7 @@ flex-shrink: 0;
 .item-price {
 font-family: ‘Bangers’, ‘Arial Black’, Impact, cursive;
 font-size: 1.12rem;
-color: var(–yellow);
+color: #FFD700;
 min-width: 42px;
 text-align: right;
 }
@@ -414,7 +402,7 @@ text-align: right;
 width: 33px;
 height: 33px;
 border-radius: 50%;
-background: var(–red);
+background: #c8102e;
 color: white;
 border: none;
 font-size: 1.25rem;
@@ -429,7 +417,7 @@ flex-shrink: 0;
 
 .add-btn:active {
 transform: scale(0.88);
-background: var(–dark-red);
+background: #8b0a1f;
 }
 
 .empty-search {
@@ -437,10 +425,10 @@ display: none;
 margin: 6px 10px 12px;
 padding: 16px;
 border-radius: 14px;
-background: var(–card);
-border: 1.5px solid var(–border);
+background: #1a1a1a;
+border: 1.5px solid #2a2a2a;
 text-align: center;
-color: var(–muted);
+color: #888;
 font-size: 0.84rem;
 font-weight: 700;
 }
@@ -465,7 +453,7 @@ display: flex;
 }
 
 .modal {
-background: var(–card);
+background: #1a1a1a;
 border-radius: 24px 24px 0 0;
 width: 100%;
 max-width: 480px;
@@ -493,7 +481,7 @@ gap: 12px;
 .modal-title {
 font-family: ‘Bangers’, ‘Arial Black’, Impact, cursive;
 font-size: 1.4rem;
-color: var(–yellow);
+color: #FFD700;
 letter-spacing: 1px;
 line-height: 1.05;
 flex: 1;
@@ -503,13 +491,13 @@ word-break: break-word;
 
 .modal-subtitle {
 font-size: 0.78rem;
-color: var(–muted);
+color: #888;
 font-weight: 700;
 margin-bottom: 16px;
 }
 
 .modal-close {
-background: var(–card2);
+background: #222;
 border: none;
 border-radius: 50%;
 width: 38px;
@@ -521,7 +509,7 @@ display: flex;
 align-items: center;
 justify-content: center;
 font-weight: 900;
-color: var(–text);
+color: #f0f0f0;
 flex-shrink: 0;
 margin-top: 2px;
 }
@@ -533,17 +521,17 @@ margin-bottom: 18px;
 .custom-group-title {
 font-weight: 900;
 font-size: 0.78rem;
-color: var(–red);
+color: #c8102e;
 text-transform: uppercase;
 letter-spacing: 1px;
 margin-bottom: 8px;
 padding-bottom: 6px;
-border-bottom: 1px solid var(–border);
+border-bottom: 1px solid #2a2a2a;
 }
 
 .custom-group-subtitle {
 font-size: 0.68rem;
-color: var(–muted);
+color: #888;
 font-weight: 600;
 margin-bottom: 10px;
 }
@@ -560,21 +548,21 @@ align-items: center;
 justify-content: space-between;
 padding: 10px 11px;
 border-radius: 10px;
-border: 1.5px solid var(–border);
+border: 1.5px solid #2a2a2a;
 cursor: pointer;
 transition: all 0.15s;
-background: var(–card2);
+background: #222;
 gap: 8px;
 }
 
 .option-row.selected {
-border-color: var(–red);
+border-color: #c8102e;
 background: #2a1010;
 }
 
 .option-row.selected .option-check {
-background: var(–red);
-border-color: var(–red);
+background: #c8102e;
+border-color: #c8102e;
 color: white;
 }
 
@@ -602,19 +590,19 @@ color: transparent;
 .option-name {
 font-weight: 700;
 font-size: 0.82rem;
-color: var(–text);
+color: #f0f0f0;
 line-height: 1.2;
 }
 
 .option-price {
 font-weight: 800;
 font-size: 0.76rem;
-color: var(–red);
+color: #c8102e;
 flex-shrink: 0;
 }
 
 .option-price.free {
-color: var(–muted);
+color: #888;
 font-weight: 600;
 }
 
@@ -634,9 +622,9 @@ margin-bottom: 12px;
 width: 40px;
 height: 40px;
 border-radius: 50%;
-border: 2px solid var(–red);
+border: 2px solid #c8102e;
 background: transparent;
-color: var(–red);
+color: #c8102e;
 font-size: 1.3rem;
 font-weight: 900;
 cursor: pointer;
@@ -647,7 +635,7 @@ transition: all 0.15s;
 }
 
 .qty-btn-big:active {
-background: var(–red);
+background: #c8102e;
 color: white;
 }
 
@@ -656,12 +644,12 @@ font-family: ‘Bangers’, ‘Arial Black’, Impact, cursive;
 font-size: 1.9rem;
 min-width: 40px;
 text-align: center;
-color: var(–text);
+color: #f0f0f0;
 }
 
 .modal-add-btn {
 width: 100%;
-background: var(–red);
+background: #c8102e;
 color: white;
 border: none;
 border-radius: 14px;
@@ -678,7 +666,7 @@ transition: background 0.2s;
 }
 
 .modal-add-btn:active {
-background: var(–dark-red);
+background: #8b0a1f;
 }
 
 .cart-bar {
@@ -688,8 +676,8 @@ left: 50%;
 transform: translateX(-50%);
 width: 100%;
 max-width: 480px;
-background: var(–card);
-border-top: 1px solid var(–border);
+background: #1a1a1a;
+border-top: 1px solid #2a2a2a;
 padding: 9px 12px 12px;
 box-shadow: 0 -8px 26px rgba(0,0,0,0.38);
 z-index: 300;
@@ -711,25 +699,25 @@ gap: 8px;
 
 .cart-count {
 font-weight: 800;
-color: var(–muted);
+color: #888;
 font-size: 0.8rem;
 }
 
 .cart-count span {
-color: var(–yellow);
+color: #FFD700;
 }
 
 .cart-total {
 font-family: ‘Bangers’, ‘Arial Black’, Impact, cursive;
 font-size: 1.35rem;
-color: var(–yellow);
+color: #FFD700;
 line-height: 1;
 }
 
 .order-btn {
 width: 100%;
 padding: 12px;
-background: var(–red);
+background: #c8102e;
 color: white;
 border: none;
 border-radius: 14px;
@@ -744,7 +732,7 @@ gap: 8px;
 }
 
 .order-btn:active {
-background: var(–dark-red);
+background: #8b0a1f;
 }
 
 #cartModal .modal-title {
@@ -756,7 +744,7 @@ display: flex;
 align-items: flex-start;
 justify-content: space-between;
 padding: 11px 0;
-border-bottom: 1px solid var(–border);
+border-bottom: 1px solid #2a2a2a;
 gap: 8px;
 }
 
@@ -768,13 +756,13 @@ min-width: 0;
 .cart-item-name {
 font-weight: 800;
 font-size: 0.84rem;
-color: var(–text);
+color: #f0f0f0;
 line-height: 1.2;
 }
 
 .cart-item-customise {
 font-size: 0.68rem;
-color: var(–muted);
+color: #888;
 margin-top: 3px;
 line-height: 1.45;
 }
@@ -790,9 +778,9 @@ flex-shrink: 0;
 width: 28px;
 height: 28px;
 border-radius: 50%;
-border: 2px solid var(–red);
+border: 2px solid #c8102e;
 background: transparent;
-color: var(–red);
+color: #c8102e;
 font-size: 0.9rem;
 font-weight: 900;
 cursor: pointer;
@@ -806,13 +794,13 @@ font-weight: 900;
 font-size: 0.88rem;
 min-width: 20px;
 text-align: center;
-color: var(–text);
+color: #f0f0f0;
 }
 
 .cart-item-price {
 font-family: ‘Bangers’, ‘Arial Black’, Impact, cursive;
 font-size: 1.02rem;
-color: var(–yellow);
+color: #FFD700;
 min-width: 48px;
 text-align: right;
 flex-shrink: 0;
@@ -840,38 +828,38 @@ justify-content: space-between;
 align-items: center;
 padding: 14px 0 0;
 margin-top: 8px;
-border-top: 1px solid var(–border);
+border-top: 1px solid #2a2a2a;
 }
 
 .modal-total-label {
 font-weight: 900;
 font-size: 0.96rem;
-color: var(–text);
+color: #f0f0f0;
 }
 
 .modal-total-price {
 font-family: ‘Bangers’, ‘Arial Black’, Impact, cursive;
 font-size: 2rem;
-color: var(–yellow);
+color: #FFD700;
 line-height: 1;
 }
 
 .note-input {
 width: 100%;
 margin-top: 12px;
-border: 1.5px solid var(–border);
+border: 1.5px solid #2a2a2a;
 border-radius: 12px;
 padding: 10px 12px;
 font-family: ‘Nunito’, ‘Helvetica Neue’, Arial, sans-serif;
 font-size: 0.82rem;
 outline: none;
 resize: none;
-color: var(–text);
-background: var(–card2);
+color: #f0f0f0;
+background: #222;
 }
 
 .note-input:focus {
-border-color: var(–red);
+border-color: #c8102e;
 }
 
 .whatsapp-btn {
@@ -896,8 +884,8 @@ gap: 10px;
 width: 100%;
 margin-top: 8px;
 background: transparent;
-color: var(–red);
-border: 2px solid var(–red);
+color: #c8102e;
+border: 2px solid #c8102e;
 border-radius: 14px;
 padding: 12px;
 font-family: ‘Bangers’, ‘Arial Black’, Impact, cursive;
@@ -913,7 +901,7 @@ gap: 10px;
 .empty-cart {
 text-align: center;
 padding: 28px 0;
-color: var(–muted);
+color: #888;
 font-size: 0.88rem;
 }
 
@@ -924,17 +912,17 @@ margin-bottom: 8px;
 }
 
 .info-card {
-background: var(–card);
+background: #1a1a1a;
 border-radius: 16px;
 margin: 0 10px 10px;
 padding: 14px;
-border: 1.5px solid var(–border);
+border: 1.5px solid #2a2a2a;
 }
 
 .info-card h3 {
 font-weight: 900;
 font-size: 0.88rem;
-color: var(–red);
+color: #c8102e;
 margin-bottom: 8px;
 }
 
@@ -943,7 +931,7 @@ display: flex;
 align-items: center;
 gap: 10px;
 padding: 8px 0;
-border-bottom: 1px solid var(–border);
+border-bottom: 1px solid #2a2a2a;
 }
 
 .info-row:last-child {
@@ -957,13 +945,13 @@ font-size: 1.1rem;
 .info-text {
 font-size: 0.82rem;
 font-weight: 700;
-color: var(–text);
+color: #f0f0f0;
 line-height: 1.2;
 }
 
 .info-text .sub {
 font-weight: 400;
-color: var(–muted);
+color: #888;
 font-size: 0.73rem;
 display: block;
 margin-top: 2px;
@@ -973,7 +961,7 @@ margin-top: 2px;
 display: flex;
 align-items: center;
 justify-content: center;
-background: var(–red);
+background: #c8102e;
 color: white;
 text-decoration: none;
 border-radius: 14px;
@@ -989,8 +977,8 @@ display: flex;
 align-items: center;
 justify-content: center;
 background: transparent;
-color: var(–red);
-border: 2px solid var(–red);
+color: #c8102e;
+border: 2px solid #c8102e;
 text-decoration: none;
 border-radius: 14px;
 padding: 12px;
@@ -1119,7 +1107,7 @@ body { padding-bottom: 102px; }
 
   <div class="section" id="section-kebab">
     <div class="section-title"><span class="icon">🥙</span> KEBABS</div>
-    <p style="padding:0 14px 8px;font-size:0.72rem;color:var(--muted);font-weight:600;line-height:1.35;">All kebabs cut from fresh meat. Served with fresh onions, cucumber, tomatoes, lettuce, long chillies, mixed cabbage &amp; sauce.</p>
+    <p style="padding:0 14px 8px;font-size:0.72rem;color:#888;font-weight:600;line-height:1.35;">All kebabs cut from fresh meat. Served with fresh onions, cucumber, tomatoes, lettuce, long chillies, mixed cabbage &amp; sauce.</p>
     <div class="items-list">
       <div class="item-row searchable" data-name="chicken shish medium kebab"><div class="item-left"><img class="item-img" src="IMG_0457.jpeg" alt="Chicken Shish"><div class="item-info"><div class="item-name">Chicken Shish -- Medium</div></div></div><div class="item-right"><div class="item-price">£9.80</div><button class="add-btn" onclick="openCustomise('Chicken Shish -- Medium',9.80,'kebab')">+</button></div></div>
       <div class="item-row searchable" data-name="chicken shish medium chips kebab"><div class="item-left"><img class="item-img" src="IMG_0457.jpeg" alt="Chicken Shish"><div class="item-info"><div class="item-name">Chicken Shish -- Med + Chips</div></div></div><div class="item-right"><div class="item-price">£10.80</div><button class="add-btn" onclick="openCustomise('Chicken Shish -- Medium with Chips',10.80,'kebab')">+</button></div></div>
@@ -1130,7 +1118,7 @@ body { padding-bottom: 102px; }
 
   <div class="section" id="section-hotdog">
     <div class="section-title"><span class="icon">🌭</span> HOT DOGS</div>
-    <p style="padding:0 14px 8px;font-size:0.72rem;color:var(--muted);font-weight:600;">Chicken sausage</p>
+    <p style="padding:0 14px 8px;font-size:0.72rem;color:#888;font-weight:600;">Chicken sausage</p>
     <div class="items-list">
       <div class="item-row searchable" data-name="hot dog"><div class="item-left"><img class="item-img" src="IMG_0353.png" alt="Hot Dog"><div class="item-info"><div class="item-name">Hot Dog</div></div></div><div class="item-right"><div class="item-price">£4.50</div><button class="add-btn" onclick="openCustomise('Hot Dog',4.50,'burger')">+</button></div></div>
       <div class="item-row searchable" data-name="hot dog cheese"><div class="item-left"><img class="item-img" src="IMG_0353.png" alt="Hot Dog"><div class="item-info"><div class="item-name">Hot Dog with Cheese</div></div></div><div class="item-right"><div class="item-price">£4.80</div><button class="add-btn" onclick="openCustomise('Hot Dog with Cheese',4.80,'burger')">+</button></div></div>
