@@ -1367,6 +1367,7 @@ background: currentColor;
       document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
       document.getElementById('section-' + id).classList.add('active');
       btn.classList.add('active');
+      try { localStorage.setItem('erhan_section', id); } catch(e) {}
     }
 
     function directAdd(name, price) {
@@ -1593,6 +1594,12 @@ background: currentColor;
       if (note) msg += '\n\n\uD83D\uDCDD *Note:* ' + note;
       msg += '\n\n_Collection order \u2014 please confirm. Thank you!_';
       window.open('https://wa.me/447576113811?text=' + encodeURIComponent(msg), '_blank');
+    cart = [];
+    updateCartUI();
+    saveState();
+    closeCart();
+    document.getElementById('orderNote').value = '';
+
     }
 
     function filterMenu() {
@@ -1664,6 +1671,30 @@ background: currentColor;
       }
     }
     updateOpenStatus();
+
+    // ===== LOCALSTORAGE =====
+    function saveState() {
+      try {
+        localStorage.setItem('erhan_cart', JSON.stringify(cart));
+      } catch(e) {}
+    }
+
+    function loadState() {
+      try {
+        var savedCart = localStorage.getItem('erhan_cart');
+        if (savedCart) {
+          cart = JSON.parse(savedCart);
+          updateCartUI();
+        }
+        var savedSection = localStorage.getItem('erhan_section');
+        if (savedSection) {
+          var btn = document.querySelector('.tab-btn[onclick*="' + savedSection + '"]');
+          if (btn) showSection(savedSection, btn);
+        }
+      } catch(e) {}
+    }
+
+    loadState();
   </script>
 
 </body>
