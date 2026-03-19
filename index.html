@@ -7,1754 +7,731 @@
   <title>Er-Han Burger | Order Online</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;600;700;800;900&display=swap');
-
-- {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  -webkit-tap-highlight-color: transparent;
-  }
-
-html {
-overflow-x: hidden;
-}
-
-body {
-overflow-x: hidden;
-font-family: ‘Nunito’, ‘Helvetica Neue’, Arial, sans-serif;
-background: #0a0a0a;
-color: #f0f0f0;
-min-height: 100vh;
-padding-bottom: 106px;
-max-width: 480px;
-margin: 0 auto;
-}
-
-header {
-background: #c8102e;
-position: sticky;
-top: 0;
-z-index: 200;
-box-shadow: 0 2px 18px rgba(0,0,0,0.45);
-}
-
-.header-main {
-display: flex;
-align-items: center;
-justify-content: space-between;
-padding: 9px 14px 6px;
-}
-
-.brand {
-display: flex;
-align-items: center;
-gap: 8px;
-}
-
-.brand-emoji {
-font-size: 1.7rem;
-line-height: 1;
-}
-
-.brand-name {
-font-family: ‘Bangers’, ‘Arial Black’, Impact, cursive;
-font-size: 1.6rem;
-color: #FFD700;
-letter-spacing: 2px;
-text-shadow: 2px 3px 0 rgba(0,0,0,0.35);
-line-height: 1;
-}
-
-.brand-sub {
-font-size: 0.46rem;
-color: rgba(255,255,255,0.65);
-letter-spacing: 3px;
-font-weight: 700;
-text-transform: uppercase;
-margin-top: 2px;
-}
-
-.halal-badge {
-background: #FFD700;
-color: #8b0a1f;
-font-size: 0.62rem;
-font-weight: 900;
-padding: 5px 10px;
-border-radius: 20px;
-letter-spacing: 1px;
-white-space: nowrap;
-}
-
-.nav-tabs {
-display: flex;
-overflow-x: auto;
-gap: 6px;
-padding: 0 10px 8px;
-scrollbar-width: none;
-}
-
-.nav-tabs::-webkit-scrollbar {
-display: none;
-}
-
-.tab-btn {
-white-space: nowrap;
-border: none;
-cursor: pointer;
-padding: 7px 14px;
-border-radius: 18px;
-font-family: ‘Nunito’, ‘Helvetica Neue’, Arial, sans-serif;
-font-weight: 800;
-font-size: 0.72rem;
-transition: all 0.2s;
-background: rgba(255,255,255,0.13);
-color: rgba(255,255,255,0.78);
-}
-
-.tab-btn.active {
-background: #FFD700;
-color: #8b0a1f;
-}
-
-.hero {
-background: linear-gradient(160deg, #8b0a1f 0%, #c8102e 72%);
-padding: 16px 14px 18px;
-text-align: center;
-position: relative;
-overflow: hidden;
-}
-
-.hero::before {
-content: ‘🍔🍟🌭🥙’;
-position: absolute;
-font-size: 4.2rem;
-opacity: 0.045;
-top: -12px;
-right: -10px;
-}
-
-.hero h2 {
-font-family: ‘Bangers’, ‘Arial Black’, Impact, cursive;
-font-size: 1.12rem;
-color: #FFD700;
-letter-spacing: 2px;
-margin-bottom: 2px;
-line-height: 1.05;
-}
-
-.hero p {
-color: rgba(255,255,255,0.83);
-font-size: 0.72rem;
-font-weight: 700;
-line-height: 1.2;
-}
-
-.hero-hours {
-display: inline-flex;
-gap: 10px;
-margin-top: 8px;
-background: rgba(0,0,0,0.28);
-border-radius: 18px;
-padding: 5px 12px;
-border: 1px solid rgba(255,255,255,0.08);
-flex-wrap: wrap;
-justify-content: center;
-}
-
-.hero-hours span {
-color: #FFD700;
-font-size: 0.66rem;
-font-weight: 800;
-white-space: nowrap;
-}
-
-.search-wrap {
-padding: 10px 10px 6px;
-background: #0a0a0a;
-position: sticky;
-top: 96px;
-z-index: 180;
-}
-
-.search-box {
-position: relative;
-}
-
-.search-input {
-width: 100%;
-background: #1a1a1a;
-border: 1.5px solid #2a2a2a;
-color: #f0f0f0;
-border-radius: 14px;
-padding: 12px 42px 12px 14px;
-font-size: 0.86rem;
-font-family: ‘Nunito’, ‘Helvetica Neue’, Arial, sans-serif;
-outline: none;
-}
-
-.search-input:focus {
-border-color: #c8102e;
-}
-
-.search-clear {
-position: absolute;
-right: 8px;
-top: 50%;
-transform: translateY(-50%);
-border: none;
-background: transparent;
-color: #888;
-font-size: 1rem;
-width: 28px;
-height: 28px;
-cursor: pointer;
-display: none;
-border-radius: 50%;
-}
-
-.search-clear.visible {
-display: flex;
-align-items: center;
-justify-content: center;
-}
-
-.search-results-info {
-padding: 2px 14px 6px;
-font-size: 0.72rem;
-color: #888;
-font-weight: 700;
-display: none;
-}
-
-.search-results-info.visible {
-display: block;
-}
-
-.section {
-display: none;
-}
-
-.section.active {
-display: block;
-animation: fadeIn 0.18s ease;
-}
-
-@keyframes fadeIn {
-from { opacity: 0; transform: translateY(4px); }
-to { opacity: 1; transform: translateY(0); }
-}
-
-.section-title {
-display: flex;
-align-items: center;
-gap: 8px;
-padding: 16px 14px 10px;
-font-family: ‘Bangers’, ‘Arial Black’, Impact, cursive;
-font-size: 1.3rem;
-color: #FFD700;
-letter-spacing: 2px;
-}
-
-.deals-grid {
-display: grid;
-grid-template-columns: 1fr 1fr;
-gap: 10px;
-padding: 0 10px 10px;
-}
-
-.deal-card {
-background: #1a1a1a;
-border-radius: 16px;
-border: 1.5px solid #2a2a2a;
-overflow: hidden;
-cursor: pointer;
-transition: transform 0.15s, box-shadow 0.15s;
-}
-
-.deal-card:active {
-transform: scale(0.97);
-}
-
-.deal-card.hidden,
-.item-row.hidden {
-display: none !important;
-}
-
-.deal-header {
-background: #c8102e;
-color: white;
-text-align: center;
-padding: 6px;
-font-family: ‘Bangers’, ‘Arial Black’, Impact, cursive;
-font-size: 0.95rem;
-letter-spacing: 1px;
-}
-
-.deal-img {
-width: 100%;
-height: 82px;
-object-fit: cover;
-display: block;
-}
-
-.deal-name {
-text-align: center;
-padding: 6px 8px 0;
-font-weight: 800;
-font-size: 0.74rem;
-color: #f0f0f0;
-line-height: 1.25;
-}
-
-.deal-price {
-background: #FFD700;
-color: #8b0a1f;
-text-align: center;
-margin: 6px 8px;
-border-radius: 8px;
-padding: 4px;
-font-family: ‘Bangers’, ‘Arial Black’, Impact, cursive;
-font-size: 1.2rem;
-}
-
-.deal-add-btn {
-width: calc(100% - 16px);
-margin: 0 8px 10px;
-background: #c8102e;
-color: white;
-border: none;
-border-radius: 10px;
-padding: 8px;
-font-weight: 800;
-font-size: 0.78rem;
-cursor: pointer;
-transition: background 0.2s;
-font-family: ‘Nunito’, ‘Helvetica Neue’, Arial, sans-serif;
-}
-
-.deal-add-btn:active {
-background: #8b0a1f;
-}
-
-.items-list {
-padding: 0 10px 10px;
-display: flex;
-flex-direction: column;
-gap: 8px;
-}
-
-.item-row {
-background: #1a1a1a;
-border-radius: 16px;
-display: flex;
-align-items: center;
-justify-content: space-between;
-padding: 11px 14px;
-border: 1px solid #252525;
-transition: all 0.15s;
-box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-gap: 8px;
-}
-
-.item-row:active {
-border-color: #c8102e;
-background: #1f1010;
-transform: scale(0.99);
-}
-
-.item-left {
-display: flex;
-align-items: center;
-gap: 12px;
-flex: 1;
-min-width: 0;
-}
-
-.item-img {
-width: 50px;
-height: 50px;
-border-radius: 14px;
-object-fit: cover;
-flex-shrink: 0;
-display: block;
-}
-
-.item-info {
-flex: 1;
-min-width: 0;
-}
-
-.item-name {
-font-weight: 800;
-font-size: 0.85rem;
-color: #f5f5f5;
-line-height: 1.2;
-letter-spacing: 0.2px;
-}
-
-.item-right {
-display: flex;
-align-items: center;
-gap: 8px;
-flex-shrink: 0;
-}
-
-.item-price {
-font-family: ‘Bangers’, ‘Arial Black’, Impact, cursive;
-font-size: 1.15rem;
-color: #FFD700;
-min-width: 42px;
-text-align: right;
-text-shadow: 0 1px 4px rgba(255,215,0,0.2);
-}
-
-.add-btn {
-width: 33px;
-height: 33px;
-border-radius: 50%;
-background: #c8102e;
-color: white;
-border: none;
-font-size: 1.25rem;
-cursor: pointer;
-display: flex;
-align-items: center;
-justify-content: center;
-font-weight: 900;
-transition: transform 0.1s, background 0.2s;
-flex-shrink: 0;
-position: relative;
-}
-.add-btn .btn-badge {
-position: absolute;
-top: -6px;
-right: -6px;
-background: #FFD700;
-color: #8b0a1f;
-font-size: 0.55rem;
-font-weight: 900;
-width: 16px;
-height: 16px;
-border-radius: 50%;
-display: flex;
-align-items: center;
-justify-content: center;
-line-height: 1;
-}
-
-.add-btn:active {
-transform: scale(0.88);
-background: #8b0a1f;
-}
-
-.empty-search {
-display: none;
-margin: 6px 10px 12px;
-padding: 16px;
-border-radius: 14px;
-background: #1a1a1a;
-border: 1.5px solid #2a2a2a;
-text-align: center;
-color: #888;
-font-size: 0.84rem;
-font-weight: 700;
-}
-
-.empty-search.visible {
-display: block;
-}
-
-.modal-overlay {
-display: none;
-position: fixed;
-inset: 0;
-background: rgba(0,0,0,0.7);
-z-index: 500;
-align-items: flex-end;
-justify-content: center;
-backdrop-filter: blur(2px);
-padding-top: 0;
-}
-
-.modal-overlay.open {
-display: flex;
-}
-
-.modal {
-background: #141414;
-border-radius: 28px 28px 0 0;
-width: 100%;
-max-width: 480px;
-max-height: 88vh;
-max-height: 88dvh;
-overflow-y: auto;
--webkit-overflow-scrolling: touch;
-overscroll-behavior: contain;
-padding: 18px 14px 34px;
-animation: slideUp 0.25s cubic-bezier(0.34,1.2,0.64,1);
-}
-
-@keyframes slideUp {
-from { transform: translateY(100%); }
-to { transform: translateY(0); }
-}
-
-.modal-header {
-display: flex;
-align-items: flex-start;
-justify-content: space-between;
-margin-bottom: 6px;
-gap: 12px;
-position: sticky;
-top: 0;
-background: #1a1a1a;
-z-index: 10;
-padding: 4px 0 10px 0;
-}
-
-.modal-title {
-font-family: ‘Bangers’, ‘Arial Black’, Impact, cursive;
-font-size: 1.4rem;
-color: #FFD700;
-letter-spacing: 1px;
-line-height: 1.1;
-flex: 1;
-min-width: 0;
-overflow: hidden;
-text-overflow: ellipsis;
-white-space: nowrap;
-}
-
-.modal-subtitle {
-font-size: 0.78rem;
-color: #888;
-font-weight: 700;
-margin-bottom: 16px;
-}
-
-.modal-close {
-background: #222;
-border: none;
-border-radius: 50%;
-width: 38px;
-height: 38px;
-min-width: 38px;
-font-size: 1.1rem;
-cursor: pointer;
-display: flex;
-align-items: center;
-justify-content: center;
-font-weight: 900;
-color: #f0f0f0;
-flex-shrink: 0;
-margin-top: 2px;
-}
-
-.custom-group {
-margin-bottom: 18px;
-}
-
-.custom-group-title {
-font-weight: 900;
-font-size: 0.78rem;
-color: #c8102e;
-text-transform: uppercase;
-letter-spacing: 1px;
-margin-bottom: 8px;
-padding-bottom: 6px;
-border-bottom: 1px solid #2a2a2a;
-}
-
-.custom-group-subtitle {
-font-size: 0.68rem;
-color: #888;
-font-weight: 600;
-margin-bottom: 10px;
-}
-
-.options-grid {
-display: flex;
-flex-direction: column;
-gap: 6px;
-}
-
-.option-row {
-display: flex;
-align-items: center;
-justify-content: space-between;
-padding: 10px 11px;
-border-radius: 10px;
-border: 1.5px solid #2a2a2a;
-cursor: pointer;
-transition: all 0.15s;
-background: #222;
-gap: 8px;
-}
-
-.option-row.selected {
-border-color: #c8102e;
-background: #2a1010;
-}
-
-.option-row.selected .option-check {
-background: #c8102e;
-border-color: #c8102e;
-color: white;
-}
-
-.option-left {
-display: flex;
-align-items: center;
-gap: 10px;
-min-width: 0;
-}
-
-.option-check {
-width: 22px;
-height: 22px;
-border-radius: 6px;
-border: 2px solid #444;
-display: flex;
-align-items: center;
-justify-content: center;
-font-size: 0.75rem;
-flex-shrink: 0;
-transition: all 0.15s;
-color: transparent;
-}
-
-.option-name {
-font-weight: 700;
-font-size: 0.82rem;
-color: #f0f0f0;
-line-height: 1.2;
-}
-
-.option-price {
-font-weight: 800;
-font-size: 0.76rem;
-color: #c8102e;
-flex-shrink: 0;
-}
-
-.option-price.free {
-color: #888;
-font-weight: 600;
-}
-
-.modal-footer {
-margin-top: 18px;
-}
-
-.qty-row {
-display: flex;
-align-items: center;
-justify-content: center;
-gap: 18px;
-margin-bottom: 12px;
-}
-
-.qty-btn-big {
-width: 40px;
-height: 40px;
-border-radius: 50%;
-border: 2px solid #c8102e;
-background: transparent;
-color: #c8102e;
-font-size: 1.3rem;
-font-weight: 900;
-cursor: pointer;
-display: flex;
-align-items: center;
-justify-content: center;
-transition: all 0.15s;
-}
-
-.qty-btn-big:active {
-background: #c8102e;
-color: white;
-}
-
-.qty-display {
-font-family: ‘Bangers’, ‘Arial Black’, Impact, cursive;
-font-size: 1.9rem;
-min-width: 40px;
-text-align: center;
-color: #f0f0f0;
-}
-
-.modal-add-btn {
-width: 100%;
-background: #c8102e;
-color: white;
-border: none;
-border-radius: 14px;
-padding: 14px;
-font-family: ‘Bangers’, ‘Arial Black’, Impact, cursive;
-font-size: 1.2rem;
-letter-spacing: 2px;
-cursor: pointer;
-display: flex;
-align-items: center;
-justify-content: center;
-gap: 8px;
-transition: background 0.2s;
-}
-
-.modal-add-btn:active {
-background: #8b0a1f;
-}
-
-.cart-bar {
-position: fixed;
-bottom: 0;
-left: 50%;
-transform: translateX(-50%);
-width: 100%;
-max-width: 480px;
-background: #141414;
-border-top: 1px solid #222;
-padding: 10px 14px 14px;
-box-shadow: 0 -12px 40px rgba(0,0,0,0.5);
-z-index: 300;
-display: none;
-}
-
-.cart-bar.visible {
-display: block;
-animation: slideUp 0.2s ease;
-}
-
-.cart-summary {
-display: flex;
-align-items: center;
-justify-content: space-between;
-margin-bottom: 8px;
-gap: 8px;
-}
-
-.cart-count {
-font-weight: 800;
-color: #888;
-font-size: 0.8rem;
-}
-
-.cart-count span {
-color: #FFD700;
-}
-
-.cart-total {
-font-family: ‘Bangers’, ‘Arial Black’, Impact, cursive;
-font-size: 1.35rem;
-color: #FFD700;
-line-height: 1;
-}
-
-.order-btn {
-width: 100%;
-padding: 12px;
-background: #c8102e;
-color: white;
-border: none;
-border-radius: 14px;
-font-family: ‘Bangers’, ‘Arial Black’, Impact, cursive;
-font-size: 1.12rem;
-letter-spacing: 2px;
-cursor: pointer;
-display: flex;
-align-items: center;
-justify-content: center;
-gap: 8px;
-}
-
-.order-btn:active {
-background: #8b0a1f;
-}
-
-#cartModal .modal-title {
-font-size: 1.5rem;
-}
-
-.cart-item-row {
-display: flex;
-align-items: flex-start;
-justify-content: space-between;
-padding: 11px 0;
-border-bottom: 1px solid #2a2a2a;
-gap: 8px;
-}
-
-.cart-item-info {
-flex: 1;
-min-width: 0;
-}
-
-.cart-item-name {
-font-weight: 800;
-font-size: 0.84rem;
-color: #f0f0f0;
-line-height: 1.2;
-}
-
-.cart-item-customise {
-font-size: 0.68rem;
-color: #888;
-margin-top: 3px;
-line-height: 1.45;
-}
-
-.cart-item-controls {
-display: flex;
-align-items: center;
-gap: 8px;
-flex-shrink: 0;
-}
-
-.qty-btn {
-width: 28px;
-height: 28px;
-border-radius: 50%;
-border: 2px solid #c8102e;
-background: transparent;
-color: #c8102e;
-font-size: 0.9rem;
-font-weight: 900;
-cursor: pointer;
-display: flex;
-align-items: center;
-justify-content: center;
-}
-
-.qty-num {
-font-weight: 900;
-font-size: 0.88rem;
-min-width: 20px;
-text-align: center;
-color: #f0f0f0;
-}
-
-.cart-item-price {
-font-family: ‘Bangers’, ‘Arial Black’, Impact, cursive;
-font-size: 1.02rem;
-color: #FFD700;
-min-width: 48px;
-text-align: right;
-flex-shrink: 0;
-}
-
-.remove-btn {
-width: 28px;
-height: 28px;
-border-radius: 50%;
-border: none;
-background: #2b0f14;
-color: #ff8fa1;
-font-size: 0.95rem;
-font-weight: 900;
-cursor: pointer;
-display: flex;
-align-items: center;
-justify-content: center;
-flex-shrink: 0;
-}
-
-.modal-total {
-display: flex;
-justify-content: space-between;
-align-items: center;
-padding: 14px 0 0;
-margin-top: 8px;
-border-top: 1px solid #2a2a2a;
-}
-
-.modal-total-label {
-font-weight: 900;
-font-size: 0.96rem;
-color: #f0f0f0;
-}
-
-.modal-total-price {
-font-family: ‘Bangers’, ‘Arial Black’, Impact, cursive;
-font-size: 2rem;
-color: #FFD700;
-line-height: 1;
-}
-
-.note-input {
-width: 100%;
-margin-top: 12px;
-border: 1.5px solid #2a2a2a;
-border-radius: 12px;
-padding: 10px 12px;
-font-family: ‘Nunito’, ‘Helvetica Neue’, Arial, sans-serif;
-font-size: 0.82rem;
-outline: none;
-resize: none;
-color: #f0f0f0;
-background: #222;
-}
-
-.note-input:focus {
-border-color: #c8102e;
-}
-
-.whatsapp-btn {
-width: 100%;
-margin-top: 12px;
-background: #25D366;
-color: white;
-border: none;
-border-radius: 14px;
-padding: 14px;
-font-family: ‘Bangers’, ‘Arial Black’, Impact, cursive;
-font-size: 1.18rem;
-letter-spacing: 1px;
-cursor: pointer;
-display: flex;
-align-items: center;
-justify-content: center;
-gap: 10px;
-}
-
-.call-btn {
-width: 100%;
-margin-top: 8px;
-background: transparent;
-color: #c8102e;
-border: 2px solid #c8102e;
-border-radius: 14px;
-padding: 12px;
-font-family: ‘Bangers’, ‘Arial Black’, Impact, cursive;
-font-size: 1.08rem;
-letter-spacing: 1px;
-cursor: pointer;
-display: flex;
-align-items: center;
-justify-content: center;
-gap: 10px;
-}
-
-.empty-cart {
-text-align: center;
-padding: 28px 0;
-color: #888;
-font-size: 0.88rem;
-}
-
-.empty-cart .big {
-font-size: 2.7rem;
-display: block;
-margin-bottom: 8px;
-}
-
-.info-card {
-background: #1a1a1a;
-border-radius: 16px;
-margin: 0 10px 10px;
-padding: 14px;
-border: 1.5px solid #2a2a2a;
-}
-
-.info-card h3 {
-font-weight: 900;
-font-size: 0.88rem;
-color: #c8102e;
-margin-bottom: 8px;
-}
-
-.info-row {
-display: flex;
-align-items: center;
-gap: 10px;
-padding: 8px 0;
-border-bottom: 1px solid #2a2a2a;
-}
-
-.info-row:last-child {
-border-bottom: none;
-}
-
-.info-icon {
-font-size: 1.1rem;
-}
-
-.info-text {
-font-size: 0.82rem;
-font-weight: 700;
-color: #f0f0f0;
-line-height: 1.2;
-}
-
-.info-text .sub {
-font-weight: 400;
-color: #888;
-font-size: 0.73rem;
-display: block;
-margin-top: 2px;
-}
-
-.big-call-btn {
-display: flex;
-align-items: center;
-justify-content: center;
-background: #c8102e;
-color: white;
-text-decoration: none;
-border-radius: 14px;
-padding: 14px;
-margin: 0 10px 10px;
-font-family: ‘Bangers’, ‘Arial Black’, Impact, cursive;
-font-size: 1.2rem;
-letter-spacing: 2px;
-}
-
-.map-btn {
-display: flex;
-align-items: center;
-justify-content: center;
-background: transparent;
-color: #c8102e;
-border: 2px solid #c8102e;
-text-decoration: none;
-border-radius: 14px;
-padding: 12px;
-margin: 0 10px 10px;
-font-family: ‘Bangers’, ‘Arial Black’, Impact, cursive;
-font-size: 1.04rem;
-letter-spacing: 1px;
-}
-
-@media (max-width: 360px) {
-body { padding-bottom: 102px; }
-.search-wrap { top: 94px; }
-.brand-name { font-size: 1.42rem; }
-.hero h2 { font-size: 1rem; }
-.hero-hours { gap: 8px; padding: 5px 10px; }
-.deals-grid { gap: 8px; }
-.deal-img { height: 76px; }
-.order-btn { font-size: 1rem; }
-}
-
-.popular-badge {
-display: inline-block;
-background: #FF6B00;
-color: white;
-font-size: 0.58rem;
-font-weight: 900;
-padding: 2px 7px;
-border-radius: 20px;
-letter-spacing: 1px;
-text-transform: uppercase;
-margin-left: 6px;
-vertical-align: middle;
-}
-
-.deal-popular {
-position: absolute;
-top: 8px;
-left: 8px;
-background: #FF6B00;
-color: white;
-font-size: 0.58rem;
-font-weight: 900;
-padding: 3px 8px;
-border-radius: 20px;
-letter-spacing: 1px;
-text-transform: uppercase;
-z-index: 2;
-}
-
-.deal-card {
-position: relative;
-}
-
-/* Deal card hover/active effect */
-.deal-card:active {
-transform: scale(0.96);
-box-shadow: 0 0 0 2px rgba(255,215,0,0.5);
-}
-
-/* Open/Closed indicator */
-.open-status {
-display: inline-flex;
-align-items: center;
-gap: 5px;
-font-size: 0.68rem;
-font-weight: 800;
-padding: 4px 10px;
-border-radius: 20px;
-margin-top: 6px;
-}
-.open-status.open {
-background: rgba(0,200,80,0.2);
-color: #00c850;
-border: 1px solid rgba(0,200,80,0.3);
-}
-.open-status.closed {
-background: rgba(200,16,46,0.2);
-color: #ff6b6b;
-border: 1px solid rgba(200,16,46,0.3);
-}
-.open-dot {
-width: 7px;
-height: 7px;
-border-radius: 50%;
-background: currentColor;
-}
+* { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+html { overflow-x:hidden; }
+body { overflow-x:hidden; font-family:'Nunito','Helvetica Neue',Arial,sans-serif; background:#0a0a0a; color:#f0f0f0; min-height:100vh; padding-bottom:106px; max-width:480px; margin:0 auto; }
+header { background:#c8102e; position:sticky; top:0; z-index:200; box-shadow:0 2px 18px rgba(0,0,0,0.45); }
+.header-main { display:flex; align-items:center; justify-content:space-between; padding:9px 14px 6px; }
+.brand { display:flex; align-items:center; gap:8px; }
+.brand-emoji { font-size:1.7rem; line-height:1; }
+.brand-name { font-family:'Bangers','Arial Black',Impact,cursive; font-size:1.6rem; color:#FFD700; letter-spacing:2px; text-shadow:2px 3px 0 rgba(0,0,0,0.35); line-height:1; }
+.brand-sub { font-size:0.46rem; color:rgba(255,255,255,0.65); letter-spacing:3px; font-weight:700; text-transform:uppercase; margin-top:2px; }
+.halal-badge { background:#FFD700; color:#8b0a1f; font-size:0.62rem; font-weight:900; padding:5px 10px; border-radius:20px; letter-spacing:1px; white-space:nowrap; }
+.nav-tabs { display:flex; overflow-x:auto; gap:6px; padding:0 10px 8px; scrollbar-width:none; }
+.nav-tabs::-webkit-scrollbar { display:none; }
+.tab-btn { white-space:nowrap; border:none; cursor:pointer; padding:7px 14px; border-radius:18px; font-family:'Nunito','Helvetica Neue',Arial,sans-serif; font-weight:800; font-size:0.72rem; transition:all 0.2s; background:rgba(255,255,255,0.13); color:rgba(255,255,255,0.78); }
+.tab-btn.active { background:#FFD700; color:#8b0a1f; }
+.hero { background:linear-gradient(160deg,#8b0a1f 0%,#c8102e 72%); padding:16px 14px 18px; text-align:center; position:relative; overflow:hidden; }
+.hero::before { content:'🍔🍟🌭🥙'; position:absolute; font-size:4.2rem; opacity:0.045; top:-12px; right:-10px; }
+.hero h2 { font-family:'Bangers','Arial Black',Impact,cursive; font-size:1.12rem; color:#FFD700; letter-spacing:2px; margin-bottom:2px; line-height:1.05; }
+.hero p { color:rgba(255,255,255,0.83); font-size:0.72rem; font-weight:700; line-height:1.2; }
+.hero-hours { display:inline-flex; gap:10px; margin-top:8px; background:rgba(0,0,0,0.28); border-radius:18px; padding:5px 12px; border:1px solid rgba(255,255,255,0.08); flex-wrap:wrap; justify-content:center; }
+.hero-hours span { color:#FFD700; font-size:0.66rem; font-weight:800; white-space:nowrap; }
+.open-status { display:inline-flex; align-items:center; gap:5px; font-size:0.68rem; font-weight:800; padding:4px 10px; border-radius:20px; margin-top:6px; }
+.open-status.open { background:rgba(0,200,80,0.2); color:#00c850; border:1px solid rgba(0,200,80,0.3); }
+.open-status.closed { background:rgba(200,16,46,0.2); color:#ff6b6b; border:1px solid rgba(200,16,46,0.3); }
+.open-dot { width:7px; height:7px; border-radius:50%; background:currentColor; }
+.search-wrap { padding:10px 10px 6px; background:#0a0a0a; position:sticky; top:96px; z-index:180; }
+.search-box { position:relative; }
+.search-input { width:100%; background:#1a1a1a; border:1.5px solid #2a2a2a; color:#f0f0f0; border-radius:14px; padding:12px 42px 12px 14px; font-size:0.86rem; font-family:'Nunito','Helvetica Neue',Arial,sans-serif; outline:none; }
+.search-input:focus { border-color:#c8102e; }
+.search-clear { position:absolute; right:8px; top:50%; transform:translateY(-50%); border:none; background:transparent; color:#888; font-size:1rem; width:28px; height:28px; cursor:pointer; display:none; border-radius:50%; }
+.search-clear.visible { display:flex; align-items:center; justify-content:center; }
+.search-results-info { padding:2px 14px 6px; font-size:0.72rem; color:#888; font-weight:700; display:none; }
+.search-results-info.visible { display:block; }
+.section { display:none; }
+.section.active { display:block; animation:fadeIn 0.18s ease; }
+@keyframes fadeIn { from{opacity:0;transform:translateY(4px)} to{opacity:1;transform:translateY(0)} }
+.section-title { display:flex; align-items:center; gap:8px; padding:16px 14px 10px; font-family:'Bangers','Arial Black',Impact,cursive; font-size:1.3rem; color:#FFD700; letter-spacing:2px; }
+.deals-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; padding:0 10px 10px; }
+.deal-card { background:#1a1a1a; border-radius:18px; border:1px solid #252525; overflow:hidden; cursor:pointer; transition:all 0.2s; box-shadow:0 4px 16px rgba(0,0,0,0.3); position:relative; }
+.deal-card:active { transform:scale(0.96); box-shadow:0 0 0 2px rgba(255,215,0,0.5); }
+.deal-card.hidden, .item-row.hidden { display:none !important; }
+.deal-popular { position:absolute; top:8px; left:8px; background:#FF6B00; color:white; font-size:0.58rem; font-weight:900; padding:3px 8px; border-radius:20px; letter-spacing:1px; text-transform:uppercase; z-index:2; }
+.deal-header { background:#c8102e; color:white; text-align:center; padding:6px; font-family:'Bangers','Arial Black',Impact,cursive; font-size:0.95rem; letter-spacing:1px; }
+.deal-img { width:100%; height:82px; object-fit:cover; display:block; }
+.deal-name { text-align:center; padding:6px 8px 0; font-weight:800; font-size:0.74rem; color:#f0f0f0; line-height:1.25; }
+.deal-price { background:#FFD700; color:#8b0a1f; text-align:center; margin:6px 8px; border-radius:8px; padding:4px; font-family:'Bangers','Arial Black',Impact,cursive; font-size:1.2rem; }
+.deal-add-btn { width:calc(100% - 16px); margin:0 8px 10px; background:#c8102e; color:white; border:none; border-radius:10px; padding:8px; font-weight:800; font-size:0.78rem; cursor:pointer; transition:background 0.2s; font-family:'Nunito','Helvetica Neue',Arial,sans-serif; position:relative; }
+.deal-add-btn:active { background:#8b0a1f; }
+.items-list { padding:0 10px 10px; display:flex; flex-direction:column; gap:8px; }
+.item-row { background:#1a1a1a; border-radius:16px; display:flex; align-items:center; justify-content:space-between; padding:11px 14px; border:1px solid #252525; transition:all 0.15s; box-shadow:0 2px 8px rgba(0,0,0,0.2); gap:8px; }
+.item-row:active { border-color:#c8102e; background:#1f1010; transform:scale(0.99); }
+.item-left { display:flex; align-items:center; gap:12px; flex:1; min-width:0; }
+.item-img { width:50px; height:50px; border-radius:14px; object-fit:cover; flex-shrink:0; display:block; }
+.item-info { flex:1; min-width:0; }
+.item-name { font-weight:800; font-size:0.85rem; color:#f5f5f5; line-height:1.2; letter-spacing:0.2px; }
+.item-right { display:flex; align-items:center; gap:8px; flex-shrink:0; }
+.item-price { font-family:'Bangers','Arial Black',Impact,cursive; font-size:1.15rem; color:#FFD700; min-width:42px; text-align:right; text-shadow:0 1px 4px rgba(255,215,0,0.2); }
+.add-btn { width:33px; height:33px; border-radius:50%; background:#c8102e; color:white; border:none; font-size:1.25rem; cursor:pointer; display:flex; align-items:center; justify-content:center; font-weight:900; transition:transform 0.1s,background 0.2s; flex-shrink:0; position:relative; }
+.add-btn:active { transform:scale(0.88); background:#8b0a1f; }
+.btn-badge { position:absolute; top:-6px; right:-6px; background:#FFD700; color:#8b0a1f; font-size:0.55rem; font-weight:900; width:16px; height:16px; border-radius:50%; display:flex; align-items:center; justify-content:center; line-height:1; }
+.popular-badge { display:inline-block; background:#FF6B00; color:white; font-size:0.58rem; font-weight:900; padding:2px 7px; border-radius:20px; letter-spacing:1px; text-transform:uppercase; margin-left:6px; vertical-align:middle; }
+.empty-search { display:none; margin:6px 10px 12px; padding:16px; border-radius:14px; background:#1a1a1a; border:1.5px solid #2a2a2a; text-align:center; color:#888; font-size:0.84rem; font-weight:700; }
+.empty-search.visible { display:block; }
+.modal-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.7); z-index:500; align-items:flex-end; justify-content:center; backdrop-filter:blur(2px); }
+.modal-overlay.open { display:flex; }
+.modal { background:#141414; border-radius:28px 28px 0 0; width:100%; max-width:480px; max-height:88vh; max-height:88dvh; overflow-y:auto; -webkit-overflow-scrolling:touch; overscroll-behavior:contain; padding:18px 14px 34px; animation:slideUp 0.25s cubic-bezier(0.34,1.2,0.64,1); }
+@keyframes slideUp { from{transform:translateY(100%)} to{transform:translateY(0)} }
+.modal-header { display:flex; align-items:flex-start; justify-content:space-between; margin-bottom:6px; gap:12px; position:sticky; top:0; background:#141414; z-index:10; padding:4px 0 10px 0; }
+.modal-title { font-family:'Bangers','Arial Black',Impact,cursive; font-size:1.4rem; color:#FFD700; letter-spacing:1px; line-height:1.1; flex:1; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.modal-subtitle { font-size:0.78rem; color:#888; font-weight:700; margin-bottom:16px; }
+.modal-close { background:#222; border:none; border-radius:50%; width:38px; height:38px; min-width:38px; font-size:1.1rem; cursor:pointer; display:flex; align-items:center; justify-content:center; font-weight:900; color:#f0f0f0; flex-shrink:0; margin-top:2px; }
+
+/* ACCORDION */
+.acc-group { margin-bottom:10px; }
+.acc-header { display:flex; align-items:center; justify-content:space-between; padding:12px 14px; background:#222; border-radius:12px; cursor:pointer; border:1.5px solid #2a2a2a; user-select:none; transition:background 0.15s; }
+.acc-header:active { background:#2a1010; }
+.acc-header-left { display:flex; align-items:center; gap:8px; font-weight:900; font-size:0.82rem; color:#f0f0f0; text-transform:uppercase; letter-spacing:0.5px; }
+.acc-header-right { display:flex; align-items:center; gap:8px; }
+.acc-count { background:#c8102e; color:white; font-size:0.6rem; font-weight:900; padding:2px 7px; border-radius:20px; display:none; }
+.acc-count.visible { display:inline-block; }
+.acc-arrow { color:#888; font-size:0.7rem; transition:transform 0.2s; }
+.acc-arrow.open { transform:rotate(180deg); }
+.acc-body { display:none; padding:10px 0 4px 0; }
+.acc-body.open { display:block; }
+.acc-subtitle { font-size:0.68rem; color:#888; font-weight:600; margin-bottom:8px; }
+.acc-required { font-size:0.65rem; color:#FF6B00; font-weight:800; margin-left:4px; }
+
+.options-grid { display:flex; flex-direction:column; gap:6px; }
+.option-row { display:flex; align-items:center; justify-content:space-between; padding:10px 11px; border-radius:10px; border:1.5px solid #2a2a2a; cursor:pointer; transition:all 0.15s; background:#222; gap:8px; }
+.option-row.selected { border-color:#c8102e; background:#2a1010; }
+.option-row.selected .option-check { background:#c8102e; border-color:#c8102e; color:white; }
+.option-left { display:flex; align-items:center; gap:10px; min-width:0; }
+.option-check { width:22px; height:22px; border-radius:6px; border:2px solid #444; display:flex; align-items:center; justify-content:center; font-size:0.75rem; flex-shrink:0; transition:all 0.15s; color:transparent; }
+.option-name { font-weight:700; font-size:0.82rem; color:#f0f0f0; line-height:1.2; }
+.option-price { font-weight:800; font-size:0.76rem; color:#c8102e; flex-shrink:0; }
+.option-price.free { color:#888; font-weight:600; }
+
+.modal-footer { margin-top:18px; }
+.qty-row { display:flex; align-items:center; justify-content:center; gap:18px; margin-bottom:12px; }
+.qty-btn-big { width:40px; height:40px; border-radius:50%; border:2px solid #c8102e; background:transparent; color:#c8102e; font-size:1.3rem; font-weight:900; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all 0.15s; }
+.qty-btn-big:active { background:#c8102e; color:white; }
+.qty-display { font-family:‘Bangers’,‘Arial Black’,Impact,cursive; font-size:1.9rem; min-width:40px; text-align:center; color:#f0f0f0; }
+.modal-add-btn { width:100%; background:#c8102e; color:white; border:none; border-radius:14px; padding:14px; font-family:‘Bangers’,‘Arial Black’,Impact,cursive; font-size:1.2rem; letter-spacing:2px; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:8px; transition:background 0.2s; }
+.modal-add-btn:active { background:#8b0a1f; }
+.cart-bar { position:fixed; bottom:0; left:50%; transform:translateX(-50%); width:100%; max-width:480px; background:#141414; border-top:1px solid #222; padding:10px 14px 14px; box-shadow:0 -12px 40px rgba(0,0,0,0.5); z-index:300; display:none; }
+.cart-bar.visible { display:block; animation:slideUp 0.2s ease; }
+.cart-summary { display:flex; align-items:center; justify-content:space-between; margin-bottom:8px; gap:8px; }
+.cart-count { font-weight:800; color:#888; font-size:0.8rem; }
+.cart-count span { color:#FFD700; }
+.cart-total { font-family:‘Bangers’,‘Arial Black’,Impact,cursive; font-size:1.35rem; color:#FFD700; line-height:1; }
+.order-btn { width:100%; padding:12px; background:#c8102e; color:white; border:none; border-radius:14px; font-family:‘Bangers’,‘Arial Black’,Impact,cursive; font-size:1.12rem; letter-spacing:2px; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:8px; }
+.order-btn:active { background:#8b0a1f; }
+#cartModal .modal-title { font-size:1.5rem; }
+.cart-item-row { display:flex; align-items:flex-start; justify-content:space-between; padding:11px 0; border-bottom:1px solid #2a2a2a; gap:8px; }
+.cart-item-info { flex:1; min-width:0; }
+.cart-item-name { font-weight:800; font-size:0.84rem; color:#f0f0f0; line-height:1.2; }
+.cart-item-customise { font-size:0.68rem; color:#888; margin-top:3px; line-height:1.45; }
+.cart-item-controls { display:flex; align-items:center; gap:8px; flex-shrink:0; }
+.qty-btn { width:28px; height:28px; border-radius:50%; border:2px solid #c8102e; background:transparent; color:#c8102e; font-size:0.9rem; font-weight:900; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+.qty-num { font-weight:900; font-size:0.88rem; min-width:20px; text-align:center; color:#f0f0f0; }
+.cart-item-price { font-family:‘Bangers’,‘Arial Black’,Impact,cursive; font-size:1.02rem; color:#FFD700; min-width:48px; text-align:right; flex-shrink:0; }
+.remove-btn { width:28px; height:28px; border-radius:50%; border:none; background:#2b0f14; color:#ff8fa1; font-size:0.95rem; font-weight:900; cursor:pointer; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.modal-total { display:flex; justify-content:space-between; align-items:center; padding:14px 0 0; margin-top:8px; border-top:1px solid #2a2a2a; }
+.modal-total-label { font-weight:900; font-size:0.96rem; color:#f0f0f0; }
+.modal-total-price { font-family:‘Bangers’,‘Arial Black’,Impact,cursive; font-size:2rem; color:#FFD700; line-height:1; }
+.note-input { width:100%; margin-top:12px; border:1.5px solid #2a2a2a; border-radius:12px; padding:10px 12px; font-family:‘Nunito’,‘Helvetica Neue’,Arial,sans-serif; font-size:0.82rem; outline:none; resize:none; color:#f0f0f0; background:#222; }
+.note-input:focus { border-color:#c8102e; }
+.whatsapp-btn { width:100%; margin-top:12px; background:#25D366; color:white; border:none; border-radius:14px; padding:14px; font-family:‘Bangers’,‘Arial Black’,Impact,cursive; font-size:1.18rem; letter-spacing:1px; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:10px; }
+.call-btn { width:100%; margin-top:8px; background:transparent; color:#c8102e; border:2px solid #c8102e; border-radius:14px; padding:12px; font-family:‘Bangers’,‘Arial Black’,Impact,cursive; font-size:1.08rem; letter-spacing:1px; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:10px; }
+.empty-cart { text-align:center; padding:28px 0; color:#888; font-size:0.88rem; }
+.empty-cart .big { font-size:2.7rem; display:block; margin-bottom:8px; }
+.info-card { background:#1a1a1a; border-radius:16px; margin:0 10px 10px; padding:14px; border:1.5px solid #2a2a2a; }
+.info-card h3 { font-weight:900; font-size:0.88rem; color:#c8102e; margin-bottom:8px; }
+.info-row { display:flex; align-items:center; gap:10px; padding:8px 0; border-bottom:1px solid #2a2a2a; }
+.info-row:last-child { border-bottom:none; }
+.info-icon { font-size:1.1rem; }
+.info-text { font-size:0.82rem; font-weight:700; color:#f0f0f0; line-height:1.2; }
+.info-text .sub { font-weight:400; color:#888; font-size:0.73rem; display:block; margin-top:2px; }
+.big-call-btn { display:flex; align-items:center; justify-content:center; background:#c8102e; color:white; text-decoration:none; border-radius:14px; padding:14px; margin:0 10px 10px; font-family:‘Bangers’,‘Arial Black’,Impact,cursive; font-size:1.2rem; letter-spacing:2px; }
+.map-btn { display:flex; align-items:center; justify-content:center; background:transparent; color:#c8102e; border:2px solid #c8102e; text-decoration:none; border-radius:14px; padding:12px; margin:0 10px 10px; font-family:‘Bangers’,‘Arial Black’,Impact,cursive; font-size:1.04rem; letter-spacing:1px; }
+@media (max-width:360px) { body{padding-bottom:102px} .search-wrap{top:94px} .brand-name{font-size:1.42rem} .hero h2{font-size:1rem} .deals-grid{gap:8px} .deal-img{height:76px} .order-btn{font-size:1rem} }
 </style>
 
 </head>
 <body>
 <header>
-    <div class="header-main">
-      <div class="brand">
-        <span class="brand-emoji">🍔</span>
-        <div>
-          <div class="brand-name">Er-Han BURGER</div>
-          <div class="brand-sub">Since 2013</div>
-        </div>
+  <div class="header-main">
+    <div class="brand">
+      <span class="brand-emoji">&#x1F354;</span>
+      <div>
+        <div class="brand-name">Er-Han BURGER</div>
+        <div class="brand-sub">Since 2013</div>
       </div>
-      <div class="halal-badge">☪ HALAL</div>
     </div>
-    <div class="nav-tabs">
-      <button class="tab-btn active" onclick="showSection('deals',this)">🔥 Meal Deals</button>
-      <button class="tab-btn" onclick="showSection('burgers',this)">🍔 Burgers</button>
-      <button class="tab-btn" onclick="showSection('kebab',this)">🥙 Kebab</button>
-      <button class="tab-btn" onclick="showSection('hotdog',this)">🌭 Hot Dogs</button>
-      <button class="tab-btn" onclick="showSection('sides',this)">🍟 Sides</button>
-      <button class="tab-btn" onclick="showSection('drinks',this)">🥤 Drinks</button>
-      <button class="tab-btn" onclick="showSection('info',this)">📍 Info</button>
-    </div>
-  </header>
-  <div class="hero">
-    <h2>ORDER ONLINE &amp; COLLECT</h2>
-    <p>Fresh • Grilled • Halal -- Brent South Shopping Park</p>
-    <div class="hero-hours">
-      <span>🕐 Mon--Sat 11am--8pm</span>
-      <span>🕐 Sun 11am--6pm</span>
-    </div>
+    <div class="halal-badge">&#x262A; HALAL</div>
   </div>
-  <div class="search-wrap">
-    <div class="search-box">
-      <input id="searchInput" class="search-input" type="text" placeholder="Search burgers, kebabs, drinks..." oninput="filterMenu()">
-      <button id="searchClear" class="search-clear" onclick="clearSearch()">✕</button>
-    </div>
+  <div class="nav-tabs">
+    <button class="tab-btn active" onclick="showSection('deals',this)">&#x1F525; Meal Deals</button>
+    <button class="tab-btn" onclick="showSection('burgers',this)">&#x1F354; Burgers</button>
+    <button class="tab-btn" onclick="showSection('kebab',this)">&#x1F959; Kebab</button>
+    <button class="tab-btn" onclick="showSection('hotdog',this)">&#x1F32D; Hot Dogs</button>
+    <button class="tab-btn" onclick="showSection('sides',this)">&#x1F35F; Sides</button>
+    <button class="tab-btn" onclick="showSection('drinks',this)">&#x1F964; Drinks</button>
+    <button class="tab-btn" onclick="showSection('info',this)">&#x1F4CD; Info</button>
   </div>
-  <div id="searchInfo" class="search-results-info"></div>
-  <div id="emptySearch" class="empty-search">No items found for your search.</div>
+</header>
+<div class="hero">
+  <h2>ORDER ONLINE &amp; COLLECT</h2>
+  <p>Fresh &bull; Grilled &bull; Halal &mdash; Brent South Shopping Park</p>
+  <div class="hero-hours">
+    <span>&#x1F550; Mon&ndash;Sat 11am&ndash;8pm</span>
+    <span>&#x1F550; Sun 11am&ndash;6pm</span>
+  </div>
+  <div id="openStatus" class="open-status"></div>
+</div>
+<div class="search-wrap">
+  <div class="search-box">
+    <input id="searchInput" class="search-input" type="text" placeholder="Search burgers, kebabs, drinks..." oninput="filterMenu()">
+    <button id="searchClear" class="search-clear" onclick="clearSearch()">&#x2715;</button>
+  </div>
+</div>
+<div id="searchInfo" class="search-results-info"></div>
+<div id="emptySearch" class="empty-search">No items found for your search.</div>
 
-  <div class="section active" id="section-deals">
-    <div class="section-title"><span class="icon">🔥</span> MEAL DEALS</div>
-    <div class="deals-grid">
-      <div class="deal-card searchable" data-name="deal 1 quarter burger chips drink meal deal burger">
-        <div class="deal-popular">🔥 Popular</div>
-        <div class="deal-header">DEAL 1</div>
-        <img class="deal-img" src="IMG_0401.jpeg" alt="¼ Burger Meal">
-        <div class="deal-name">¼ Burger<br>Chips &amp; Drink</div>
-        <div class="deal-price">£7.80</div>
-        <button class="deal-add-btn" onclick="openCustomise('Deal 1 -- ¼ Burger, Chips & Drink',7.80,'meal')">+ Customise &amp; Add</button>
-      </div>
-      <div class="deal-card searchable" data-name="deal 2 half burger chips drink meal deal burger">
-        <div class="deal-popular">🔥 Popular</div>
-        <div class="deal-header">DEAL 2</div>
-        <img class="deal-img" src="IMG_0405.jpeg" alt="½ Burger Meal">
-        <div class="deal-name">½ Burger<br>Chips &amp; Drink</div>
-        <div class="deal-price">£9.50</div>
-        <button class="deal-add-btn" onclick="openCustomise('Deal 2 -- ½ Burger, Chips & Drink',9.80,'meal')">+ Customise &amp; Add</button>
-      </div>
-      <div class="deal-card searchable" data-name="deal 3 chicken burger chips drink meal deal">
-        <div class="deal-header">DEAL 3</div>
-        <img class="deal-img" src="IMG_0400.jpeg" alt="Chicken Burger Meal">
-        <div class="deal-name">Chicken Burger<br>Chips &amp; Drink</div>
-        <div class="deal-price">£7.80</div>
-        <button class="deal-add-btn" onclick="openCustomise('Deal 3 -- Chicken Burger, Chips & Drink',7.80,'meal')">+ Customise &amp; Add</button>
-      </div>
-      <div class="deal-card searchable" data-name="deal 4 chicken nuggets chips drink meal deal nuggets">
-        <div class="deal-header">DEAL 4</div>
-        <img class="deal-img" src="IMG_0404.webp" alt="Nuggets Meal">
-        <div class="deal-name">Chicken Nuggets<br>Chips &amp; Drink</div>
-        <div class="deal-price">£7.80</div>
-        <button class="deal-add-btn" onclick="openCustomise('Deal 4 -- Chicken Nuggets, Chips & Drink',7.80,'meal')">+ Customise &amp; Add</button>
-      </div>
-      <div class="deal-card searchable" data-name="deal 5 hot dog chips drink meal deal">
-        <div class="deal-popular">🔥 Popular</div>
-        <div class="deal-header">DEAL 5</div>
-        <img class="deal-img" src="IMG_0402.jpeg" alt="Hot Dog Meal">
-        <div class="deal-name">Hot Dog<br>Chips &amp; Drink</div>
-        <div class="deal-price">£7.80</div>
-        <button class="deal-add-btn" onclick="openCustomise('Deal 5 -- Hot Dog, Chips & Drink',7.80,'meal')">+ Customise &amp; Add</button>
-      </div>
-      <div class="deal-card searchable" data-name="deal 6 veggi veggie burger chips drink meal deal">
-        <div class="deal-header">DEAL 6</div>
-        <img class="deal-img" src="IMG_0403.jpeg" alt="Veggie Burger Meal">
-        <div class="deal-name">Veggi Burger<br>Chips &amp; Drink</div>
-        <div class="deal-price">£7.80</div>
-        <button class="deal-add-btn" onclick="openCustomise('Deal 6 -- Veggi Burger, Chips & Drink',7.80,'meal')">+ Customise &amp; Add</button>
-      </div>
+<div class="section active" id="section-deals">
+  <div class="section-title"><span>&#x1F525;</span> MEAL DEALS</div>
+  <div class="deals-grid">
+    <div class="deal-card searchable" data-name="deal 1 quarter burger chips drink meal deal burger">
+      <div class="deal-popular">&#x1F525; Popular</div>
+      <div class="deal-header">DEAL 1</div>
+      <img class="deal-img" src="IMG_0401.jpeg" alt="Deal 1">
+      <div class="deal-name">&frac14; Burger<br>Chips &amp; Drink</div>
+      <div class="deal-price">&pound;7.80</div>
+      <button class="deal-add-btn" onclick="openCustomise('Deal 1 - Quarter Burger, Chips &amp; Drink',7.80,'meal')">+ Customise &amp; Add</button>
+    </div>
+    <div class="deal-card searchable" data-name="deal 2 half burger chips drink meal deal burger">
+      <div class="deal-popular">&#x1F525; Popular</div>
+      <div class="deal-header">DEAL 2</div>
+      <img class="deal-img" src="IMG_0405.jpeg" alt="Deal 2">
+      <div class="deal-name">&frac12; Burger<br>Chips &amp; Drink</div>
+      <div class="deal-price">&pound;9.50</div>
+      <button class="deal-add-btn" onclick="openCustomise('Deal 2 - Half Burger, Chips &amp; Drink',9.50,'meal')">+ Customise &amp; Add</button>
+    </div>
+    <div class="deal-card searchable" data-name="deal 3 chicken burger chips drink meal deal">
+      <div class="deal-header">DEAL 3</div>
+      <img class="deal-img" src="IMG_0400.jpeg" alt="Deal 3">
+      <div class="deal-name">Chicken Burger<br>Chips &amp; Drink</div>
+      <div class="deal-price">&pound;7.80</div>
+      <button class="deal-add-btn" onclick="openCustomise('Deal 3 - Chicken Burger, Chips &amp; Drink',7.80,'meal')">+ Customise &amp; Add</button>
+    </div>
+    <div class="deal-card searchable" data-name="deal 4 chicken nuggets chips drink meal deal nuggets">
+      <div class="deal-header">DEAL 4</div>
+      <img class="deal-img" src="IMG_0404.webp" alt="Deal 4">
+      <div class="deal-name">Chicken Nuggets<br>Chips &amp; Drink</div>
+      <div class="deal-price">&pound;7.50</div>
+      <button class="deal-add-btn" onclick="openCustomise('Deal 4 - Chicken Nuggets, Chips &amp; Drink',7.50,'meal')">+ Customise &amp; Add</button>
+    </div>
+    <div class="deal-card searchable" data-name="deal 5 hot dog chips drink meal deal">
+      <div class="deal-popular">&#x1F525; Popular</div>
+      <div class="deal-header">DEAL 5</div>
+      <img class="deal-img" src="IMG_0402.jpeg" alt="Deal 5">
+      <div class="deal-name">Hot Dog<br>Chips &amp; Drink</div>
+      <div class="deal-price">&pound;7.50</div>
+      <button class="deal-add-btn" onclick="openCustomise('Deal 5 - Hot Dog, Chips &amp; Drink',7.50,'meal')">+ Customise &amp; Add</button>
+    </div>
+    <div class="deal-card searchable" data-name="deal 6 veggi veggie burger chips drink meal deal">
+      <div class="deal-header">DEAL 6</div>
+      <img class="deal-img" src="IMG_0403.jpeg" alt="Deal 6">
+      <div class="deal-name">Veggi Burger<br>Chips &amp; Drink</div>
+      <div class="deal-price">&pound;7.80</div>
+      <button class="deal-add-btn" onclick="openCustomise('Deal 6 - Veggi Burger, Chips &amp; Drink',7.80,'meal')">+ Customise &amp; Add</button>
     </div>
   </div>
+</div>
 
-  <div class="section" id="section-burgers">
-    <div class="section-title"><span class="icon">🍔</span> BURGERS</div>
-    <div class="items-list">
-      <div class="item-row searchable" data-name="quarter pounder burger"><div class="item-left"><img class="item-img" src="IMG_0351.png" alt="¼ Pounder Burger"><div class="item-info"><div class="item-name">¼ Pounder Burger</div></div></div><div class="item-right"><div class="item-price">£4.50</div><button class="add-btn" onclick="openCustomise('¼ Pounder Burger',4.50,'burger')">+</button></div></div>
-      <div class="item-row searchable" data-name="quarter pounder burger cheese"><div class="item-left"><img class="item-img" src="IMG_0351.png" alt="¼ Pounder Burger"><div class="item-info"><div class="item-name">¼ Pounder with Cheese</div></div></div><div class="item-right"><div class="item-price">£4.80</div><button class="add-btn" onclick="openCustomise('¼ Pounder Burger with Cheese',4.80,'burger')">+</button></div></div>
-      <div class="item-row searchable" data-name="quarter pounder burger egg"><div class="item-left"><img class="item-img" src="IMG_0351.png" alt="¼ Pounder Burger"><div class="item-info"><div class="item-name">¼ Pounder with Egg</div></div></div><div class="item-right"><div class="item-price">£5.50</div><button class="add-btn" onclick="openCustomise('¼ Pounder Burger with Egg',5.50,'burger')">+</button></div></div>
-      <div class="item-row searchable" data-name="quarter pounder burger cheese egg"><div class="item-left"><img class="item-img" src="IMG_0351.png" alt="¼ Pounder Burger"><div class="item-info"><div class="item-name">¼ Pounder Cheese &amp; Egg</div></div></div><div class="item-right"><div class="item-price">£5.80</div><button class="add-btn" onclick="openCustomise('¼ Pounder Burger with Cheese & Egg',5.80,'burger')">+</button></div></div>
-      <div class="item-row searchable" data-name="half pounder burger"><div class="item-left"><img class="item-img" src="IMG_0352.png" alt="½ Pounder Burger"><div class="item-info"><div class="item-name">½ Pounder Burger</div></div></div><div class="item-right"><div class="item-price">£6.50</div><button class="add-btn" onclick="openCustomise('½ Pounder Burger',6.50,'burger')">+</button></div></div>
-      <div class="item-row searchable" data-name="half pounder burger cheese"><div class="item-left"><img class="item-img" src="IMG_0352.png" alt="½ Pounder Burger"><div class="item-info"><div class="item-name">½ Pounder with Cheese</div></div></div><div class="item-right"><div class="item-price">£6.80</div><button class="add-btn" onclick="openCustomise('½ Pounder Burger with Cheese',6.80,'burger')">+</button></div></div>
-      <div class="item-row searchable" data-name="half pounder burger cheese egg"><div class="item-left"><img class="item-img" src="IMG_0352.png" alt="½ Pounder Burger"><div class="item-info"><div class="item-name">½ Pounder Cheese &amp; Egg</div></div></div><div class="item-right"><div class="item-price">£7.50</div><button class="add-btn" onclick="openCustomise('½ Pounder Burger Cheese & Egg',7.50,'burger')">+</button></div></div>
-      <div class="item-row searchable" data-name="veggie burger veggi burger"><div class="item-left"><img class="item-img" src="IMG_0351.png" alt="Veggie Burger"><div class="item-info"><div class="item-name">Veggie Burger</div></div></div><div class="item-right"><div class="item-price">£4.30</div><button class="add-btn" onclick="openCustomise('Veggie Burger',4.50,'burger')">+</button></div></div>
-      <div class="item-row searchable" data-name="veggie burger cheese veggi"><div class="item-left"><img class="item-img" src="IMG_0351.png" alt="Veggie Burger"><div class="item-info"><div class="item-name">Veggie Burger with Cheese</div></div></div><div class="item-right"><div class="item-price">£4.50</div><button class="add-btn" onclick="openCustomise('Veggie Burger with Cheese',4.50,'burger')">+</button></div></div>
-      <div class="item-row searchable" data-name="chicken burger"><div class="item-left"><img class="item-img" src="IMG_0350.png" alt="Chicken Burger"><div class="item-info"><div class="item-name">Chicken Burger</div></div></div><div class="item-right"><div class="item-price">£4.50</div><button class="add-btn" onclick="openCustomise('Chicken Burger',4.50,'burger')">+</button></div></div>
-      <div class="item-row searchable" data-name="chicken burger cheese"><div class="item-left"><img class="item-img" src="IMG_0350.png" alt="Chicken Burger"><div class="item-info"><div class="item-name">Chicken Burger with Cheese</div></div></div><div class="item-right"><div class="item-price">£4.80</div><button class="add-btn" onclick="openCustomise('Chicken Burger with Cheese',4.80,'burger')">+</button></div></div>
-    </div>
+<div class="section" id="section-burgers">
+  <div class="section-title"><span>&#x1F354;</span> BURGERS</div>
+  <div class="items-list">
+    <div class="item-row searchable" data-name="quarter pounder burger"><div class="item-left"><img class="item-img" src="IMG_0351.png" alt="Burger"><div class="item-info"><div class="item-name">&frac14; Pounder Burger</div></div></div><div class="item-right"><div class="item-price">&pound;4.50</div><button class="add-btn" onclick="openCustomise('Quarter Pounder Burger',4.50,'burger')">+</button></div></div>
+    <div class="item-row searchable" data-name="quarter pounder burger cheese"><div class="item-left"><img class="item-img" src="IMG_0351.png" alt="Burger"><div class="item-info"><div class="item-name">&frac14; Pounder with Cheese</div></div></div><div class="item-right"><div class="item-price">&pound;4.80</div><button class="add-btn" onclick="openCustomise('Quarter Pounder with Cheese',4.80,'burger')">+</button></div></div>
+    <div class="item-row searchable" data-name="quarter pounder burger egg"><div class="item-left"><img class="item-img" src="IMG_0351.png" alt="Burger"><div class="item-info"><div class="item-name">&frac14; Pounder with Egg</div></div></div><div class="item-right"><div class="item-price">&pound;5.50</div><button class="add-btn" onclick="openCustomise('Quarter Pounder with Egg',5.50,'burger')">+</button></div></div>
+    <div class="item-row searchable" data-name="quarter pounder burger cheese egg"><div class="item-left"><img class="item-img" src="IMG_0351.png" alt="Burger"><div class="item-info"><div class="item-name">&frac14; Pounder Cheese &amp; Egg</div></div></div><div class="item-right"><div class="item-price">&pound;5.80</div><button class="add-btn" onclick="openCustomise('Quarter Pounder Cheese and Egg',5.80,'burger')">+</button></div></div>
+    <div class="item-row searchable" data-name="half pounder burger"><div class="item-left"><img class="item-img" src="IMG_0352.png" alt="Burger"><div class="item-info"><div class="item-name">&frac12; Pounder Burger</div></div></div><div class="item-right"><div class="item-price">&pound;6.50</div><button class="add-btn" onclick="openCustomise('Half Pounder Burger',6.50,'burger')">+</button></div></div>
+    <div class="item-row searchable" data-name="half pounder burger cheese"><div class="item-left"><img class="item-img" src="IMG_0352.png" alt="Burger"><div class="item-info"><div class="item-name">&frac12; Pounder with Cheese</div></div></div><div class="item-right"><div class="item-price">&pound;6.80</div><button class="add-btn" onclick="openCustomise('Half Pounder with Cheese',6.80,'burger')">+</button></div></div>
+    <div class="item-row searchable" data-name="half pounder burger cheese egg"><div class="item-left"><img class="item-img" src="IMG_0352.png" alt="Burger"><div class="item-info"><div class="item-name">&frac12; Pounder Cheese &amp; Egg</div></div></div><div class="item-right"><div class="item-price">&pound;7.50</div><button class="add-btn" onclick="openCustomise('Half Pounder Cheese and Egg',7.50,'burger')">+</button></div></div>
+    <div class="item-row searchable" data-name="veggie burger veggi burger"><div class="item-left"><img class="item-img" src="IMG_0351.png" alt="Burger"><div class="item-info"><div class="item-name">Veggie Burger</div></div></div><div class="item-right"><div class="item-price">&pound;4.50</div><button class="add-btn" onclick="openCustomise('Veggie Burger',4.50,'burger')">+</button></div></div>
+    <div class="item-row searchable" data-name="veggie burger cheese veggi"><div class="item-left"><img class="item-img" src="IMG_0351.png" alt="Burger"><div class="item-info"><div class="item-name">Veggie Burger with Cheese</div></div></div><div class="item-right"><div class="item-price">&pound;4.80</div><button class="add-btn" onclick="openCustomise('Veggie Burger with Cheese',4.80,'burger')">+</button></div></div>
+    <div class="item-row searchable" data-name="chicken burger"><div class="item-left"><img class="item-img" src="IMG_0350.png" alt="Burger"><div class="item-info"><div class="item-name">Chicken Burger</div></div></div><div class="item-right"><div class="item-price">&pound;4.50</div><button class="add-btn" onclick="openCustomise('Chicken Burger',4.50,'burger')">+</button></div></div>
+    <div class="item-row searchable" data-name="chicken burger cheese"><div class="item-left"><img class="item-img" src="IMG_0350.png" alt="Burger"><div class="item-info"><div class="item-name">Chicken Burger with Cheese</div></div></div><div class="item-right"><div class="item-price">&pound;4.80</div><button class="add-btn" onclick="openCustomise('Chicken Burger with Cheese',4.80,'burger')">+</button></div></div>
   </div>
+</div>
 
-  <div class="section" id="section-kebab">
-    <div class="section-title"><span class="icon">🥙</span> KEBABS</div>
-    <p style="padding:0 14px 8px;font-size:0.72rem;color:#888;font-weight:600;line-height:1.35;">All kebabs cut from fresh meat. Served with fresh onions, cucumber, tomatoes, lettuce, long chillies, mixed cabbage &amp; sauce.</p>
-    <div class="items-list">
-      <div class="item-row searchable" data-name="chicken shish medium kebab"><div class="item-left"><img class="item-img" src="IMG_0457.jpeg" alt="Chicken Shish"><div class="item-info"><div class="item-name">Chicken Shish -- Medium <span class="popular-badge">🔥 Popular</span></div></div></div><div class="item-right"><div class="item-price">£9.50</div><button class="add-btn" onclick="openCustomise('Chicken Shish -- Medium',9.80,'kebab')">+</button></div></div>
-      <div class="item-row searchable" data-name="chicken shish medium chips kebab"><div class="item-left"><img class="item-img" src="IMG_0457.jpeg" alt="Chicken Shish"><div class="item-info"><div class="item-name">Chicken Shish -- Med + Chips <span class="popular-badge">🔥 Popular</span></div></div></div><div class="item-right"><div class="item-price">£10.50</div><button class="add-btn" onclick="openCustomise('Chicken Shish -- Medium with Chips',10.80,'kebab')">+</button></div></div>
-      <div class="item-row searchable" data-name="chicken shish large kebab"><div class="item-left"><img class="item-img" src="IMG_0457.jpeg" alt="Chicken Shish"><div class="item-info"><div class="item-name">Chicken Shish -- Large <span class="popular-badge">🔥 Popular</span></div></div></div><div class="item-right"><div class="item-price">£11.50</div><button class="add-btn" onclick="openCustomise('Chicken Shish -- Large',11.80,'kebab')">+</button></div></div>
-      <div class="item-row searchable" data-name="chicken shish large chips kebab"><div class="item-left"><img class="item-img" src="IMG_0457.jpeg" alt="Chicken Shish"><div class="item-info"><div class="item-name">Chicken Shish -- Large + Chips <span class="popular-badge">🔥 Popular</span></div></div></div><div class="item-right"><div class="item-price">£12.50</div><button class="add-btn" onclick="openCustomise('Chicken Shish -- Large with Chips',12.80,'kebab')">+</button></div></div>
-    </div>
+<div class="section" id="section-kebab">
+  <div class="section-title"><span>&#x1F959;</span> KEBABS</div>
+  <p style="padding:0 14px 8px;font-size:0.72rem;color:#888;font-weight:600;line-height:1.35;">All kebabs cut from fresh meat. Served with fresh onions, cucumber, tomatoes, lettuce, long chillies, mixed cabbage &amp; sauce.</p>
+  <div class="items-list">
+    <div class="item-row searchable" data-name="chicken shish medium kebab"><div class="item-left"><img class="item-img" src="IMG_0457.jpeg" alt="Kebab"><div class="item-info"><div class="item-name">Chicken Shish &ndash; Medium <span class="popular-badge">&#x1F525; Popular</span></div></div></div><div class="item-right"><div class="item-price">&pound;9.50</div><button class="add-btn" onclick="openCustomise('Chicken Shish - Medium',9.50,'kebab')">+</button></div></div>
+    <div class="item-row searchable" data-name="chicken shish medium chips kebab"><div class="item-left"><img class="item-img" src="IMG_0457.jpeg" alt="Kebab"><div class="item-info"><div class="item-name">Chicken Shish &ndash; Med + Chips <span class="popular-badge">&#x1F525; Popular</span></div></div></div><div class="item-right"><div class="item-price">&pound;10.50</div><button class="add-btn" onclick="openCustomise('Chicken Shish - Medium with Chips',10.50,'kebab')">+</button></div></div>
+    <div class="item-row searchable" data-name="chicken shish large kebab"><div class="item-left"><img class="item-img" src="IMG_0457.jpeg" alt="Kebab"><div class="item-info"><div class="item-name">Chicken Shish &ndash; Large <span class="popular-badge">&#x1F525; Popular</span></div></div></div><div class="item-right"><div class="item-price">&pound;11.50</div><button class="add-btn" onclick="openCustomise('Chicken Shish - Large',11.50,'kebab')">+</button></div></div>
+    <div class="item-row searchable" data-name="chicken shish large chips kebab"><div class="item-left"><img class="item-img" src="IMG_0457.jpeg" alt="Kebab"><div class="item-info"><div class="item-name">Chicken Shish &ndash; Large + Chips <span class="popular-badge">&#x1F525; Popular</span></div></div></div><div class="item-right"><div class="item-price">&pound;12.50</div><button class="add-btn" onclick="openCustomise('Chicken Shish - Large with Chips',12.50,'kebab')">+</button></div></div>
   </div>
+</div>
 
-  <div class="section" id="section-hotdog">
-    <div class="section-title"><span class="icon">🌭</span> HOT DOGS</div>
-    <p style="padding:0 14px 8px;font-size:0.72rem;color:#888;font-weight:600;">Chicken sausage</p>
-    <div class="items-list">
-      <div class="item-row searchable" data-name="hot dog"><div class="item-left"><img class="item-img" src="IMG_0353.png" alt="Hot Dog"><div class="item-info"><div class="item-name">Hot Dog</div></div></div><div class="item-right"><div class="item-price">£4.50</div><button class="add-btn" onclick="openCustomise('Hot Dog',4.30,'burger')">+</button></div></div>
-      <div class="item-row searchable" data-name="hot dog cheese"><div class="item-left"><img class="item-img" src="IMG_0353.png" alt="Hot Dog"><div class="item-info"><div class="item-name">Hot Dog with Cheese</div></div></div><div class="item-right"><div class="item-price">£4.80</div><button class="add-btn" onclick="openCustomise('Hot Dog with Cheese',4.80,'burger')">+</button></div></div>
-      <div class="item-row searchable" data-name="hot dog cheese egg"><div class="item-left"><img class="item-img" src="IMG_0353.png" alt="Hot Dog"><div class="item-info"><div class="item-name">Hot Dog with Cheese &amp; Egg</div></div></div><div class="item-right"><div class="item-price">£5.50</div><button class="add-btn" onclick="openCustomise('Hot Dog with Cheese & Egg',5.50,'burger')">+</button></div></div>
-      <div class="item-row searchable" data-name="halloumi cheese sandwich"><div class="item-left"><img class="item-img" src="IMG_0355.jpeg" alt="Halloumi"><div class="item-info"><div class="item-name">Halloumi Cheese Sandwich</div></div></div><div class="item-right"><div class="item-price">£4.80</div><button class="add-btn" onclick="openCustomise('Halloumi Cheese Sandwich',4.80,'burger')">+</button></div></div>
-    </div>
+<div class="section" id="section-hotdog">
+  <div class="section-title"><span>&#x1F32D;</span> HOT DOGS</div>
+  <p style="padding:0 14px 8px;font-size:0.72rem;color:#888;font-weight:600;">Chicken sausage</p>
+  <div class="items-list">
+    <div class="item-row searchable" data-name="hot dog"><div class="item-left"><img class="item-img" src="IMG_0353.png" alt="Hot Dog"><div class="item-info"><div class="item-name">Hot Dog</div></div></div><div class="item-right"><div class="item-price">&pound;4.30</div><button class="add-btn" onclick="openCustomise('Hot Dog',4.30,'burger')">+</button></div></div>
+    <div class="item-row searchable" data-name="hot dog cheese"><div class="item-left"><img class="item-img" src="IMG_0353.png" alt="Hot Dog"><div class="item-info"><div class="item-name">Hot Dog with Cheese</div></div></div><div class="item-right"><div class="item-price">&pound;4.80</div><button class="add-btn" onclick="openCustomise('Hot Dog with Cheese',4.80,'burger')">+</button></div></div>
+    <div class="item-row searchable" data-name="hot dog cheese egg"><div class="item-left"><img class="item-img" src="IMG_0353.png" alt="Hot Dog"><div class="item-info"><div class="item-name">Hot Dog with Cheese &amp; Egg</div></div></div><div class="item-right"><div class="item-price">&pound;5.50</div><button class="add-btn" onclick="openCustomise('Hot Dog with Cheese and Egg',5.50,'burger')">+</button></div></div>
+    <div class="item-row searchable" data-name="halloumi cheese sandwich"><div class="item-left"><img class="item-img" src="IMG_0355.jpeg" alt="Halloumi"><div class="item-info"><div class="item-name">Halloumi Cheese Sandwich</div></div></div><div class="item-right"><div class="item-price">&pound;4.80</div><button class="add-btn" onclick="openCustomise('Halloumi Cheese Sandwich',4.80,'burger')">+</button></div></div>
   </div>
+</div>
 
-  <div class="section" id="section-sides">
-    <div class="section-title"><span class="icon">🍟</span> SIDES &amp; SNACKS</div>
-    <div class="items-list">
-      <div class="item-row searchable" data-name="6 chicken nuggets"><div class="item-left"><img class="item-img" src="IMG_0373.jpeg" alt="6pcs Chicken Nuggets"><div class="item-info"><div class="item-name">6pcs Chicken Nuggets</div></div></div><div class="item-right"><div class="item-price">£3.80</div><button class="add-btn" onclick="openCustomise('6pcs Chicken Nuggets',3.80,'none')">+</button></div></div>
-      <div class="item-row searchable" data-name="9 chicken nuggets"><div class="item-left"><img class="item-img" src="IMG_0373.jpeg" alt="9pcs Chicken Nuggets"><div class="item-info"><div class="item-name">9pcs Chicken Nuggets</div></div></div><div class="item-right"><div class="item-price">£4.80</div><button class="add-btn" onclick="openCustomise('9pcs Chicken Nuggets',4.80,'none')">+</button></div></div>
-      <div class="item-row searchable" data-name="chips small fries"><div class="item-left"><img class="item-img" src="IMG_0356.jpeg" alt="Chips"><div class="item-info"><div class="item-name">Chips -- Small</div></div></div><div class="item-right"><div class="item-price">£2.80</div><button class="add-btn" onclick="openCustomise('Chips -- Small',2.80,'none')">+</button></div></div>
-      <div class="item-row searchable" data-name="chips large fries"><div class="item-left"><img class="item-img" src="IMG_0356.jpeg" alt="Chips"><div class="item-info"><div class="item-name">Chips -- Large</div></div></div><div class="item-right"><div class="item-price">£3.80</div><button class="add-btn" onclick="openCustomise('Chips -- Large',3.80,'none')">+</button></div></div>
-      <div class="item-row searchable" data-name="snickers chocolate"><div class="item-left"><span style="font-size:1.8rem">🍫</span><div class="item-info"><div class="item-name">Snickers</div></div></div><div class="item-right"><div class="item-price">£0.90</div><button class="add-btn" onclick="directAdd('Snickers',0.90)">+</button></div></div>
-      <div class="item-row searchable" data-name="kit kat chocolate"><div class="item-left"><span style="font-size:1.8rem">🍫</span><div class="item-info"><div class="item-name">Kit Kat</div></div></div><div class="item-right"><div class="item-price">£0.90</div><button class="add-btn" onclick="directAdd('Kit Kat',0.90)">+</button></div></div>
-      <div class="item-row searchable" data-name="mars chocolate"><div class="item-left"><span style="font-size:1.8rem">🍫</span><div class="item-info"><div class="item-name">Mars</div></div></div><div class="item-right"><div class="item-price">£0.90</div><button class="add-btn" onclick="directAdd('Mars',0.90)">+</button></div></div>
-      <div class="item-row searchable" data-name="bounty chocolate coconut"><div class="item-left"><span style="font-size:1.8rem">🥥</span><div class="item-info"><div class="item-name">Bounty</div></div></div><div class="item-right"><div class="item-price">£0.90</div><button class="add-btn" onclick="directAdd('Bounty',0.90)">+</button></div></div>
-    </div>
+<div class="section" id="section-sides">
+  <div class="section-title"><span>&#x1F35F;</span> SIDES &amp; SNACKS</div>
+  <div class="items-list">
+    <div class="item-row searchable" data-name="6 chicken nuggets"><div class="item-left"><img class="item-img" src="IMG_0373.jpeg" alt="Nuggets"><div class="item-info"><div class="item-name">6pcs Chicken Nuggets</div></div></div><div class="item-right"><div class="item-price">&pound;3.80</div><button class="add-btn" onclick="openCustomise('6pcs Chicken Nuggets',3.80,'none')">+</button></div></div>
+    <div class="item-row searchable" data-name="9 chicken nuggets"><div class="item-left"><img class="item-img" src="IMG_0373.jpeg" alt="Nuggets"><div class="item-info"><div class="item-name">9pcs Chicken Nuggets</div></div></div><div class="item-right"><div class="item-price">&pound;4.80</div><button class="add-btn" onclick="openCustomise('9pcs Chicken Nuggets',4.80,'none')">+</button></div></div>
+    <div class="item-row searchable" data-name="chips small fries"><div class="item-left"><img class="item-img" src="IMG_0356.jpeg" alt="Chips"><div class="item-info"><div class="item-name">Chips &ndash; Small</div></div></div><div class="item-right"><div class="item-price">&pound;2.80</div><button class="add-btn" onclick="openCustomise('Chips - Small',2.80,'none')">+</button></div></div>
+    <div class="item-row searchable" data-name="chips large fries"><div class="item-left"><img class="item-img" src="IMG_0356.jpeg" alt="Chips"><div class="item-info"><div class="item-name">Chips &ndash; Large</div></div></div><div class="item-right"><div class="item-price">&pound;3.80</div><button class="add-btn" onclick="openCustomise('Chips - Large',3.80,'none')">+</button></div></div>
+    <div class="item-row searchable" data-name="snickers chocolate"><div class="item-left"><span style="font-size:1.8rem">&#x1F36B;</span><div class="item-info"><div class="item-name">Snickers</div></div></div><div class="item-right"><div class="item-price">&pound;0.90</div><button class="add-btn" onclick="directAdd('Snickers',0.90)">+</button></div></div>
+    <div class="item-row searchable" data-name="kit kat chocolate"><div class="item-left"><span style="font-size:1.8rem">&#x1F36B;</span><div class="item-info"><div class="item-name">Kit Kat</div></div></div><div class="item-right"><div class="item-price">&pound;0.90</div><button class="add-btn" onclick="directAdd('Kit Kat',0.90)">+</button></div></div>
+    <div class="item-row searchable" data-name="mars chocolate"><div class="item-left"><span style="font-size:1.8rem">&#x1F36B;</span><div class="item-info"><div class="item-name">Mars</div></div></div><div class="item-right"><div class="item-price">&pound;0.90</div><button class="add-btn" onclick="directAdd('Mars',0.90)">+</button></div></div>
+    <div class="item-row searchable" data-name="bounty chocolate coconut"><div class="item-left"><span style="font-size:1.8rem">&#x1F965;</span><div class="item-info"><div class="item-name">Bounty</div></div></div><div class="item-right"><div class="item-price">&pound;0.90</div><button class="add-btn" onclick="directAdd('Bounty',0.90)">+</button></div></div>
   </div>
+</div>
 
-  <div class="section" id="section-drinks">
-    <div class="section-title"><span class="icon">🥤</span> DRINKS</div>
-    <div class="items-list">
-      <div class="item-row searchable" data-name="water"><div class="item-left"><img class="item-img" src="IMG_0397.jpeg" alt="Water"><div class="item-info"><div class="item-name">Water</div></div></div><div class="item-right"><div class="item-price">£1.50</div><button class="add-btn" onclick="directAdd('Water',1.5)">+</button></div></div>
-      <div class="item-row searchable" data-name="coca cola classic coke"><div class="item-left"><img class="item-img" src="IMG_0358.jpeg" alt="Coca-Cola Classic"><div class="item-info"><div class="item-name">Coca-Cola Classic</div></div></div><div class="item-right"><div class="item-price">£1.50</div><button class="add-btn" onclick="directAdd('Coca-Cola Classic',1.5)">+</button></div></div>
-      <div class="item-row searchable" data-name="coca cola zero coke"><div class="item-left"><img class="item-img" src="IMG_0359.webp" alt="Coca-Cola Zero"><div class="item-info"><div class="item-name">Coca-Cola Zero</div></div></div><div class="item-right"><div class="item-price">£1.50</div><button class="add-btn" onclick="directAdd('Coca-Cola Zero',1.5)">+</button></div></div>
-      <div class="item-row searchable" data-name="coca cola diet coke"><div class="item-left"><img class="item-img" src="IMG_0360.png" alt="Coca-Cola Diet"><div class="item-info"><div class="item-name">Coca-Cola Diet</div></div></div><div class="item-right"><div class="item-price">£1.50</div><button class="add-btn" onclick="directAdd('Coca-Cola Diet',1.5)">+</button></div></div>
-      <div class="item-row searchable" data-name="pepsi"><div class="item-left"><img class="item-img" src="IMG_0357.png" alt="Pepsi"><div class="item-info"><div class="item-name">Pepsi</div></div></div><div class="item-right"><div class="item-price">£1.50</div><button class="add-btn" onclick="directAdd('Pepsi',1.5)">+</button></div></div>
-      <div class="item-row searchable" data-name="tango orange"><div class="item-left"><img class="item-img" src="IMG_0361.jpeg" alt="Tango Orange"><div class="item-info"><div class="item-name">Tango Orange</div></div></div><div class="item-right"><div class="item-price">£1.50</div><button class="add-btn" onclick="directAdd('Tango Orange',1.5)">+</button></div></div>
-      <div class="item-row searchable" data-name="fanta orange"><div class="item-left"><img class="item-img" src="IMG_0362.jpeg" alt="Fanta Orange"><div class="item-info"><div class="item-name">Fanta Orange</div></div></div><div class="item-right"><div class="item-price">£1.50</div><button class="add-btn" onclick="directAdd('Fanta Orange',1.5)">+</button></div></div>
-      <div class="item-row searchable" data-name="mirinda strawberry"><div class="item-left"><img class="item-img" src="IMG_0363.png" alt="Mirinda Strawberry"><div class="item-info"><div class="item-name">Mirinda Strawberry</div></div></div><div class="item-right"><div class="item-price">£1.50</div><button class="add-btn" onclick="directAdd('Mirinda Strawberry',1.5)">+</button></div></div>
-      <div class="item-row searchable" data-name="ribena strawberry"><div class="item-left"><img class="item-img" src="IMG_0368.webp" alt="Ribena Strawberry"><div class="item-info"><div class="item-name">Ribena Strawberry</div></div></div><div class="item-right"><div class="item-price">£1.50</div><button class="add-btn" onclick="directAdd('Ribena Strawberry',1.5)">+</button></div></div>
-      <div class="item-row searchable" data-name="ribena blackcurrant"><div class="item-left"><img class="item-img" src="IMG_0369.jpeg" alt="Ribena Blackcurrant"><div class="item-info"><div class="item-name">Ribena Blackcurrant</div></div></div><div class="item-right"><div class="item-price">£1.50</div><button class="add-btn" onclick="directAdd('Ribena Blackcurrant',1.5)">+</button></div></div>
-      <div class="item-row searchable" data-name="lucozade orange"><div class="item-left"><img class="item-img" src="IMG_0366.jpeg" alt="Lucozade Orange"><div class="item-info"><div class="item-name">Lucozade Orange</div></div></div><div class="item-right"><div class="item-price">£1.90</div><button class="add-btn" onclick="directAdd('Lucozade Orange',1.9)">+</button></div></div>
-      <div class="item-row searchable" data-name="lucozade original"><div class="item-left"><img class="item-img" src="IMG_0367.jpeg" alt="Lucozade Original"><div class="item-info"><div class="item-name">Lucozade Original</div></div></div><div class="item-right"><div class="item-price">£1.90</div><button class="add-btn" onclick="directAdd('Lucozade Original',1.9)">+</button></div></div>
-      <div class="item-row searchable" data-name="red bull energy drink"><div class="item-left"><img class="item-img" src="IMG_0364.png" alt="Red Bull"><div class="item-info"><div class="item-name">Red Bull</div></div></div><div class="item-right"><div class="item-price">£2.30</div><button class="add-btn" onclick="directAdd('Red Bull',2.3)">+</button></div></div>
-    </div>
+<div class="section" id="section-drinks">
+  <div class="section-title"><span>&#x1F964;</span> DRINKS</div>
+  <div class="items-list">
+    <div class="item-row searchable" data-name="water"><div class="item-left"><img class="item-img" src="IMG_0397.jpeg" alt="Water"><div class="item-info"><div class="item-name">Water</div></div></div><div class="item-right"><div class="item-price">&pound;1.50</div><button class="add-btn" onclick="directAdd('Water',1.5)">+</button></div></div>
+    <div class="item-row searchable" data-name="coca cola classic coke"><div class="item-left"><img class="item-img" src="IMG_0358.jpeg" alt="Coke"><div class="item-info"><div class="item-name">Coca-Cola Classic</div></div></div><div class="item-right"><div class="item-price">&pound;1.50</div><button class="add-btn" onclick="directAdd('Coca-Cola Classic',1.5)">+</button></div></div>
+    <div class="item-row searchable" data-name="coca cola zero coke"><div class="item-left"><img class="item-img" src="IMG_0359.webp" alt="Coke Zero"><div class="item-info"><div class="item-name">Coca-Cola Zero</div></div></div><div class="item-right"><div class="item-price">&pound;1.50</div><button class="add-btn" onclick="directAdd('Coca-Cola Zero',1.5)">+</button></div></div>
+    <div class="item-row searchable" data-name="coca cola diet coke"><div class="item-left"><img class="item-img" src="IMG_0360.png" alt="Coke Diet"><div class="item-info"><div class="item-name">Coca-Cola Diet</div></div></div><div class="item-right"><div class="item-price">&pound;1.50</div><button class="add-btn" onclick="directAdd('Coca-Cola Diet',1.5)">+</button></div></div>
+    <div class="item-row searchable" data-name="pepsi"><div class="item-left"><img class="item-img" src="IMG_0357.png" alt="Pepsi"><div class="item-info"><div class="item-name">Pepsi</div></div></div><div class="item-right"><div class="item-price">&pound;1.50</div><button class="add-btn" onclick="directAdd('Pepsi',1.5)">+</button></div></div>
+    <div class="item-row searchable" data-name="tango orange"><div class="item-left"><img class="item-img" src="IMG_0361.jpeg" alt="Tango"><div class="item-info"><div class="item-name">Tango Orange</div></div></div><div class="item-right"><div class="item-price">&pound;1.50</div><button class="add-btn" onclick="directAdd('Tango Orange',1.5)">+</button></div></div>
+    <div class="item-row searchable" data-name="fanta orange"><div class="item-left"><img class="item-img" src="IMG_0362.jpeg" alt="Fanta"><div class="item-info"><div class="item-name">Fanta Orange</div></div></div><div class="item-right"><div class="item-price">&pound;1.50</div><button class="add-btn" onclick="directAdd('Fanta Orange',1.5)">+</button></div></div>
+    <div class="item-row searchable" data-name="mirinda strawberry"><div class="item-left"><img class="item-img" src="IMG_0363.png" alt="Mirinda"><div class="item-info"><div class="item-name">Mirinda Strawberry</div></div></div><div class="item-right"><div class="item-price">&pound;1.50</div><button class="add-btn" onclick="directAdd('Mirinda Strawberry',1.5)">+</button></div></div>
+    <div class="item-row searchable" data-name="ribena strawberry"><div class="item-left"><img class="item-img" src="IMG_0368.webp" alt="Ribena"><div class="item-info"><div class="item-name">Ribena Strawberry</div></div></div><div class="item-right"><div class="item-price">&pound;1.50</div><button class="add-btn" onclick="directAdd('Ribena Strawberry',1.5)">+</button></div></div>
+    <div class="item-row searchable" data-name="ribena blackcurrant"><div class="item-left"><img class="item-img" src="IMG_0369.jpeg" alt="Ribena"><div class="item-info"><div class="item-name">Ribena Blackcurrant</div></div></div><div class="item-right"><div class="item-price">&pound;1.50</div><button class="add-btn" onclick="directAdd('Ribena Blackcurrant',1.5)">+</button></div></div>
+    <div class="item-row searchable" data-name="lucozade orange"><div class="item-left"><img class="item-img" src="IMG_0366.jpeg" alt="Lucozade"><div class="item-info"><div class="item-name">Lucozade Orange</div></div></div><div class="item-right"><div class="item-price">&pound;1.90</div><button class="add-btn" onclick="directAdd('Lucozade Orange',1.9)">+</button></div></div>
+    <div class="item-row searchable" data-name="lucozade original"><div class="item-left"><img class="item-img" src="IMG_0367.jpeg" alt="Lucozade"><div class="item-info"><div class="item-name">Lucozade Original</div></div></div><div class="item-right"><div class="item-price">&pound;1.90</div><button class="add-btn" onclick="directAdd('Lucozade Original',1.9)">+</button></div></div>
+    <div class="item-row searchable" data-name="red bull energy drink"><div class="item-left"><img class="item-img" src="IMG_0364.png" alt="Red Bull"><div class="item-info"><div class="item-name">Red Bull</div></div></div><div class="item-right"><div class="item-price">&pound;2.30</div><button class="add-btn" onclick="directAdd('Red Bull',2.3)">+</button></div></div>
   </div>
+</div>
 
-  <div class="section" id="section-info">
-    <div class="section-title"><span class="icon">📍</span> FIND US</div>
-    <div class="info-card">
-      <h3>📍 Location</h3>
-      <div class="info-row"><span class="info-icon">🏪</span><div class="info-text">Er-Han Burger<span class="sub">Brent South Shopping Park, London</span></div></div>
-      <div class="info-row"><span class="info-icon">🕐</span><div class="info-text">Mon -- Sat: 11am -- 8pm<span class="sub">Sunday: 11am -- 6pm</span></div></div>
-      <div class="info-row"><span class="info-icon">☪</span><div class="info-text">100% Halal Certified</div></div>
-    </div>
-    <a href="tel:07576113811" class="big-call-btn">📞 CALL: 07576 113811</a>
-    <a href="https://maps.app.goo.gl/PyK18iuU76q4QAqD8" target="_blank" class="map-btn">🗺️ OPEN IN GOOGLE MAPS</a>
+<div class="section" id="section-info">
+  <div class="section-title"><span>&#x1F4CD;</span> FIND US</div>
+  <div class="info-card">
+    <h3>&#x1F4CD; Location</h3>
+    <div class="info-row"><span class="info-icon">&#x1F3EA;</span><div class="info-text">Er-Han Burger<span class="sub">Brent South Shopping Park, London</span></div></div>
+    <div class="info-row"><span class="info-icon">&#x1F550;</span><div class="info-text">Mon &ndash; Sat: 11am &ndash; 8pm<span class="sub">Sunday: 11am &ndash; 6pm</span></div></div>
+    <div class="info-row"><span class="info-icon">&#x262A;</span><div class="info-text">100% Halal Certified</div></div>
   </div>
+  <a href="tel:07576113811" class="big-call-btn">&#x1F4DE; CALL: 07576 113811</a>
+  <a href="https://maps.app.goo.gl/PyK18iuU76q4QAqD8" target="_blank" class="map-btn">&#x1F5FA;&#xFE0F; OPEN IN GOOGLE MAPS</a>
+</div>
 
-  <div class="modal-overlay" id="customiseModal" onclick="closeCustomiseOutside(event)">
-    <div class="modal" id="customiseModalInner">
-      <div class="modal-header">
-        <div style="flex:1;min-width:0;">
-          <div class="modal-title" id="customiseTitle">Customise</div>
-          <div class="modal-subtitle" id="customiseSubtitle"></div>
-        </div>
-        <button class="modal-close" onclick="closeCustomise()">✕</button>
+<div class="modal-overlay" id="customiseModal" onclick="closeCustomiseOutside(event)">
+  <div class="modal" id="customiseModalInner">
+    <div class="modal-header">
+      <div style="flex:1;min-width:0;">
+        <div class="modal-title" id="customiseTitle">Customise</div>
+        <div class="modal-subtitle" id="customiseSubtitle"></div>
       </div>
-      <div id="customiseBody"></div>
-      <div class="modal-footer">
-        <div class="qty-row">
-          <button class="qty-btn-big" onclick="changeQty(-1)">−</button>
-          <div class="qty-display" id="customiseQty">1</div>
-          <button class="qty-btn-big" onclick="changeQty(1)">+</button>
-        </div>
-        <button class="modal-add-btn" onclick="confirmAdd()">
-          <span>ADD TO ORDER</span>
-          <span id="modalAddPrice"></span>
-        </button>
-      </div>
+      <button class="modal-close" onclick="closeCustomise()">&#x2715;</button>
     </div>
-  </div>
-
-  <div class="cart-bar" id="cartBar">
-    <div class="cart-summary">
-      <div class="cart-count"><span id="cartCount">0</span> items in order</div>
-      <div class="cart-total">£<span id="cartTotal">0.00</span></div>
-    </div>
-    <button class="order-btn" onclick="openCart()">🛒 VIEW ORDER &amp; CHECKOUT</button>
-  </div>
-
-  <div class="modal-overlay" id="cartModal" onclick="closeCartOutside(event)">
-    <div class="modal">
-      <div class="modal-header">
-        <div class="modal-title">🛒 Your Order</div>
-        <button class="modal-close" onclick="closeCart()">✕</button>
+    <div id="customiseBody"></div>
+    <div class="modal-footer">
+      <div class="qty-row">
+        <button class="qty-btn-big" onclick="changeQty(-1)">&minus;</button>
+        <div class="qty-display" id="customiseQty">1</div>
+        <button class="qty-btn-big" onclick="changeQty(1)">+</button>
       </div>
-      <div id="cartItemsList"></div>
-      <textarea class="note-input" id="orderNote" rows="2" placeholder="Any extra notes? (e.g. extra napkins, no salt on chips...)"></textarea>
-      <div class="modal-total">
-        <span class="modal-total-label">Total</span>
-        <span class="modal-total-price">£<span id="modalTotal">0.00</span></span>
-      </div>
-      <button class="whatsapp-btn" onclick="orderWhatsApp()">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        ORDER VIA WHATSAPP
+      <button class="modal-add-btn" onclick="confirmAdd()">
+        <span>ADD TO ORDER</span>
+        <span id="modalAddPrice"></span>
       </button>
-      <button class="call-btn" onclick="window.location.href='tel:07576113811'">📞 CALL TO ORDER: 07576 113811</button>
     </div>
   </div>
+</div>
 
-  <script>
-    const MEAL_TOPPINGS = [
-      {name:'All Salad',price:0},
-      {name:'Lettuce',price:0},
-      {name:'Tomato',price:0},
-      {name:'Cucumber',price:0},
-      {name:'Onion',price:0},
-      {name:'Extra Cheese',price:0.30},
-      {name:'Halloumi x2',price:2.00},
-      {name:'Egg',price:0.60},
-      {name:'Plain',price:0},
-      {name:'Cheese',price:0},
-      {name:'No Veggie',price:0},
-      {name:'No Onion',price:0},
-      {name:'No Pepper',price:0},
-      {name:'No Cheese',price:0},
-      {name:'Pickle',price:0}
-    ];
+<div class="cart-bar" id="cartBar">
+  <div class="cart-summary">
+    <div class="cart-count"><span id="cartCount">0</span> items in order</div>
+    <div class="cart-total">&pound;<span id="cartTotal">0.00</span></div>
+  </div>
+  <button class="order-btn" onclick="openCart()">&#x1F6D2; VIEW ORDER &amp; CHECKOUT</button>
+</div>
 
-    const TOPPINGS = MEAL_TOPPINGS.filter(function(t) {
-      return t.name !== 'Cheese';
+<div class="modal-overlay" id="cartModal" onclick="closeCartOutside(event)">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title">&#x1F6D2; Your Order</div>
+      <button class="modal-close" onclick="closeCart()">&#x2715;</button>
+    </div>
+    <div id="cartItemsList"></div>
+    <textarea class="note-input" id="orderNote" rows="2" placeholder="Any extra notes? (e.g. extra napkins, no salt on chips...)"></textarea>
+    <div class="modal-total">
+      <span class="modal-total-label">Total</span>
+      <span class="modal-total-price">&pound;<span id="modalTotal">0.00</span></span>
+    </div>
+    <button class="whatsapp-btn" onclick="orderWhatsApp()">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      ORDER VIA WHATSAPP
+    </button>
+    <button class="call-btn" onclick="window.location.href='tel:07576113811'">&#x1F4DE; CALL TO ORDER: 07576 113811</button>
+  </div>
+</div>
+
+<script>
+var MEAL_TOPPINGS = [
+  {name:'All Salad',price:0},{name:'Lettuce',price:0},{name:'Tomato',price:0},
+  {name:'Cucumber',price:0},{name:'Onion',price:0},{name:'Extra Cheese',price:0.30},
+  {name:'Halloumi x2',price:2.00},{name:'Egg',price:0.60},{name:'Plain',price:0},
+  {name:'Cheese',price:0},{name:'No Veggie',price:0},{name:'No Onion',price:0},
+  {name:'No Pepper',price:0},{name:'No Cheese',price:0},{name:'Pickle',price:0}
+];
+var TOPPINGS = MEAL_TOPPINGS.filter(function(t){return t.name!=='Cheese';});
+var KEBAB_SAUCES = [
+  {name:'Chilli',price:0},{name:'Extra Chilli',price:0},{name:'Little Chilli',price:0},
+  {name:'No Chilli',price:0},{name:'BBQ',price:0}
+];
+var SAUCES = [
+  {name:'Chilli Sauce',price:0},{name:'Garlic Mayo',price:0},{name:'Burger Sauce',price:0},
+  {name:'BBQ Sauce',price:0},{name:'Ketchup',price:0},{name:'Mayo',price:0},
+  {name:'Mustard',price:0},{name:'Salt',price:0},{name:'Vinegar',price:0}
+];
+var DRINK_OPTIONS = [
+  'Water','Coca-Cola Classic','Coca-Cola Zero','Coca-Cola Diet',
+  'Pepsi','Tango Orange','Fanta Orange','Mirinda Strawberry',
+  'Ribena Strawberry','Ribena Blackcurrant'
+];
+
+var cart=[], currentItem=null, currentQty=1;
+var selectedToppings=new Set(), selectedKebabSauce=null, selectedSauces=new Set(), selectedDrink=null;
+
+function showSection(id,btn){
+  document.querySelectorAll('.section').forEach(function(s){s.classList.remove('active');});
+  document.querySelectorAll('.tab-btn').forEach(function(b){b.classList.remove('active');});
+  document.getElementById('section-'+id).classList.add('active');
+  btn.classList.add('active');
+  try{localStorage.setItem('erhan_section',id);}catch(e){}
+}
+
+function directAdd(name,price){
+  var ex=cart.find(function(i){return i.name===name&&i.customNote==='';});
+  if(ex){ex.qty+=1;}else{cart.push({name:name,unitPrice:price,qty:1,customNote:''});}
+  updateCartUI(); saveState(); showToast(name+' added!');
+}
+
+function openCustomise(name,basePrice,itemType){
+  currentItem={name:name,basePrice:basePrice,itemType:itemType};
+  currentQty=1; selectedToppings=new Set(); selectedKebabSauce=null;
+  selectedSauces=new Set(); selectedDrink=null;
+  document.getElementById('customiseTitle').textContent=name;
+  document.getElementById('customiseSubtitle').textContent='Base price: \u00A3'+basePrice.toFixed(2);
+  document.getElementById('customiseQty').textContent='1';
+  buildCustomiseBody(itemType);
+  updateModalPrice();
+  document.getElementById('customiseModal').classList.add('open');
+  document.body.style.overflow='hidden';
+  setTimeout(function(){document.getElementById('customiseModalInner').scrollTop=0;},10);
+}
+
+function makeAccordion(id,emoji,title,subtitle,contentHtml,startOpen,required){
+  var bodyClass=startOpen?'acc-body open':'acc-body';
+  var arrowClass=startOpen?'acc-arrow open':'acc-arrow';
+  var reqSpan=required?'<span class="acc-required">Required</span>':'';
+  return '<div class="acc-group">'+
+    '<div class="acc-header" onclick="toggleAcc(\''+id+'\')">'+
+    '<div class="acc-header-left">'+emoji+' '+title+reqSpan+'</div>'+
+    '<div class="acc-header-right">'+
+    '<span class="acc-count" id="cnt-'+id+'"></span>'+
+    '<span class="'+arrowClass+'" id="arr-'+id+'">\u25bc</span>'+
+    '</div></div>'+
+    '<div class="'+bodyClass+'" id="bdy-'+id+'">'+
+    '<div class="acc-subtitle">'+subtitle+'</div>'+
+    '<div class="options-grid">'+contentHtml+'</div>'+
+    '</div></div>';
+}
+
+function buildCustomiseBody(itemType){
+  var html='';
+
+  if(itemType==='meal'){
+    var dHtml='';
+    DRINK_OPTIONS.forEach(function(d){
+      var esc=d.replace(/'/g,"\\'");
+      dHtml+='<div class="option-row" onclick="selectDrink(this,\''+esc+'\')">'+
+        '<div class="option-left"><div class="option-check" style="border-radius:50%"></div><div class="option-name">'+d+'</div></div>'+
+        '<div class="option-price free">Free</div></div>';
     });
+    html+=makeAccordion('drink','\u2615','Choose Your Drink','Select one',dHtml,true,true);
+  }
 
-    const KEBAB_SAUCES = [
-      {name:'Chilli',price:0},{name:'Extra Chilli',price:0},{name:'Little Chilli',price:0},
-      {name:'No Chilli',price:0},{name:'BBQ',price:0}
-    ];
+  if(itemType==='kebab'){
+    var cHtml='';
+    KEBAB_SAUCES.forEach(function(s){
+      var esc=s.name.replace(/'/g,"\\'");
+      cHtml+='<div class="option-row" onclick="toggleKebabSauce(this,\''+esc+'\')">'+
+        '<div class="option-left"><div class="option-check"></div><div class="option-name">'+s.name+'</div></div>'+
+        '<div class="option-price free">Free</div></div>';
+    });
+    html+=makeAccordion('chilli','\uD83C\uDF36','Chilli Preference','Select all that apply',cHtml,true,true);
+  }
 
-    const SAUCES = [
-      {name:'Chilli Sauce',price:0},
-      {name:'Garlic Mayo',price:0},
-      {name:'Burger Sauce',price:0},
-      {name:'BBQ Sauce',price:0},
-      {name:'Ketchup',price:0},
-      {name:'Mayo',price:0},
-      {name:'Mustard',price:0},
-      {name:'Salt',price:0},
-      {name:'Vinegar',price:0}
-    ];
+  if(itemType==='burger'||itemType==='kebab'||itemType==='meal'){
+    var tList=(itemType==='meal')?MEAL_TOPPINGS:TOPPINGS;
+    var tHtml='';
+    tList.forEach(function(t){
+      var esc=t.name.replace(/'/g,"\\'");
+      tHtml+='<div class="option-row" onclick="toggleTopping(this,\''+esc+'\','+t.price+')">'+
+        '<div class="option-left"><div class="option-check"></div><div class="option-name">'+t.name+'</div></div>'+
+        '<div class="option-price '+(t.price===0?'free':'')+'">'+
+        (t.price===0?'Free':'+\u00A3'+t.price.toFixed(2))+'</div></div>';
+    });
+    html+=makeAccordion('toppings','\uD83E\uDD57','Toppings','Select all that apply',tHtml,false,false);
 
-    const DRINK_OPTIONS = [
-      'Water', 'Coca-Cola Classic', 'Coca-Cola Zero', 'Coca-Cola Diet',
-      'Pepsi', 'Tango Orange', 'Fanta Orange', 'Mirinda Strawberry',
-      'Ribena Strawberry', 'Ribena Blackcurrant'
-    ];
+    var sHtml='';
+    SAUCES.forEach(function(s){
+      var esc=s.name.replace(/'/g,"\\'");
+      sHtml+='<div class="option-row" onclick="toggleSauce(this,\''+esc+'\')">'+
+        '<div class="option-left"><div class="option-check"></div><div class="option-name">'+s.name+'</div></div>'+
+        '<div class="option-price free">Free</div></div>';
+    });
+    html+=makeAccordion('sauces','\uD83C\uDF76','Sauces','Select all that apply',sHtml,false,false);
+  }
 
-    let cart = [];
-    let currentItem = null;
-    let currentQty = 1;
-    let selectedToppings = new Set();
-    let selectedKebabSauce = null;
-    let selectedSauces = new Set();
-    let selectedDrink = null;
+  document.getElementById('customiseBody').innerHTML=html;
+}
 
-    function showSection(id, btn) {
-      document.querySelectorAll('.section').forEach(function(s) { s.classList.remove('active'); });
-      document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
-      document.getElementById('section-' + id).classList.add('active');
-      btn.classList.add('active');
-      try { localStorage.setItem('erhan_section', id); } catch(e) {}
+function toggleAcc(id){
+  var b=document.getElementById('bdy-'+id);
+  var a=document.getElementById('arr-'+id);
+  if(!b)return;
+  b.classList.toggle('open');
+  if(a)a.classList.toggle('open');
+}
+
+function updateAccCount(id,count){
+  var el=document.getElementById('cnt-'+id);
+  if(!el)return;
+  if(count>0){el.textContent=count+' selected';el.classList.add('visible');}
+  else{el.classList.remove('visible');}
+}
+
+function selectDrink(el,name){
+  el.closest('.options-grid').querySelectorAll('.option-row').forEach(function(r){
+    r.classList.remove('selected');r.querySelector('.option-check').textContent='';
+  });
+  el.classList.add('selected');el.querySelector('.option-check').textContent='\u2713';
+  selectedDrink=name; updateAccCount('drink',1);
+}
+
+function toggleTopping(el,name,price){
+  el.classList.toggle('selected');
+  var c=el.querySelector('.option-check');
+  if(el.classList.contains('selected')){selectedToppings.add(name);c.textContent='\u2713';}
+  else{selectedToppings.delete(name);c.textContent='';}
+  updateModalPrice(); updateAccCount('toppings',selectedToppings.size);
+}
+
+function toggleKebabSauce(el,name){
+  el.classList.toggle('selected');
+  el.querySelector('.option-check').textContent=el.classList.contains('selected')?'\u2713':'';
+  var rows=el.closest('.options-grid').querySelectorAll('.option-row.selected');
+  var rem=[];
+  rows.forEach(function(r){rem.push(r.querySelector('.option-name').textContent);});
+  selectedKebabSauce=rem.join(', ')||null;
+  updateAccCount('chilli',rem.length);
+}
+
+function toggleSauce(el,name){
+  el.classList.toggle('selected');
+  var c=el.querySelector('.option-check');
+  if(el.classList.contains('selected')){selectedSauces.add(name);c.textContent='\u2713';}
+  else{selectedSauces.delete(name);c.textContent='';}
+  updateAccCount('sauces',selectedSauces.size);
+}
+
+function getExtrasPrice(){
+  var e=0;
+  selectedToppings.forEach(function(n){
+    var t=MEAL_TOPPINGS.find(function(x){return x.name===n;});
+    if(t)e+=t.price;
+  });
+  return e;
+}
+
+function getItemTotal(){return(currentItem.basePrice+getExtrasPrice())*currentQty;}
+function updateModalPrice(){document.getElementById('modalAddPrice').textContent='\u2014 \u00A3'+getItemTotal().toFixed(2);}
+
+function changeQty(d){
+  currentQty=Math.max(1,currentQty+d);
+  document.getElementById('customiseQty').textContent=String(currentQty);
+  updateModalPrice();
+}
+
+function confirmAdd(){
+  if(currentItem.itemType==='meal'&&!selectedDrink){alert('Please choose a drink first!');return;}
+  if(currentItem.itemType==='kebab'&&!selectedKebabSauce){alert('Please choose a chilli preference!');return;}
+  var tList=Array.from(selectedToppings), sList=Array.from(selectedSauces), note=[];
+  if(selectedDrink)note.push('Drink: '+selectedDrink);
+  if(tList.length)note.push('Toppings: '+tList.join(', '));
+  if(selectedKebabSauce)note.push('Chilli: '+selectedKebabSauce);
+  if(sList.length)note.push('Sauces: '+sList.join(', '));
+  var unitPrice=currentItem.basePrice+getExtrasPrice();
+  var customStr=note.join(' | ');
+  var ex=cart.find(function(i){return i.name===currentItem.name&&i.customNote===customStr&&i.unitPrice===unitPrice;});
+  if(ex){ex.qty+=currentQty;}
+  else{cart.push({name:currentItem.name,unitPrice:unitPrice,qty:currentQty,customNote:customStr});}
+  updateCartUI(); saveState(); closeCustomise();
+  showToast(currentItem.name+' added!');
+}
+
+function closeCustomise(){
+  document.getElementById('customiseModal').classList.remove('open');
+  document.body.style.overflow='';
+}
+function closeCustomiseOutside(e){if(e.target===document.getElementById('customiseModal'))closeCustomise();}
+function getTotal(){return cart.reduce(function(s,i){return s+i.unitPrice*i.qty;},0);}
+function getCount(){return cart.reduce(function(s,i){return s+i.qty;},0);}
+
+function updateCartUI(){
+  var total=getTotal(),count=getCount();
+  document.getElementById('cartCount').textContent=count;
+  document.getElementById('cartTotal').textContent=total.toFixed(2);
+  document.getElementById('modalTotal').textContent=total.toFixed(2);
+  document.getElementById('cartBar').classList.toggle('visible',count>0);
+  updateBadges();
+}
+
+function updateBadges(){
+  document.querySelectorAll('.btn-badge').forEach(function(b){b.remove();});
+  if(cart.length===0)return;
+  var qMap={};
+  cart.forEach(function(i){qMap[i.name]=(qMap[i.name]||0)+i.qty;});
+  document.querySelectorAll('.add-btn,.deal-add-btn').forEach(function(btn){
+    var oc=btn.getAttribute('onclick')||'';
+    var raw=oc.replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>');
+    var m=raw.match(/(?:openCustomise|directAdd)\('([^']+)'/);
+    if(!m)return;
+    var qty=qMap[m[1]]||0;
+    if(qty>0){
+      var b=document.createElement('span');
+      b.className='btn-badge';b.textContent=qty;
+      btn.appendChild(b);
     }
+  });
+}
 
-    function directAdd(name, price) {
-      var existing = cart.find(function(i) { return i.name === name && i.customNote === ''; });
-      if (existing) { existing.qty += 1; }
-      else { cart.push({ name: name, unitPrice: price, qty: 1, customNote: '' }); }
-      updateCartUI();
-      saveState();
-      showToast(name + ' added!');
-    }
+function openCart(){renderCartModal();document.getElementById('cartModal').classList.add('open');}
+function closeCart(){document.getElementById('cartModal').classList.remove('open');}
+function closeCartOutside(e){if(e.target===document.getElementById('cartModal'))closeCart();}
 
-    function openCustomise(name, basePrice, itemType) {
-      currentItem = { name, basePrice, itemType };
-      currentQty = 1;
-      selectedToppings = new Set();
-      selectedKebabSauce = null;
-      selectedSauces = new Set();
-      selectedDrink = null;
+function changeCartQty(idx,d){
+  cart[idx].qty=Math.max(0,cart[idx].qty+d);
+  if(cart[idx].qty===0)cart.splice(idx,1);
+  updateCartUI();saveState();renderCartModal();
+}
+function removeCartItem(idx){cart.splice(idx,1);updateCartUI();saveState();renderCartModal();}
 
-      document.getElementById('customiseTitle').textContent = name;
-      document.getElementById('customiseSubtitle').textContent = 'Base price: \u00A3' + basePrice.toFixed(2);
-      document.getElementById('customiseQty').textContent = '1';
+function renderCartModal(){
+  var el=document.getElementById('cartItemsList');
+  if(cart.length===0){
+    el.innerHTML='<div class="empty-cart"><span class="big">\uD83D\uDED2</span>Your cart is empty.<br>Add items from the menu!</div>';
+    updateCartUI();return;
+  }
+  el.innerHTML=cart.map(function(item,idx){
+    return '<div class="cart-item-row">'+
+      '<div class="cart-item-info"><div class="cart-item-name">'+item.name+'</div>'+
+      (item.customNote?'<div class="cart-item-customise">'+item.customNote+'</div>':'')+
+      '</div><div class="cart-item-controls">'+
+      '<button class="qty-btn" onclick="changeCartQty('+idx+',-1)">\u2212</button>'+
+      '<span class="qty-num">'+item.qty+'</span>'+
+      '<button class="qty-btn" onclick="changeCartQty('+idx+',1)">+</button>'+
+      '<button class="remove-btn" onclick="removeCartItem('+idx+')">\uD83D\uDDD1</button>'+
+      '</div><div class="cart-item-price">\u00A3'+(item.unitPrice*item.qty).toFixed(2)+'</div></div>';
+  }).join('');
+  updateCartUI();
+}
 
-      buildCustomiseBody(itemType);
-      updateModalPrice();
-      document.getElementById('customiseModal').classList.add('open');
-      document.body.style.overflow = 'hidden';
-      setTimeout(function() {
-        document.getElementById('customiseModalInner').scrollTop = 0;
-      }, 10);
-    }
+function orderWhatsApp(){
+  if(cart.length===0){alert('Please add items first!');return;}
+  var note=document.getElementById('orderNote').value;
+  var line='\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501';
+  var msg='\uD83C\uDF54 *ER-HAN BURGER \u2014 NEW ORDER*\n'+line+'\n\n';
+  cart.forEach(function(item,idx){
+    msg+='*'+(idx+1)+'. '+item.name+'*  x'+item.qty+'  \u2192  \u00A3'+(item.unitPrice*item.qty).toFixed(2)+'\n';
+    if(item.customNote){item.customNote.split(' | ').forEach(function(p){msg+='   '+p+'\n';});}
+    msg+='\n';
+  });
+  msg+=line+'\n*TOTAL:  \u00A3'+getTotal().toFixed(2)+'*\n'+line;
+  if(note)msg+='\n\n\uD83D\uDCDD *Note:* '+note;
+  msg+='\n\n_Collection order \u2014 please confirm. Thank you!_';
+  window.open('https://wa.me/447576113811?text='+encodeURIComponent(msg),'_blank');
+  cart=[];updateCartUI();saveState();closeCart();
+  document.getElementById('orderNote').value='';
+}
 
-    function buildCustomiseBody(itemType) {
-      var html = '';
+function filterMenu(){
+  var input=document.getElementById('searchInput');
+  var clearBtn=document.getElementById('searchClear');
+  var info=document.getElementById('searchInfo');
+  var empty=document.getElementById('emptySearch');
+  var query=input.value.trim().toLowerCase();
+  var items=document.querySelectorAll('.searchable');
+  var visible=0;
+  clearBtn.classList.toggle('visible',query.length>0);
+  items.forEach(function(item){
+    var match=query===''||(item.dataset.name||'').toLowerCase().includes(query);
+    item.classList.toggle('hidden',!match);
+    if(match)visible++;
+  });
+  if(query){
+    info.classList.add('visible');
+    info.textContent=visible+' result'+(visible===1?'':'s')+' for "'+input.value.trim()+'"';
+  }else{info.classList.remove('visible');info.textContent='';}
+  empty.classList.toggle('visible',query!==''&&visible===0);
+}
 
-      if (itemType === 'meal') {
-        html += '<div class="custom-group"><div class="custom-group-title">\uD83E\uDD64 Choose Your Drink</div><div class="custom-group-subtitle">Required \u2014 select one</div><div class="options-grid">';
-        DRINK_OPTIONS.forEach(function(d) {
-          html += '<div class="option-row" onclick="selectDrink(this,\'' + d.replace(/\'/g, "\\'") + '\')">';
-          html += '<div class="option-left"><div class="option-check" style="border-radius:50%"></div><div class="option-name">' + d + '</div></div>';
-          html += '<div class="option-price free">Free</div></div>';
-        });
-        html += '</div></div>';
-      }
+function clearSearch(){
+  document.getElementById('searchInput').value='';filterMenu();
+  document.getElementById('searchInput').focus();
+}
 
-      if (itemType === 'burger' || itemType === 'kebab' || itemType === 'meal') {
-        var toppingList = (itemType === 'meal') ? MEAL_TOPPINGS : TOPPINGS;
-        html += '<div class="custom-group"><div class="custom-group-title">\uD83E\uDD57 Toppings</div><div class="custom-group-subtitle">Select all that apply (extras may cost more)</div><div class="options-grid">';
-        toppingList.forEach(function(t) {
-          html += '<div class="option-row" onclick="toggleTopping(this,\'' + t.name.replace(/\'/g, "\\'") + '\',' + t.price + ')">';
-          html += '<div class="option-left"><div class="option-check"></div><div class="option-name">' + t.name + '</div></div>';
-          html += '<div class="option-price ' + (t.price === 0 ? 'free' : '') + '">' + (t.price === 0 ? 'Free' : '+\u00A3' + t.price.toFixed(2)) + '</div></div>';
-        });
-        html += '</div></div>';
+function showToast(msg){
+  var t=document.getElementById('toast');
+  if(!t){
+    t=document.createElement('div');t.id='toast';
+    t.style.cssText='position:fixed;bottom:112px;left:50%;transform:translateX(-50%);background:#c8102e;color:white;padding:9px 18px;border-radius:30px;font-weight:800;font-size:0.82rem;z-index:999;opacity:0;transition:opacity 0.3s;white-space:nowrap;';
+    document.body.appendChild(t);
+  }
+  t.textContent=msg;t.style.opacity='1';
+  clearTimeout(t._timer);
+  t._timer=setTimeout(function(){t.style.opacity='0';},2000);
+}
 
-        if (itemType === 'kebab') {
-          html += '<div class="custom-group"><div class="custom-group-title">\uD83C\uDF36 Chilli Preference</div><div class="custom-group-subtitle">Select all that apply</div><div class="options-grid">';
-          KEBAB_SAUCES.forEach(function(s) {
-            html += '<div class="option-row" onclick="toggleKebabSauce(this,\'' + s.name.replace(/\'/g, "\\'") + '\')">';
-            html += '<div class="option-left"><div class="option-check"></div><div class="option-name">' + s.name + '</div></div>';
-            html += '<div class="option-price free">Free</div></div>';
-          });
-          html += '</div></div>';
-        }
-      }
+function updateOpenStatus(){
+  var el=document.getElementById('openStatus');
+  if(!el)return;
+  var now=new Date(),day=now.getDay(),h=now.getHours(),m=now.getMinutes(),t=h+m/60;
+  var open=(day>=1&&day<=6)?(t>=11&&t<20):(t>=11&&t<18);
+  el.className='open-status '+(open?'open':'closed');
+  el.innerHTML='<span class="open-dot"></span> '+(open?'We are OPEN':'Currently CLOSED');
+}
 
-      if (itemType === 'burger' || itemType === 'kebab' || itemType === 'meal') {
-        html += '<div class="custom-group"><div class="custom-group-title">\uD83C\uDF76 Sauces</div><div class="custom-group-subtitle">Select all that apply</div><div class="options-grid">';
-        SAUCES.forEach(function(s) {
-          html += '<div class="option-row" onclick="toggleSauce(this,\'' + s.name.replace(/\'/g, "\\'") + '\')">';
-          html += '<div class="option-left"><div class="option-check"></div><div class="option-name">' + s.name + '</div></div>';
-          html += '<div class="option-price free">Free</div></div>';
-        });
-        html += '</div></div>';
-      }
+function saveState(){
+  try{localStorage.setItem('erhan_cart',JSON.stringify(cart));}catch(e){}
+}
 
-      document.getElementById('customiseBody').innerHTML = html;
-    }
+function loadState(){
+  try{
+    var sc=localStorage.getItem('erhan_cart');
+    if(sc){cart=JSON.parse(sc);updateCartUI();}
+    var ss=localStorage.getItem('erhan_section');
+    if(ss){var btn=document.querySelector('.tab-btn[onclick*="'+ss+'"]');if(btn)showSection(ss,btn);}
+  }catch(e){}
+}
 
-    function selectDrink(el, name) {
-      el.closest('.options-grid').querySelectorAll('.option-row').forEach(function(r) {
-        r.classList.remove('selected');
-        r.querySelector('.option-check').textContent = '';
-      });
-      el.classList.add('selected');
-      el.querySelector('.option-check').textContent = '\u2713';
-      selectedDrink = name;
-    }
-
-    function toggleTopping(el, name, price) {
-      el.classList.toggle('selected');
-      var check = el.querySelector('.option-check');
-      if (el.classList.contains('selected')) { selectedToppings.add(name); check.textContent = '\u2713'; }
-      else { selectedToppings.delete(name); check.textContent = ''; }
-      updateModalPrice();
-    }
-
-    function toggleKebabSauce(el, name) {
-      el.classList.toggle('selected');
-      el.querySelector('.option-check').textContent = el.classList.contains('selected') ? '\u2713' : '';
-      var rows = el.closest('.options-grid').querySelectorAll('.option-row.selected');
-      var remaining = [];
-      rows.forEach(function(r) { remaining.push(r.querySelector('.option-name').textContent); });
-      selectedKebabSauce = remaining.join(', ') || null;
-    }
-
-    function toggleSauce(el, name) {
-      el.classList.toggle('selected');
-      var check = el.querySelector('.option-check');
-      if (el.classList.contains('selected')) { selectedSauces.add(name); check.textContent = '\u2713'; }
-      else { selectedSauces.delete(name); check.textContent = ''; }
-    }
-
-    function getExtrasPrice() {
-      var extra = 0;
-      selectedToppings.forEach(function(name) {
-        var t = MEAL_TOPPINGS.find(function(x) { return x.name === name; });
-        if (t) extra += t.price;
-      });
-      return extra;
-    }
-
-    function getItemTotal() { return (currentItem.basePrice + getExtrasPrice()) * currentQty; }
-    function updateModalPrice() { document.getElementById('modalAddPrice').textContent = '\u2014 \u00A3' + getItemTotal().toFixed(2); }
-
-    function changeQty(delta) {
-      currentQty = Math.max(1, currentQty + delta);
-      document.getElementById('customiseQty').textContent = String(currentQty);
-      updateModalPrice();
-    }
-
-    function confirmAdd() {
-      if (currentItem.itemType === 'meal' && !selectedDrink) {
-        alert('Please choose a drink first!');
-        return;
-      }
-      var toppingsList = Array.from(selectedToppings);
-      var saucesList = Array.from(selectedSauces);
-      var customNote = [];
-      if (selectedDrink) customNote.push('Drink: ' + selectedDrink);
-      if (toppingsList.length) customNote.push('Toppings: ' + toppingsList.join(', '));
-      if (selectedKebabSauce) customNote.push('Chilli: ' + selectedKebabSauce);
-      if (saucesList.length) customNote.push('Sauces: ' + saucesList.join(', '));
-      var unitPrice = currentItem.basePrice + getExtrasPrice();
-      var customStr = customNote.join(' | ');
-      var existing = cart.find(function(i) { return i.name === currentItem.name && i.customNote === customStr && i.unitPrice === unitPrice; });
-      if (existing) { existing.qty += currentQty; }
-      else { cart.push({name: currentItem.name, unitPrice: unitPrice, qty: currentQty, customNote: customStr}); }
-      updateCartUI();
-      saveState();
-      closeCustomise();
-      showToast(currentItem.name + ' added! \uD83C\uDF54');
-    }
-
-    function closeCustomise() {
-      document.getElementById('customiseModal').classList.remove('open');
-      document.body.style.overflow = '';
-    }
-
-    function closeCustomiseOutside(e) {
-      if (e.target === document.getElementById('customiseModal')) closeCustomise();
-    }
-
-    function getTotal() { return cart.reduce(function(s,i) { return s + i.unitPrice * i.qty; }, 0); }
-    function getCount() { return cart.reduce(function(s,i) { return s + i.qty; }, 0); }
-
-    function updateCartUI() {
-      var total = getTotal(), count = getCount();
-      document.getElementById('cartCount').textContent = count;
-      document.getElementById('cartTotal').textContent = total.toFixed(2);
-      document.getElementById('modalTotal').textContent = total.toFixed(2);
-      document.getElementById('cartBar').classList.toggle('visible', count > 0);
-      updateAddBtns();
-    }
-
-    function updateAddBtns() {
-      // Remove all existing badges
-      document.querySelectorAll('.btn-badge').forEach(function(b) { b.remove(); });
-      if (cart.length === 0) return;
-
-      // Match by exact onclick parameter
-      document.querySelectorAll('.add-btn, .deal-add-btn').forEach(function(btn) {
-        var onclick = btn.getAttribute('onclick') || '';
-        // Extract item name from onclick
-        var match = onclick.match(/openCustomise\('([^']+)'/);
-        if (!match) {
-          // directAdd
-          match = onclick.match(/directAdd\('([^']+)'/);
-        }
-        if (!match) return;
-        var btnName = match[1];
-
-        // Find total qty in cart for this exact item name
-        var totalQty = 0;
-        cart.forEach(function(item) {
-          if (item.name === btnName) totalQty += item.qty;
-        });
-
-        if (totalQty > 0) {
-          var badge = document.createElement('span');
-          badge.className = 'btn-badge';
-          badge.textContent = totalQty;
-          btn.appendChild(badge);
-        }
-      });
-    }
-
-    function openCart() { renderCartModal(); document.getElementById('cartModal').classList.add('open'); }
-    function closeCart() { document.getElementById('cartModal').classList.remove('open'); }
-    function closeCartOutside(e) { if (e.target === document.getElementById('cartModal')) closeCart(); }
-
-    function changeCartQty(idx, delta) {
-      cart[idx].qty = Math.max(0, cart[idx].qty + delta);
-      if (cart[idx].qty === 0) cart.splice(idx, 1);
-      updateCartUI();
-      saveState();
-      renderCartModal();
-    }
-
-    function removeCartItem(idx) {
-      cart.splice(idx, 1);
-      updateCartUI();
-      saveState();
-      renderCartModal();
-    }
-
-    function renderCartModal() {
-      var el = document.getElementById('cartItemsList');
-      if (cart.length === 0) {
-        el.innerHTML = '<div class="empty-cart"><span class="big">\uD83D\uDED2</span>Your cart is empty.<br>Add items from the menu!</div>';
-        updateCartUI();
-        return;
-      }
-      el.innerHTML = cart.map(function(item, idx) {
-        return '<div class="cart-item-row">' +
-          '<div class="cart-item-info"><div class="cart-item-name">' + item.name + '</div>' +
-          (item.customNote ? '<div class="cart-item-customise">' + item.customNote + '</div>' : '') +
-          '</div><div class="cart-item-controls">' +
-          '<button class="qty-btn" onclick="changeCartQty(' + idx + ',-1)">\u2212</button>' +
-          '<span class="qty-num">' + item.qty + '</span>' +
-          '<button class="qty-btn" onclick="changeCartQty(' + idx + ',1)">+</button>' +
-          '<button class="remove-btn" onclick="removeCartItem(' + idx + ')">\uD83D\uDDD1</button>' +
-          '</div><div class="cart-item-price">\u00A3' + (item.unitPrice * item.qty).toFixed(2) + '</div></div>';
-      }).join('');
-      updateCartUI();
-    }
-
-    function orderWhatsApp() {
-      if (cart.length === 0) { alert('Please add items first!'); return; }
-      var note = document.getElementById('orderNote').value;
-      var line = '\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501';
-      var msg = '\uD83C\uDF54 *ER-HAN BURGER \u2014 NEW ORDER*\n' + line + '\n\n';
-      cart.forEach(function(item, idx) {
-        msg += '*' + (idx+1) + '. ' + item.name + '*  x' + item.qty + '  \u2192  \u00A3' + (item.unitPrice*item.qty).toFixed(2) + '\n';
-        if (item.customNote) {
-          item.customNote.split(' | ').forEach(function(p) { msg += '   ' + p + '\n'; });
-        }
-        msg += '\n';
-      });
-      msg += line + '\n*TOTAL:  \u00A3' + getTotal().toFixed(2) + '*\n' + line;
-      if (note) msg += '\n\n\uD83D\uDCDD *Note:* ' + note;
-      msg += '\n\n_Collection order \u2014 please confirm. Thank you!_';
-      window.open('https://wa.me/447576113811?text=' + encodeURIComponent(msg), '_blank');
-    cart = [];
-    updateCartUI();
-    saveState();
-    closeCart();
-    document.getElementById('orderNote').value = '';
-
-    }
-
-    function filterMenu() {
-      var input = document.getElementById('searchInput');
-      var clearBtn = document.getElementById('searchClear');
-      var info = document.getElementById('searchInfo');
-      var empty = document.getElementById('emptySearch');
-      var query = input.value.trim().toLowerCase();
-      var items = document.querySelectorAll('.searchable');
-      var visibleCount = 0;
-      clearBtn.classList.toggle('visible', query.length > 0);
-      items.forEach(function(item) {
-        var match = query === '' || (item.dataset.name || '').toLowerCase().includes(query);
-        item.classList.toggle('hidden', !match);
-        if (match) visibleCount++;
-      });
-      if (query) {
-        info.classList.add('visible');
-        info.textContent = visibleCount + ' result' + (visibleCount===1?'':'s') + ' for "' + input.value.trim() + '"';
-      } else {
-        info.classList.remove('visible');
-        info.textContent = '';
-      }
-      empty.classList.toggle('visible', query !== '' && visibleCount === 0);
-    }
-
-    function clearSearch() {
-      document.getElementById('searchInput').value = '';
-      filterMenu();
-      document.getElementById('searchInput').focus();
-    }
-
-    function showToast(msg) {
-      var t = document.getElementById('toast');
-      if (!t) {
-        t = document.createElement('div');
-        t.id = 'toast';
-        t.style.cssText = 'position:fixed;bottom:112px;left:50%;transform:translateX(-50%);background:#c8102e;color:white;padding:9px 18px;border-radius:30px;font-weight:800;font-size:0.82rem;z-index:999;opacity:0;transition:opacity 0.3s;white-space:nowrap;';
-        document.body.appendChild(t);
-      }
-      t.textContent = msg;
-      t.style.opacity = '1';
-      clearTimeout(t._timer);
-      t._timer = setTimeout(function() { t.style.opacity = '0'; }, 2000);
-    }
-
-    updateCartUI();
-
-    function updateOpenStatus() {
-      var el = document.getElementById('openStatus');
-      if (!el) return;
-      var now = new Date();
-      var day = now.getDay(); // 0=Sun, 1=Mon...6=Sat
-      var hour = now.getHours();
-      var min = now.getMinutes();
-      var time = hour + min/60;
-      var isOpen = false;
-      if (day >= 1 && day <= 6) {
-        isOpen = time >= 11 && time < 20; // Mon-Sat 11am-8pm
-      } else if (day === 0) {
-        isOpen = time >= 11 && time < 18; // Sun 11am-6pm
-      }
-      if (isOpen) {
-        el.className = 'open-status open';
-        el.innerHTML = '<span class="open-dot"></span> We are OPEN';
-      } else {
-        el.className = 'open-status closed';
-        el.innerHTML = '<span class="open-dot"></span> Currently CLOSED';
-      }
-    }
-    updateOpenStatus();
-
-    // ===== LOCALSTORAGE =====
-    function saveState() {
-      try {
-        localStorage.setItem('erhan_cart', JSON.stringify(cart));
-      } catch(e) {}
-    }
-
-    function loadState() {
-      try {
-        var savedCart = localStorage.getItem('erhan_cart');
-        if (savedCart) {
-          cart = JSON.parse(savedCart);
-          updateCartUI();
-        }
-        var savedSection = localStorage.getItem('erhan_section');
-        if (savedSection) {
-          var btn = document.querySelector('.tab-btn[onclick*="' + savedSection + '"]');
-          if (btn) showSection(savedSection, btn);
-        }
-      } catch(e) {}
-    }
-
-    loadState();
-  </script>
+updateCartUI();
+updateOpenStatus();
+loadState();
+</script>
 
 </body>
 </html>
