@@ -147,6 +147,54 @@ header { background:#c8102e; position:sticky; top:0; z-index:200; box-shadow:0 2
 .big-call-btn { display:flex; align-items:center; justify-content:center; background:#c8102e; color:white; text-decoration:none; border-radius:14px; padding:14px; margin:0 10px 10px; font-family:‘Bangers’,‘Arial Black’,Impact,cursive; font-size:1.2rem; letter-spacing:2px; }
 .map-btn { display:flex; align-items:center; justify-content:center; background:transparent; color:#c8102e; border:2px solid #c8102e; text-decoration:none; border-radius:14px; padding:12px; margin:0 10px 10px; font-family:‘Bangers’,‘Arial Black’,Impact,cursive; font-size:1.04rem; letter-spacing:1px; }
 @media (max-width:360px) { body{padding-bottom:102px} .search-wrap{top:94px} .brand-name{font-size:1.42rem} .hero h2{font-size:1rem} .deals-grid{gap:8px} .deal-img{height:76px} .order-btn{font-size:1rem} }
+
+.footer {
+background: #111;
+border-top: 1px solid #222;
+padding: 24px 14px 20px;
+text-align: center;
+margin-top: 10px;
+}
+.footer-brand {
+font-family: ‘Bangers’, ‘Arial Black’, Impact, cursive;
+font-size: 1.4rem;
+color: #FFD700;
+letter-spacing: 2px;
+margin-bottom: 4px;
+}
+.footer-sub {
+font-size: 0.72rem;
+color: #888;
+font-weight: 600;
+margin-bottom: 16px;
+}
+.footer-links {
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 12px;
+margin-bottom: 16px;
+}
+.footer-link {
+display: flex;
+align-items: center;
+gap: 6px;
+background: #1a1a1a;
+border: 1px solid #2a2a2a;
+color: #f0f0f0;
+text-decoration: none;
+padding: 8px 14px;
+border-radius: 20px;
+font-size: 0.75rem;
+font-weight: 800;
+transition: border-color 0.2s;
+}
+.footer-link:active { border-color: #c8102e; }
+.footer-copy {
+font-size: 0.65rem;
+color: #555;
+font-weight: 600;
+}
 </style>
 
 </head>
@@ -733,5 +781,20 @@ updateOpenStatus();
 loadState();
 </script>
 
+<div class="footer">
+  <div class="footer-brand">Er-Han BURGER</div>
+  <div class="footer-sub">Fresh &bull; Grilled &bull; Halal &mdash; Since 2013</div>
+  <div class="footer-links">
+    <a href="https://maps.app.goo.gl/PyK18iuU76q4QAqD8" target="_blank" class="footer-link">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="#c8102e"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+      Google Maps
+    </a>
+    <a href="tel:07576113811" class="footer-link">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="#c8102e"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+      07576 113811
+    </a>
+  </div>
+  <div class="footer-copy">&copy; 2013 Er-Han Burger &bull; Halal Certified &bull; Brent South Shopping Park, London</div>
+</div>
 </body>
 </html>
