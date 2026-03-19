@@ -1375,6 +1375,7 @@ background: currentColor;
       if (existing) { existing.qty += 1; }
       else { cart.push({ name: name, unitPrice: price, qty: 1, customNote: '' }); }
       updateCartUI();
+      saveState();
       showToast(name + ' added!');
     }
 
@@ -1516,6 +1517,7 @@ background: currentColor;
       if (existing) { existing.qty += currentQty; }
       else { cart.push({name: currentItem.name, unitPrice: unitPrice, qty: currentQty, customNote: customStr}); }
       updateCartUI();
+      saveState();
       closeCustomise();
       showToast(currentItem.name + ' added! \uD83C\uDF54');
     }
@@ -1548,12 +1550,14 @@ background: currentColor;
       cart[idx].qty = Math.max(0, cart[idx].qty + delta);
       if (cart[idx].qty === 0) cart.splice(idx, 1);
       updateCartUI();
+      saveState();
       renderCartModal();
     }
 
     function removeCartItem(idx) {
       cart.splice(idx, 1);
       updateCartUI();
+      saveState();
       renderCartModal();
     }
 
